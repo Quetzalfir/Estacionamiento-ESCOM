@@ -9,8 +9,15 @@ header, footer {
 
 header {
     height: 13vh;
-    border-bottom: solid 3px #2c2c2c;
-    overflow: visible;
+    border-bottom: solid 4px #2c2c2c;
+    overflow: hidden;
+    color: white;
+    font-family: "Roboto Black", "Arial", "sans-serif";
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
 }
 
 header nav a {
@@ -18,6 +25,50 @@ header nav a {
     text-decoration: none;
     text-align: center;
     font-weight: bold;
+    display: block;
+
+}
+
+header nav {
+    flex-basis: 40vw;
+    width: 40vw;
+    height: 70%;
+}
+
+header nav ul {
+    list-style: none;
+}
+
+header nav ul li {
+    list-style: none;
+    vertical-align: center;
+}
+
+header nav > ul {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100%;
+}
+
+header nav > ul > li {
+    flex-grow: 1;
+    text-align: center;
+    height: 100%;
+    border-left: 2px solid #2c2c2c;
+}
+
+header nav > ul > li a {
+    height: 100%;
+    padding-top: 20%;
+}
+
+header nav > ul > li:hover {
+    background-color: #111111;
+}
+
+header nav ul li li {
+    display: none;
 }
 
 #logo {
