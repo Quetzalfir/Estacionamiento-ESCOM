@@ -25,6 +25,10 @@ header {
     user-select: none; /* Standard syntax */
 }
 
+main {
+    min-height: calc(100vh - 20vh);
+}
+
 header nav a {
     color: white;
     text-decoration: none;
@@ -122,4 +126,11 @@ header nav > ul > li:hover > ul > li:hover {
 
 footer {
     height: 200px;
+    border-top: solid 4px #2c2c2c;
+}
+
+#user {
+    box-sizing: border-box;
+    height: 100%;
+    padding: 0 4%;
 }
