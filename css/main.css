@@ -10,7 +10,7 @@ header, footer {
 header {
     height: 13vh;
     border-bottom: solid 4px #2c2c2c;
-    overflow: hidden;
+    overflow: visible;
     color: white;
     font-family: "Roboto Black", "Arial", "sans-serif";
     position: relative;
@@ -18,6 +18,11 @@ header {
     justify-content: space-between;
     align-items: center;
     text-align: center;
+
+    -webkit-user-select: none; /* Safari 3.1+ */
+    -moz-user-select: none; /* Firefox 2+ */
+    -ms-user-select: none; /* IE 10+ */
+    user-select: none; /* Standard syntax */
 }
 
 header nav a {
@@ -26,7 +31,6 @@ header nav a {
     text-align: center;
     font-weight: bold;
     display: block;
-
 }
 
 header nav {
@@ -37,6 +41,7 @@ header nav {
 
 header nav ul {
     list-style: none;
+    background-color: #1b1b1b;
 }
 
 header nav ul li {
@@ -56,19 +61,57 @@ header nav > ul > li {
     text-align: center;
     height: 100%;
     border-left: 2px solid #2c2c2c;
+    border-left: 2px solid #0a2d48;
+    position: relative;
 }
 
-header nav > ul > li a {
+header nav > ul > li:last-child {
+    border-right: 2px solid #0a2d48;
+}
+
+header nav > ul > li > a {
+    box-sizing: border-box;
     height: 100%;
     padding-top: 20%;
 }
 
 header nav > ul > li:hover {
-    background-color: #111111;
+    background: #1b1b1b;
+    background: -moz-linear-gradient(top, #1b1b1b 10%, #1b1b1b 10%, #111111 100%);
+    background: -webkit-linear-gradient(top, #1b1b1b 10%,#1b1b1b 10%,#111111 100%);
+    background: linear-gradient(to bottom, #1b1b1b 10%,#1b1b1b 10%,#111111 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1b1b1b', endColorstr='#111111',GradientType=0 );
 }
 
-header nav ul li li {
+header nav > ul > li ul {
+    position: absolute;
+    left: -2px;
     display: none;
+}
+
+header nav > ul > li:hover > ul {
+    display: block;
+    width: 150px;
+    border: solid 2px #111111;
+}
+
+header nav > ul > li:hover > ul > li {
+    width: 100%;
+    height: 2em;
+}
+
+header nav > ul > li a {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+header nav > ul > li > ul a {
+    padding-top: 5%;
+}
+
+header nav > ul > li:hover > ul > li:hover {
+    background-color: #111111;
 }
 
 #logo {
