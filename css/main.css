@@ -132,5 +132,24 @@ footer {
 #user {
     box-sizing: border-box;
     height: 100%;
-    padding: 0 4%;
+    margin: 4%;
+}
+
+#user button {
+    height: 40%;
+    width: 80%;
+    color: white;
+    font-weight: bolder;
+    font-family: "Roboto Black", "Arial", "sans-serif";
+    font-size: 13pt;
+    margin-top: 6px;
+    border: 0;
+}
+
+#user button[name=ingresar] {
+    background-color: #0a2d48;
+}
+
+#user button[name=registrarse] {
+    background-color: #0b4829;
 }
