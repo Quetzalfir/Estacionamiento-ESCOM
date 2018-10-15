@@ -13,24 +13,48 @@ header {
     overflow: visible;
     color: white;
     font-family: "Roboto Black", "Arial", "sans-serif";
-    position: relative;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    text-align: center;
 
     -webkit-user-select: none; /* Safari 3.1+ */
     -moz-user-select: none; /* Firefox 2+ */
     -ms-user-select: none; /* IE 10+ */
     user-select: none; /* Standard syntax */
 }
+
 header a{
- text-decoration: none;
+    text-decoration: none;
     color: white;
 }
 
 main {
     min-height: calc(100vh - 20vh);
+    clear: both;
+}
+
+header > section {
+    width: 50%;
+    max-height: 100%;
+    display: flex;
+    align-items: center;
+    float: left;
+}
+
+header > section[name=index] {
+    justify-content: space-evenly;
+}
+
+header > section[name=user] {
+    justify-content: flex-end;
+}
+
+header nav {
+    display: inline-block;
+    flex-basis: 20vw;
+    flex-grow: 0;
+    height: 70%;
+}
+
+header nav ul {
+    list-style: none;
 }
 
 header nav a {
@@ -39,18 +63,6 @@ header nav a {
     text-align: center;
     font-weight: bold;
     display: block;
-}
-
-header nav {
-    flex-basis: 40vw;
-    flex-grow: 0;
-    width: 20vw;
-    height: 70%;
-}
-
-header nav ul {
-    list-style: none;
-    background-color: #1b1b1b;
 }
 
 header nav ul li {
