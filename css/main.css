@@ -221,7 +221,7 @@ footer {
 }
 /*Botón de registro*/
 .regbtn{
-    background-color: #4CAF50;
+    background-color: #1a53ff;
     color: white;
     padding-left: 16px;
     padding-right: 16px;
@@ -229,6 +229,14 @@ footer {
     padding-bottom: 5px;
     font-size: 14px;
     border: none;
+}
+
+.sesion {
+    position: relative;
+    display: block;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 20px;
 }
 
 .reg-content{
@@ -239,6 +247,7 @@ footer {
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
     right: 0;
+    padding-top: 15px;
 }
 
 .reg-content a {
@@ -254,7 +263,7 @@ footer {
 .sesion:hover .reg-content{
     display: block;}
 
-.sesion:hover .regbtn{
+.sesion:hover .regbtn .regbtn:hover{
     background-color: #3e8e41;}
 
 .reg-content h3{
@@ -263,13 +272,13 @@ footer {
 
 .reg-content{
     text-align: center;
-    padding-top: 15px;
+    padding-top: 5px;
     padding-left: 15px;
     padding-right: 15px;
     padding-bottom: 15px;
     color:black;
 }
-/***************************
+/***************************/
 .logbtn{
     background-color: #4CAF50;
     color: white;
@@ -282,9 +291,10 @@ footer {
 }
 
 
-.sesion {
+.sesion2 {
     position: relative;
-    display: inline-block;
+    display: block;
+    padding-top: 20px;
     padding-left: 5px;
     padding-right: 5px;
 }
@@ -309,10 +319,10 @@ footer {
 .log-content a:hover {
     background-color: #ddd;}
 
-.sesion:hover .log-content{
+.sesion2:hover .log-content{
     display: block;}
 
-.sesion:hover .logbtn{
+.sesion2:hover .logbtn{
     background-color: #3e8e41;}
 
 .log-content h3{
@@ -327,4 +337,3 @@ footer {
     padding-bottom: 15px;
     color:black;
 }
-**/
