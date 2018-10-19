@@ -33,6 +33,9 @@
             position: sticky;
             color: white;
         }
+        h3{
+
+        }
     </style>
 </head>
 
@@ -50,9 +53,48 @@
                 <li><a href="acercade.html">Acerca de</a></li>
             </ul>
         </nav>
-        <div id="user">
+        <!--<div id="user" class="sesion">
             <button name="ingresar"><a href="iniciosesion.html">Ingresar</a></button>
-            <button name="registrarse">Registrarse</button>
+            <button name="registrarse" class="regb">Registrarse</button>
+                <div class="regcont">
+                    <h3>Registro</h3>
+                </div>
+        </div>-->
+
+<!--------------------------------------------------------------------------------------------------->
+
+        <div class="sesion" style="float:right">
+            <button class="regbtn">Registrarse</button>
+                <div class="reg-content">
+                <h3>Registro de Usuario</h3><br>
+                <p>
+                    <form>
+                        Nombre<br>
+                        <input type="text" name="Nombre"><br>
+                        Apellido Paterno<br>
+                        <input type="text" name="Appat"><br>
+                        Apellido Materno<br>
+                        <input type="text" name="ApMat"><br>
+                        Boleta<br>
+                        <input type="text" name="Bol"><br>
+                        Tipo de usuario<br>
+                        <select name="User">
+                            <option value="Alumno">Alumno</option>
+                            <option value="Profesor">Profesor</option>
+                            <option value="Otro">Otro</option>
+                        </select>
+                        <br>Crear Contraseña<br>
+                        <input type="password" name="pass"><br>
+                        Verificar Contraseña<br>
+                        <input type="password" name="pass2"><br>
+                        <input type="submit" name="enviar">
+                    </form>
+                </p>
+                </div>
+            <button class="logbtn">Iniciar Sesión</button>
+                <div class="log-content">
+                      <h3>Iniciar Sesión</h3>
+                </div>
         </div>
     </section>
 
