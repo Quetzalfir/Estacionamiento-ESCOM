@@ -40,24 +40,31 @@
 </header>
 
 <main>
-    <h4 style="text-align: center;padding-top: 50px;">Opciones de Usuario</h4>
-    <form action="/action_page.php" style="border: 1px;">
-        <h3>Modificar Datos Personales</h3> <br>
-        Usuario:<br><input type="text" name="user"><br>
-        <h3>Datos del infractor</h3><br>
-        Placa:<br>
-        <input type="text" name="plate">
-        <br>
-        Color:<br>
-        <input type="text" name="color">
-        <br>
-        Cajón de estacionamiento:<br>
-        <input type="text" name="color">
-        <br>
-        Describa el tipo de infracción:<br>
-        
-        </p>
-    </form> 
+  
+    <h3>Registro de Usuario</h3><br>
+                <p>
+                    <form>
+                        Nombre<br>
+                        <input type="text" name="Nombre"><br>
+                        Apellido Paterno<br>
+                        <input type="text" name="Appat"><br>
+                        Apellido Materno<br>
+                        <input type="text" name="ApMat"><br>
+                        Boleta<br>
+                        <input type="text" name="Bol"><br>
+                        Tipo de usuario<br>
+                        <select name="User">
+                            <option value="Alumno">Alumno</option>
+                            <option value="Profesor">Profesor</option>
+                            <option value="Otro">Otro</option>
+                        </select>
+                        <br>Crear Contraseña<br>
+                        <input type="password" name="pass"><br>
+                        Verificar Contraseña<br>
+                        <input type="password" name="pass2"><br>
+                        <input type="submit" name="enviar">
+                    </form>
+                </p>
 </main>
 
 <footer>
