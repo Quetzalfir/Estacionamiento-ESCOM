@@ -218,7 +218,7 @@ footer {
 }
 /*Botón de registro*/
 .regbtn{
-    background-color:  #0080ff;
+    background-color: #0c476b;
     color: white;
     padding-left: 16px;
     padding-right: 16px;
@@ -277,7 +277,7 @@ footer {
 }
 /***************************/
 .logbtn{
-    background-color: #0080ff;
+    background-color: #0c476b;
     color: white;
     padding-left: 16px;
     padding-right: 16px;
@@ -322,6 +322,16 @@ footer {
 
 .sesion2:hover .logbtn{
     background-color:  #0073e6
+}
+
+.sesion > button a {
+    color: white;
+    font-weight: bold;
+}
+
+.sesion > button, .sesion2 > button {
+    color: white;
+    font-weight: bold;
 }
 
 .log-content h3{
