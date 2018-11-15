@@ -17,58 +17,62 @@
     <section name="user">
         <nav>
             <ul>
-                <li><a href="">Inicio</a></li>
-                <li><a href="">Reporte</a>
-                    <ul>
-                        <li><a href="">Hacer reporte</a></li>
-                    </ul>
-                </li>
-                <li><a href="">Usuario</a>
-                    <ul>
-                        <li><a href="">Reportes realizados</a></li>
-                        <li><a href="">Mi reportes</a></li>
-                    </ul>
-                </li>
-                <li><a href="">Sesión</a>
-                    <ul>
-                        <li><a href="">Cerrar sesión</a></li>
-                    </ul>
-                </li>
+                <li><a href="mapa1.html">Mapa</a></li>
+                <li><a href="acercade.html">Acerca de</a></li>
             </ul>
         </nav>
+        <!--------------------------------------------------------------------------------------------------->
+        <div class="sesion" style="float:right">
+            <button class="regbtn"><a href="registro.html">Registrarse</a></button>
+        </div>
+        <div class="sesion2">
+            <button class="logbtn">Iniciar Sesión</button>
+            <div class="log-content">
+                <h3>Iniciar Sesión</h3>
+                <p>
+                <form>
+                    <label>Usuario</label><br>
+                    <input type="text" name="user1"><br>
+                    <label>Contraseña</label><br>
+                    <input type="password" name="pass1"><br>
+                    <input type="reset" value="Reset">
+                    <input type="submit" name="Enviar">
+                </form>
+                </p>
+            </div>
+        </div>
     </section>
 </header>
 
 <main>
-  
-    <h3>Registro de Usuario</h3><br>
-                <p>
-                    <form>
-                        Nombre<br>
-                        <input type="text" name="Nombre"><br>
-                        Apellido Paterno<br>
-                        <input type="text" name="Appat"><br>
-                        Apellido Materno<br>
-                        <input type="text" name="ApMat"><br>
-                        Boleta<br>
-                        <input type="text" name="Bol"><br>
-                        Tipo de usuario<br>
-                        <select name="User">
-                            <option value="Alumno">Alumno</option>
-                            <option value="Profesor">Profesor</option>
-                            <option value="Otro">Otro</option>
-                        </select>
-                        <br>Crear Contraseña<br>
-                        <input type="password" name="pass"><br>
-                        Verificar Contraseña<br>
-                        <input type="password" name="pass2"><br>
-                        <input type="submit" name="enviar">
-                    </form>
-                </p>
+    <h3>Registro de Usuario</h3>
+    <form>
+        Nombre<br>
+        <input type="text" name="Nombre"><br>
+        Apellido Paterno<br>
+        <input type="text" name="Appat"><br>
+        Apellido Materno<br>
+        <input type="text" name="ApMat"><br>
+        Boleta<br>
+        <input type="text" name="Bol"><br>
+        Tipo de usuario<br>
+        <select name="User">
+            <option value="Alumno">Alumno</option>
+            <option value="Profesor">Profesor</option>
+            <option value="Otro">Otro</option>
+        </select>
+        <br>Crear Contraseña<br>
+        <input type="password" name="pass"><br>
+        Verificar Contraseña<br>
+        <input type="password" name="pass2"><br>
+        <input type="submit" name="enviar">
+    </form>
 </main>
 
 <footer>
-
+    <p>Valencia Rodriguez Fernando</p>
+    <p>Azpeitia Hernánez Vladimir </p>
+    <p>Huerta Alvarez Diana Alejandra</p>
 </footer>
 
 
