@@ -29,7 +29,6 @@
             <button class="logbtn">Iniciar Sesión</button>
             <div class="log-content">
                 <h3>Iniciar Sesión</h3>
-                <p>
                 <form>
                     <label>Usuario</label><br>
                     <input type="text" name="user1"><br>
@@ -38,7 +37,6 @@
                     <input type="reset" value="Reset">
                     <input type="submit" name="Enviar">
                 </form>
-                </p>
             </div>
         </div>
     </section>
@@ -46,17 +44,23 @@
 
 <main>
     <h3>Registro de Usuario</h3>
-    <form>
+    <form action="insertarUsuario.php" method="get">
         Nombre<br>
-        <input type="text" name="Nombre"><br>
+        <input type="text" name="nombre"><br>
         Apellido Paterno<br>
-        <input type="text" name="Appat"><br>
+        <input type="text" name="appat"><br>
         Apellido Materno<br>
-        <input type="text" name="ApMat"><br>
+        <input type="text" name="apmat"><br>
         Boleta<br>
-        <input type="text" name="Bol"><br>
+        <input type="text" name="bole"><br>
+        CURP<br>
+        <input type="text" name="curp"><br>
+        Teléfono<br>
+        <input type="text" name="tel"><br>
+        Correo<br>
+        <input type="text" name="correo"><br>
         Tipo de usuario<br>
-        <select name="User">
+        <select name="tipo">
             <option value="Alumno">Alumno</option>
             <option value="Profesor">Profesor</option>
             <option value="Otro">Otro</option>
