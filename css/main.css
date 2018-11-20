@@ -4,13 +4,18 @@
     border:0;
 }
 
+body, select {
+    font-family: "Roboto Black", "Arial", "sans-serif";
+}
+
 header {
+    box-sizing: border-box;
     position: fixed;
     z-index: 100000;
     width: 100%;
     height: 10vh;
     border-bottom: none;
-    background-color: #f2f2f2;
+    background-color: #e6ebf2;
     overflow: visible;
     color: black;
     font-family: "Roboto Black", "Arial", "sans-serif";
@@ -31,7 +36,7 @@ main {
     min-height: calc(100vh - 17vh);
     clear: both;
     text-align: center;
-    padding-top: 100px;
+    padding-top: 10vh;
 }
 
 header > section {

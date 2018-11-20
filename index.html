@@ -7,7 +7,7 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
 
     <style>
-        /*html {
+        html {
             background-color: #ffffff;
         }
 
@@ -21,10 +21,16 @@
             width: 100%;
         }
 
-        .blur {
+        .blur, .blur2 {
             background-image: url(img/dsc00409_blur.jpg);
             color: white;
             position: sticky;
+            text-shadow: 0px 0px 4px #000000;
+            padding-bottom: 200px;
+        }
+
+        .blur2 {
+            background-image: url(img/dsc00409_blur2.jpg);
         }
 
         main > section {
@@ -32,7 +38,18 @@
             background-size: 100% auto;
             position: sticky;
             color: white;
-        }*/
+        }
+
+        main h1 {
+            font-size: xx-large;
+            padding-top: 200px;
+            margin-bottom: 100px;
+        }
+
+        main h3 {
+            padding: 5px 0;
+            font-size: x-large;
+        }
     </style>
 </head>
 
@@ -47,7 +64,6 @@
         <nav>
             <ul>
                 <li><a href="mapa1.html">Mapa</a></li>
-                <li><a href="acercade.html">Acerca de</a></li>
             </ul>
         </nav>
 <!--------------------------------------------------------------------------------------------------->     
@@ -74,15 +90,12 @@
 </header>
 
 <main>
-    <!--<div class="bg">
+    <div class="bg">
         <img src="img/dsc00409.jpg" style="visibility: hidden;" />
     </div>
     <div class="bg blur">
-        <img src="img/dsc00409.jpg" style="visibility: hidden;" />
-    </div>-->
+        <h1>¡ Bienvenido !</h1>
 
-    <div>
-         <h2>¡Bienvenido!</h2><br>
         <h3>Esta página es para ayudarnos a tener un estacionamiento más seguro y eficaz</h3>
         <h3>Cualquier persona en la comunidad que conforma a la ESCOM puede ayudar</h3>
         <h3>Si observas alguna anomalía en el estacionamiento, puedes reportarla en ésta página</h3>
@@ -90,7 +103,14 @@
         <h3>Te pedimos que denuncies de manera honesta ya que se le hará seguimiento</h3>
         <h3>Ninguno de tus datos será revelado al público</h3>
     </div>
- 
+
+    <div class="bg blur2">
+        <h1>Acerca de</h1>
+
+        <p>Este proyecto está hecho para ayudar en el funcionamiento correcto del estacionamiento perteneciente a la escuela</p>
+        <p>Con una administración ordenada podremos hacer que el manejo de éste sea adecuado para una convivencia sana entre toda la comunidad</p>
+        <p>Si todos ayudamos a seguir las reglas y a aprender de nuestros errores, el estacionamiento de ESCOM, podrá funcionar de manera óptima</p>
+    </div>
 
 </main>
 
