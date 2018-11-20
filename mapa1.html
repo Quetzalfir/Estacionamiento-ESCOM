@@ -1,10 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Mapa</title>
+    <title>Inicio</title>
 
     <link rel="stylesheet" type="text/css" href="css/main.css">
+
+    <style>
+        html {
+            background-color: #ffffff;
+        }
+
+        .bg {
+            background: url(img/dsc00409.jpg) no-repeat center center fixed;
+            background-size: 100% auto;
+            width: 100%;
+        }
+
+        .bg > img {
+            width: 100%;
+        }
+
+        .blur, .blur2 {
+            background-image: url(img/dsc00409_blur.jpg);
+            color: white;
+            position: sticky;
+            text-shadow: 0px 0px 4px #000000;
+            padding-bottom: 200px;
+        }
+
+        .blur2 {
+            background-image: url(img/dsc00409_blur2.jpg);
+        }
+
+        main > section {
+            background: url(img/dsc00409_blur.jpg) no-repeat center center fixed;
+            background-size: 100% auto;
+            position: sticky;
+            color: white;
+        }
+
+        main h1 {
+            font-size: xx-large;
+            padding-top: 200px;
+            margin-bottom: 100px;
+        }
+
+        main h3 {
+            padding: 5px 0;
+            font-size: x-large;
+        }
+    </style>
 </head>
 
 <body>
@@ -18,13 +64,28 @@
         <nav>
             <ul>
                 <li><a href="mapa1.html">Mapa</a></li>
-                <li><a href="acercade.html">Acerca de</a></li>
             </ul>
         </nav>
-        <div id="user">
-            <button name="ingresar"><a href="iniciosesion.html">Ingresar</a></button>
-            <button name="registrarse"><a href="">Registrarse</a></button>
+<!--------------------------------------------------------------------------------------------------->     
+        <div class="sesion" style="float:right">
+            <button class="regbtn"><a href="registro.html">Registrarse</a></button>
         </div>
+        <div class="sesion2">
+            <button class="logbtn">Iniciar Sesión</button>
+            <div class="log-content">
+                <h3>Iniciar Sesión</h3>
+                <p>
+                    <form>
+                        <label>Usuario</label><br>
+                        <input type="text" name="user1"><br>
+                        <label>Contraseña</label><br>
+                        <input type="password" name="pass1"><br>
+                        <input type="reset" value="Reset">
+                        <input type="submit" name="Enviar">
+                    </form>
+                </p>
+            </div>
+        </div>      
     </section>
 </header>
 
