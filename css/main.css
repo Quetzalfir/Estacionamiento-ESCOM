@@ -353,6 +353,8 @@ footer {
 }
 
 footer {
+    position: relative;
+    z-index: 1000;
     background-color: #1b1b1b;
     color: white;
 }
