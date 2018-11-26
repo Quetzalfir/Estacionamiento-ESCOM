@@ -84,15 +84,21 @@
 <main>
     <h3>Reportar Falta</h3>
     <section>
-        <form action="Falta.php" method="get">
-            <label>Placa</label>
-            <input type="text" name="placa"><br>
-            <label>Color</label>
-            <input type="text" name="color"><br>
-            <label>Marca</label>
-            <input type="text" name="marca"><br>
-            <label>Describa la falta.</label>
-            <textarea rows="4" cols="50" name="falta"></textarea>
+        <form class="form1" action="/action_page.php" style="border: 1px;">
+            <h3>Datos Personales</h3>
+
+            <label>Usuario:</label>
+            <input type="text" name="user"> <br>
+            <h3>Datos del infractor</h3>
+            <label>Placa:</label>
+            <input type="text" name="plate"> <br>
+            <label>Color:</label>
+            <input type="text" name="color"> <br>
+            <label>Cajón de estacionamiento:</label>
+            <input type="text" name="color"> <br>
+            <label>Describa el tipo de infracción:</label>
+            <textarea name="descripción" rows="4" cols="50"></textarea><br>
+            <input type="reset" value="Reset">
             <input type="submit" value="Enviar">
         </form>
 
