@@ -3,56 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <title>Inicio</title>
-
     <link rel="stylesheet" type="text/css" href="css/main.css">
+        <style>
+            html {
+                background-color: #ffffff;
+            }
 
-    <style>
-        html {
-            background-color: #ffffff;
-        }
+            .bg {
+                background: url(img/dsc00409.jpg) no-repeat center center fixed;
+                background-size: 100% auto;
+                width: 100%;
+            }
 
-        .bg {
-            background: url(img/dsc00409.jpg) no-repeat center center fixed;
-            background-size: 100% auto;
-            width: 100%;
-        }
+            .bg > img {
+                width: 100%;
+            }
 
-        .bg > img {
-            width: 100%;
-        }
+            .blur, .blur2 {
+                background-image: url(img/dsc00409_blur.jpg);
+                color: white;
+                position: sticky;
+                text-shadow: 0px 0px 4px #000000;
+                padding-bottom: 200px;
+            }
 
-        .blur, .blur2 {
-            background-image: url(img/dsc00409_blur.jpg);
-            color: white;
-            position: sticky;
-            text-shadow: 0px 0px 4px #000000;
-            padding-bottom: 200px;
-        }
+            .blur2 {
+                background-image: url(img/dsc00409_blur2.jpg);
+            }
 
-        .blur2 {
-            background-image: url(img/dsc00409_blur2.jpg);
-        }
+            main > section {
+                background: url(img/dsc00409_blur.jpg) no-repeat center center fixed;
+                background-size: 100% auto;
+                position: sticky;
+                color: white;
+            }
 
-        main > section {
-            background: url(img/dsc00409_blur.jpg) no-repeat center center fixed;
-            background-size: 100% auto;
-            position: sticky;
-            color: white;
-        }
+            main h1 {
+                font-size: xx-large;
+                padding-top: 200px;
+                margin-bottom: 100px;
+            }
 
-        main h1 {
-            font-size: xx-large;
-            padding-top: 200px;
-            margin-bottom: 100px;
-        }
-
-        main h3 {
-            padding: 5px 0;
-            font-size: x-large;
-        }
-    </style>
-</head>
-
+            main h3 {
+                padding: 5px 0;
+                font-size: x-large;
+            }
+            #mapa .area-mapa{
+                display: inline-block;
+            }
+        </style>
+    </head>
+    <!--Dependencias JOINTJS-->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jointjs/2.1.0/joint.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.3.3/backbone.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jointjs/2.1.0/joint.js"></script>
+    <link rel="stylesheet" type="text/css" href="js/rappid/build/rappid.min.css">
+    <script src="js/rappid/build/rappid.min.js"></script>    
 <body>
 
 <header>
@@ -90,7 +98,13 @@
 </header>
 
 <main>
-    <br><h3>Mapa</h3><br>
+    <div id="toolbar"></div>
+    <!--AQUI SE DIBUJA EL MAPA-->
+    <div id="mapa">
+            <div class="area-mapa" id="paper-mapa" style="height: 100%; width: 100%;"></div>
+       <!--     <div class="area-mapa" id="inspector" style="height: 700px; width: 300px; position: absolute;"></div>-->
+    </div>
+    <script src="js/mapa.js" type="text/javascript" charset="utf-8" async defer></script>
 </main>
 
 <footer>
