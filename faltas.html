@@ -20,9 +20,12 @@
         }
 
         main .bg section img {
-            width: 40%;
+            widtd: 40%;
             height: auto;
             flex-basis: 40%;
+        }
+        table{
+            border:1px solid black;
         }
     </style>
 </head>
@@ -31,8 +34,8 @@
 
 <header>
     <section name="index">
-        <a href="index.html"><img id="logo" src="img/escom.png"></a>
-        <h2><a href="index.html">Estacionamiento ESCOM</a></h2>
+        <a href="administrador.html"><img id="logo" src="img/escom.png"></a>
+        <h2><a href="administrador.html">Estacionamiento ESCOM</a></h2>
     </section>
     <section name="user">
         <nav>
@@ -52,37 +55,22 @@
 <main>
     <h3>Faltas</h3>
     <section>
-        <form class="form1" action="insertarUsuario.php" method="get">
-            <label>Nombre</label>
-            <input type="text" name="nombre"><br>
-            <label>Apellido Paterno</label>
-            <input type="text" name="appat"><br>
-            <label>Apellido Materno</label>
-            <input type="text" name="apmat"><br>
-            <label>Boleta</label>
-            <input type="text" name="bole"><br>
-            <label>CURP</label>
-            <input type="text" name="curp"><br>
-            <label>Teléfono</label>
-            <input type="text" name="tel"><br>
-            <label>Correo</label>
-            <input type="text" name="correo"><br>
-            <label style="display: inline-block">Tipo de usuario: &nbsp;&nbsp;&nbsp;</label>
-            <select name="tipo">
-                <option value="Alumno">Alumno</option>
-                <option value="Profesor">Profesor</option>
-                <option value="Otro">Otro</option>
-            </select>
-            <br>
-            <label>Crear Contraseña</label>
-            <input type="password" name="pass"><br>
-            <label>Verificar Contraseña</label>
-            <input type="password" name="pass2"><br>
-            <input type="reset" value="Reset">
-            <input type="submit" value="Enviar">
-        </form>
+        <table>
+            <tr>
+                <td>Id conductor</td>
+            </tr>
+            <tr>
+                <td>Fecha</td>
+            </tr>
+            <tr>
+                <td>Descripción</td>
+            </tr>
+            <tr>
+                <td>Denunciante</td>
+            </tr>
 
-        <img src="img/entrada.jpg">
+        </table>
+        
     </section>
 </main>
 
