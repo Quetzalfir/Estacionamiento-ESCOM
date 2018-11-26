@@ -6,8 +6,8 @@ var graph = new joint.dia.Graph;
 var paper = new joint.dia.Paper({
 	gridSize: 10,
 		    drawGrid: true,
-	width: 1000,
-	height: 500,
+	width: 1800,
+	height: 800,
 	model: graph,
 	background:{
 					
