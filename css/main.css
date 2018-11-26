@@ -58,10 +58,8 @@ header > section[name=user] {
 }
 
 header nav {
-    display: inline-block;
-    flex-basis: 20vw;
-    flex-grow: 0;
-    height: 70%;
+    width: 100%;
+    padding-left: 15px;
 }
 
 header nav ul {
@@ -84,6 +82,7 @@ header nav ul li {
 header nav > ul {
     display: flex;
     justify-content: center;
+    align-items: center;
     height: 100%;
 }
 
@@ -91,6 +90,7 @@ header nav > ul > li {
     flex-grow: 1;
     text-align: center;
     height: 100%;
+    flex-basis: 80px;
     border:none;
     position: relative;
 }
@@ -100,6 +100,7 @@ header nav > ul > li:last-child {
 }
 
 header nav > ul > li > a {
+    display: block;
     box-sizing: content-box;
     height: 100%;
     padding-top: 25px;
@@ -281,7 +282,7 @@ footer {
     color:black;
 }
 /***************************/
-.logbtn{
+.logbtn, .logout{
     background-color: #0c476b;
     color: white;
     padding-left: 16px;
@@ -290,6 +291,11 @@ footer {
     padding-bottom: 5px;
     font-size: 14px;
     border: none;
+    width: 130px;
+}
+
+.logout {
+    background-color: #6b0907;
 }
 
 
