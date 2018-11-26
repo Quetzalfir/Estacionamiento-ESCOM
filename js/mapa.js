@@ -6,10 +6,11 @@ var graph = new joint.dia.Graph;
 var paper = new joint.dia.Paper({
 	gridSize: 10,
 		    drawGrid: true,
-	width: 1800,
-	height: 845,
+	width: '100%',
+	height: '100%',
 	model: graph,
 	background:{
+					
 					color: 'rgba(255,255,255,0.8)'
 				}
 });
