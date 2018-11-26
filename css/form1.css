@@ -1,0 +1,32 @@
+.form1 input {
+    border: 1px solid #869CA7;
+    -webkit-box-shadow: 0px 0px 9px -1px rgba(179,179,179,1);
+    -moz-box-shadow: 0px 0px 9px -1px rgba(179,179,179,1);
+    box-shadow: 0px 0px 9px -1px rgba(179,179,179,1);
+}
+
+.form1 input[type=submit], .form1 input[type=reset] {
+    display: inline-block;
+    width: 100px;
+    height: 30px;
+    margin: 0 20px;
+    margin-top: 20px;
+    font-weight: bolder;
+}
+
+.form1 input[type=submit] {
+    background-color: #6fed74;
+}
+
+.form1 label {
+    margin-top: 5px;
+    display: block;
+}
+
+.form1 {
+    box-sizing: border-box;
+    padding: 0 30px;
+    box-sizing: border-box;
+    padding-bottom: 50px;
+    padding-top: 10px;
+}
