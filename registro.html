@@ -50,7 +50,7 @@
             <div class="log-content">
                 <h3>Iniciar Sesión</h3>
                 <p>
-                <form>
+                <form action="login.php" method="post">
                     <label>Usuario</label><br>
                     <input type="text" name="user1"><br>
                     <label>Contraseña</label><br>
@@ -67,17 +67,17 @@
 <main>
     <h3>Registro de Usuario</h3>
     <section>
-        <form class="form1" action="insertarUsuario.php" method="get">
+        <form class="form1" action="insertarUsuario.php" method="post">
+            <label>Nickname(<span id="disponible" style="color: #007F0EFF;">Disponible</span>)</label>
+            <input type="text" name="IDConductor"><br>
             <label>Nombre</label>
             <input type="text" name="nombre"><br>
             <label>Apellido Paterno</label>
             <input type="text" name="appat"><br>
             <label>Apellido Materno</label>
             <input type="text" name="apmat"><br>
-            <label>Boleta</label>
+            <label>Boleta o RFC</label>
             <input type="text" name="bole"><br>
-            <label>CURP</label>
-            <input type="text" name="curp"><br>
             <label>Teléfono</label>
             <input type="text" name="tel"><br>
             <label>Correo</label>

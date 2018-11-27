@@ -100,3 +100,11 @@ ENGINE = InnoDB;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+-- -----------------------------------------------------
+-- INSERT TEST VALUES
+-- -----------------------------------------------------
+
+INSERT INTO `tb_conductor` 
+        (`IDConductor`, `nombre`, `apellidoPat`, `apellidoMat`, `telefono`, `correo`, `boletaRFC`, `tipo`, `password`, `fechaRegistro`, `autorizado`, `noCajon`)
+ VALUES ('admin', 'Juan', 'Parades', 'Aguilar', '558478865', 'juanpa@gmail.com', '6548646213', 'Admin', 'admin', '2018-11-26', '1', NULL)
