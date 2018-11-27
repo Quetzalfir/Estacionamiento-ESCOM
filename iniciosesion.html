@@ -1,48 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Iniciar Sesión</title>
-
+    <title>Inicio de sesion</title>
     <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/form1.css">
+
+
+    <style>
+        main h3 {
+            padding-top: 50px;
+            margin-bottom: 8px;
+            font-size: x-large;
+        }
+
+        main section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        main .bg section img {
+            width: 40%;
+            height: auto;
+            flex-basis: 40%;
+        }
+    </style>
 </head>
 
 <body>
 
-<header>
-    <section name="index">
-        <a href="index.html"><img id="logo" src="img/escom.png"></a>
-        <h2><a href="index.html">Estacionamiento ESCOM</a></h2>
-    </section>
-    <section name="user">
-        <nav>
-            <ul>
-                <li><a href="mapa1.html">Mapa</a></li>
-                <li><a href="acercade.html">Acerca de</a></li>
-            </ul>
-        </nav>
-        <div id="user">
-            <button name="ingresar"><a href="iniciosesion.html">Ingresar</a></button>
-            <button name="registrarse">Registrarse</button>
-        </div>
-    </section>
+    <header>
+        <section name="index">
+            <a href="index.html"><img id="logo" src="img/escom.png"></a>
+            <h2><a href="index.html">Estacionamiento ESCOM</a></h2>
+        </section>
+        <section name="user">
+            <nav>
+                <ul>
+                    <li><a href="mapa1.html">Mapa</a></li>
+                </ul>
+            </nav>
+    <!--------------------------------------------------------------------------------------------------->     
+            <div class="sesion" style="float:right">
+                <button class="regbtn"><a href="registro.html">Registrarse</a></button>
+            </div>
+            <div class="sesion2">
+                <button class="logbtn"><a href="iniciosesion.html">Iniciar Sesión</a></button>
+            </div>      
+        </section>
+    </header>
 
-</header>
-<main>
-    <h3>Inicia sesión</h3>
-    <form>
-        <p>
-        Usuario:<br><input type="text" name="Usuario"><br><br>
-            Contraseña:<br><input type="password" name="password"><br><br>
-         <button type="submit">Enviar</button>
-        </p>
-    </form>
-</main>
+    <main>
+        <h3>Inicio de Sesión</h3>
+        <section>
+            <form class="form1" action="login.php" method="post">
+                <label>Nombre de usuario:</label>
+                <input type="text" name="user1"><br>
+                <label>Contraseña</label>
+                <input type="password" name="pass1"><br>
+                <input type="reset" value="Reset">
+                <input type="submit" value="Enviar">
+            </form>
 
-<footer>
-    <p>Valencia Rodriguez Fernando</p>
-    <p>Azpeitia Hernánez Vladimir </p>
-    <p>Huerta Alvarez Diana Alejandra</p>
-</footer>
+            <!--<img src="img/entrada.jpg">-->
+        </section>
+    </main>
+
+    <footer>
+        <p>Valencia Rodriguez Fernando</p>
+        <p>Azpeitia Hernánez Vladimir </p>
+        <p>Huerta Alvarez Diana Alejandra</p>
+    </footer>
+
+
 </body>
 </html>

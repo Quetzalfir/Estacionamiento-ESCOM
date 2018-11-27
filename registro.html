@@ -27,86 +27,69 @@
         }
     </style>
 </head>
-
 <body>
-
-<header>
-    <section name="index">
-        <a href="index.html"><img id="logo" src="img/escom.png"></a>
-        <h2><a href="index.html">Estacionamiento ESCOM</a></h2>
-    </section>
-    <section name="user">
-        <nav>
-            <ul>
-                <li><a href="mapa1.html">Mapa</a></li>
-            </ul>
-        </nav>
-        <!--------------------------------------------------------------------------------------------------->
-        <div class="sesion" style="float:right">
-            <button class="regbtn"><a href="registro.html">Registrarse</a></button>
-        </div>
-        <div class="sesion2">
-            <button class="logbtn">Iniciar Sesión</button>
-            <div class="log-content">
-                <h3>Iniciar Sesión</h3>
-                <p>
-                <form action="login.php" method="post">
-                    <label>Usuario</label><br>
-                    <input type="text" name="user1"><br>
-                    <label>Contraseña</label><br>
-                    <input type="password" name="pass1"><br>
-                    <input type="reset" value="Reset">
-                    <input type="submit" name="Enviar">
-                </form>
-                </p>
+    <header>
+        <section name="index">
+            <a href="index.html"><img id="logo" src="img/escom.png"></a>
+            <h2><a href="index.html">Estacionamiento ESCOM</a></h2>
+        </section>
+        <section name="user">
+            <nav>
+                <ul>
+                    <li><a href="mapa1.html">Mapa</a></li>
+                </ul>
+            </nav>
+    <!--------------------------------------------------------------------------------------------------->     
+            <div class="sesion" style="float:right">
+                <button class="regbtn"><a href="registro.html">Registrarse</a></button>
             </div>
-        </div>
-    </section>
-</header>
+            <div class="sesion2">
+                <button class="logbtn"><a href="iniciosesion.html">Iniciar Sesión</a></button>
+            </div>      
+        </section>
+    </header>
 
-<main>
-    <h3>Registro de Usuario</h3>
-    <section>
-        <form class="form1" action="insertarUsuario.php" method="post">
-            <label>Nickname(<span id="disponible" style="color: #007F0EFF;">Disponible</span>)</label>
-            <input type="text" name="IDConductor"><br>
-            <label>Nombre</label>
-            <input type="text" name="nombre"><br>
-            <label>Apellido Paterno</label>
-            <input type="text" name="appat"><br>
-            <label>Apellido Materno</label>
-            <input type="text" name="apmat"><br>
-            <label>Boleta o RFC</label>
-            <input type="text" name="bole"><br>
-            <label>Teléfono</label>
-            <input type="text" name="tel"><br>
-            <label>Correo</label>
-            <input type="text" name="correo"><br>
-            <label style="display: inline-block">Tipo de usuario: &nbsp;&nbsp;&nbsp;</label>
-            <select name="tipo">
-                <option value="Alumno">Alumno</option>
-                <option value="Profesor">Profesor</option>
-                <option value="Otro">Otro</option>
-            </select>
-            <br>
-            <label>Crear Contraseña</label>
-            <input type="password" name="pass"><br>
-            <label>Verificar Contraseña</label>
-            <input type="password" name="pass2"><br>
-            <input type="reset" value="Reset">
-            <input type="submit" value="Enviar">
-        </form>
+    <main>
+        <h3>Registro de Usuario</h3>
+        <section>
+            <form class="form1" action="insertarUsuario.php" method="post">
+                <label>Nickname(<span id="disponible" style="color: #007F0EFF;">Disponible</span>)</label>
+                <input type="text" name="IDConductor"><br>
+                <label>Nombre</label>
+                <input type="text" name="nombre"><br>
+                <label>Apellido Paterno</label>
+                <input type="text" name="appat"><br>
+                <label>Apellido Materno</label>
+                <input type="text" name="apmat"><br>
+                <label>Boleta o RFC</label>
+                <input type="text" name="bole"><br>
+                <label>Teléfono</label>
+                <input type="text" name="tel"><br>
+                <label>Correo</label>
+                <input type="text" name="correo"><br>
+                <label style="display: inline-block">Tipo de usuario: &nbsp;&nbsp;&nbsp;</label>
+                <select name="tipo">
+                    <option value="Alumno">Alumno</option>
+                    <option value="Profesor">Profesor</option>
+                    <option value="Otro">Otro</option>
+                </select>
+                <br>
+                <label>Crear Contraseña</label>
+                <input type="password" name="pass"><br>
+                <label>Verificar Contraseña</label>
+                <input type="password" name="pass2"><br>
+                <input type="reset" value="Reset">
+                <input type="submit" value="Enviar">
+            </form>
 
-        <img src="img/entrada.jpg">
-    </section>
-</main>
+            <img src="img/entrada.jpg">
+        </section>
+    </main>
 
-<footer>
-    <p>Valencia Rodriguez Fernando</p>
-    <p>Azpeitia Hernánez Vladimir </p>
-    <p>Huerta Alvarez Diana Alejandra</p>
-</footer>
-
-
+    <footer>
+        <p>Valencia Rodriguez Fernando</p>
+        <p>Azpeitia Hernánez Vladimir </p>
+        <p>Huerta Alvarez Diana Alejandra</p>
+    </footer>
 </body>
 </html>

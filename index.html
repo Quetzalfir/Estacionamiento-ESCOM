@@ -82,92 +82,79 @@
 
 <body>
 
-<header>
-    <section name="index">
-        <a href="index.html"><img id="logo" src="img/escom.png"></a>
-        <h2><a href="index.html">Estacionamiento ESCOM</a></h2>
-    </section>
-    <section name="user">
-        <nav>
-            <ul>
-                <li><a href="mapa1.html">Mapa</a></li>
-            </ul>
-        </nav>
-<!--------------------------------------------------------------------------------------------------->     
-        <div class="sesion" style="float:right">
-            <button class="regbtn"><a href="registro.html">Registrarse</a></button>
+    <header>
+        <section name="index">
+            <a href="index.html"><img id="logo" src="img/escom.png"></a>
+            <h2><a href="index.html">Estacionamiento ESCOM</a></h2>
+        </section>
+        <section name="user">
+            <nav>
+                <ul>
+                    <li><a href="mapa1.html">Mapa</a></li>
+                </ul>
+            </nav>
+    <!--------------------------------------------------------------------------------------------------->     
+            <div class="sesion" style="float:right">
+                <button class="regbtn"><a href="registro.html">Registrarse</a></button>
+            </div>
+            <div class="sesion2">
+                <button class="logbtn"><a href="iniciosesion.html">Iniciar Sesión</a></button>
+            </div>      
+        </section>
+    </header>
+
+    <main>
+        <div class="bg">
+            <img src="img/dsc00409.jpg" style="visibility: hidden;" />
         </div>
-        <div class="sesion2">
-            <button class="logbtn">Iniciar Sesión</button>
-            <div class="log-content">
-                <h3>Iniciar Sesión</h3>
-                <p>
-                    <form action="login.php" method="post">
-                        <label>Usuario</label><br>
-                        <input type="text" name="user1"><br>
-                        <label>Contraseña</label><br>
-                        <input type="password" name="pass1"><br>
-                        <input type="reset" value="Reset">
-                        <input type="submit" name="Enviar">
-                    </form>
-                </p>
-            </div>
-        </div>      
-    </section>
-</header>
+        <div class="bg blur">
+            <h1>¡ Bienvenido !</h1>
 
-<main>
-    <div class="bg">
-        <img src="img/dsc00409.jpg" style="visibility: hidden;" />
-    </div>
-    <div class="bg blur">
-        <h1>¡ Bienvenido !</h1>
+            <section>
+                <img src="img/peaje1.png">
+                <div>
+                    <h3>Esta página es para ayudarnos a tener un estacionamiento más seguro y eficaz</h3>
+                    <h3>Cualquier persona en la comunidad que conforma a la ESCOM puede ayudar</h3>
+                    <h3>Si observas alguna anomalía en el estacionamiento, puedes reportarla en ésta página</h3>
+                    <h3>Pero antes por favor inicia sesión o registrate para continuar</h3>
+                    <h3>Te pedimos que denuncies de manera honesta ya que se le hará seguimiento</h3>
+                    <h3>Ninguno de tus datos será revelado al público</h3>
+                </div>
+            </section>
+        </div>
 
-        <section>
-            <img src="img/peaje1.png">
-            <div>
-                <h3>Esta página es para ayudarnos a tener un estacionamiento más seguro y eficaz</h3>
-                <h3>Cualquier persona en la comunidad que conforma a la ESCOM puede ayudar</h3>
-                <h3>Si observas alguna anomalía en el estacionamiento, puedes reportarla en ésta página</h3>
-                <h3>Pero antes por favor inicia sesión o registrate para continuar</h3>
-                <h3>Te pedimos que denuncies de manera honesta ya que se le hará seguimiento</h3>
-                <h3>Ninguno de tus datos será revelado al público</h3>
-            </div>
-        </section>
-    </div>
+        <div class="bg blur">
+            <h1>Mapa</h1>
 
-    <div class="bg blur">
-        <h1>Mapa</h1>
+            <section>
+                <div>
+                    <h3>Con el mapa interactivo del estacionamiento podras ver que lugares estan disponibles, reservados u ocupados</h3>
+                    <h3>Podras localizar tu carro más rapidamente y escoger el lugar que mas se acomode a ti</h3>
+                    <h3>Tambien podras reportar faltas mas rapidamente, asegurando asi un mejor ervicio para todos</h3>
+                </div>
+                <img src="img/map1.png">
+            </section>
+        </div>
 
-        <section>
-            <div>
-                <h3>Con el mapa interactivo del estacionamiento podras ver que lugares estan disponibles, reservados u ocupados</h3>
-                <h3>Podras localizar tu carro más rapidamente y escoger el lugar que mas se acomode a ti</h3>
-                <h3>Tambien podras reportar faltas mas rapidamente, asegurando asi un mejor ervicio para todos</h3>
-            </div>
-            <img src="img/map1.png">
-        </section>
-    </div>
+        <div class="bg blur">
+            <h1>Acerca de :</h1>
 
-    <div class="bg blur">
-        <h1>Acerca de :</h1>
+            <section>
+                <img src="img/info1.png">
+                <div>
+                    <h3>Este proyecto está hecho para ayudar en el funcionamiento correcto del estacionamiento perteneciente a la escuela</h3>
+                    <h3>Con una administración ordenada podremos hacer que el manejo de éste sea adecuado para una convivencia sana entre toda la comunidad</h3>
+                    <h3>Si todos ayudamos a seguir las reglas y a aprender de nuestros errores, el estacionamiento de ESCOM, podrá funcionar de manera óptima</h3>
+                </div>
+            </section>
+        </div>
+    </main>
 
-        <section>
-            <img src="img/info1.png">
-            <div>
-                <h3>Este proyecto está hecho para ayudar en el funcionamiento correcto del estacionamiento perteneciente a la escuela</h3>
-                <h3>Con una administración ordenada podremos hacer que el manejo de éste sea adecuado para una convivencia sana entre toda la comunidad</h3>
-                <h3>Si todos ayudamos a seguir las reglas y a aprender de nuestros errores, el estacionamiento de ESCOM, podrá funcionar de manera óptima</h3>
-            </div>
-        </section>
-    </div>
-</main>
-
-<footer>
-    <p>Valencia Rodriguez Fernando</p>
-    <p>Azpeitia Hernánez Vladimir </p>
-    <p>Huerta Alvarez Diana Alejandra</p>
-</footer>
+    <footer>
+        <p>Valencia Rodriguez Fernando</p>
+        <p>Azpeitia Hernánez Vladimir </p>
+        <p>Huerta Alvarez Diana Alejandra</p>
+    </footer>
 
 
 </body>

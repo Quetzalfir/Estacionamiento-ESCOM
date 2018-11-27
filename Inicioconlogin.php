@@ -41,7 +41,7 @@
 </header>
 
 <main>
-    <h4 style="text-align: center;padding-top: 50px;">¡Bienvenido <?php echo $_SESSION["user1"] ?> !</h4>
+    <h4 style="text-align: center;padding-top: 50px;">¡Bienvenido <?php echo $_SESSION["user1"];?>!</h4>
 </main>
 
 <footer>

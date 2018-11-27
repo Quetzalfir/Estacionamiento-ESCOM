@@ -63,55 +63,42 @@
     <script src="js/rappid/build/rappid.min.js"></script>    
 <body>
 
-<header>
-    <section name="index">
-        <a href="index.html"><img id="logo" src="img/escom.png"></a>
-        <h2><a href="index.html">Estacionamiento ESCOM</a></h2>
-    </section>
+    <header>
+        <section name="index">
+            <a href="index.html"><img id="logo" src="img/escom.png"></a>
+            <h2><a href="index.html">Estacionamiento ESCOM</a></h2>
+        </section>
     <section name="user">
-        <nav>
-            <ul>
-                <li><a href="mapa1.html">Mapa</a></li>
-            </ul>
-        </nav>
-<!--------------------------------------------------------------------------------------------------->     
-        <div class="sesion" style="float:right">
-            <button class="regbtn"><a href="registro.html">Registrarse</a></button>
-        </div>
-        <div class="sesion2">
-            <button class="logbtn">Iniciar Sesión</button>
-            <div class="log-content">
-                <h3>Iniciar Sesión</h3>
-                <p>
-                    <form action="login.php" method="post">
-                        <label>Usuario</label><br>
-                        <input type="text" name="user1"><br>
-                        <label>Contraseña</label><br>
-                        <input type="password" name="pass1"><br>
-                        <input type="reset" value="Reset">
-                        <input type="submit" name="Enviar">
-                    </form>
-                </p>
+            <nav>
+                <ul>
+                    <li><a href="mapa1.html">Mapa</a></li>
+                </ul>
+            </nav>
+    <!--------------------------------------------------------------------------------------------------->     
+            <div class="sesion" style="float:right">
+                <button class="regbtn"><a href="registro.html">Registrarse</a></button>
             </div>
-        </div>      
-    </section>
-</header>
+            <div class="sesion2">
+                <button class="logbtn"><a href="iniciosesion.html">Iniciar Sesión</a></button>
+            </div>      
+        </section>
+    </header>
 
-<main>
-    <div id="toolbar"></div>
-    <!--AQUI SE DIBUJA EL MAPA-->
-    <div id="mapa">
-            <div class="area-mapa" id="paper-mapa" style="height: 850px; width: 100%; vertical-align: middle;"></div>
-       <!--     <div class="area-mapa" id="inspector" style="height: 700px; width: 300px; position: absolute;"></div>-->
-    </div>
-    <script src="js/mapa.js" type="text/javascript" charset="utf-8" async defer></script>
-</main>
+    <main>
+        <div id="toolbar"></div>
+        <!--AQUI SE DIBUJA EL MAPA-->
+        <div id="mapa">
+                <div class="area-mapa" id="paper-mapa" style="height: 850px; width: 100%; vertical-align: middle;"></div>
+           <!--     <div class="area-mapa" id="inspector" style="height: 700px; width: 300px; position: absolute;"></div>-->
+        </div>
+        <script src="js/mapa.js" type="text/javascript" charset="utf-8" async defer></script>
+    </main>
 
-<footer>
-    <p>Valencia Rodriguez Fernando</p>
-    <p>Azpeitia Hernánez Vladimir </p>
-    <p>Huerta Alvarez Diana Alejandra</p>
-</footer>
+    <footer>
+        <p>Valencia Rodriguez Fernando</p>
+        <p>Azpeitia Hernánez Vladimir </p>
+        <p>Huerta Alvarez Diana Alejandra</p>
+    </footer>
 
 
 </body>

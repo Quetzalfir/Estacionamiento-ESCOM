@@ -16,7 +16,7 @@
 			exit();
 		}else{
 			echo'<script>alert("Usuario no valido");</script>';
-			header("Location: index.html", true, 301);
+			header("Location: iniciosesion.html", true, 301);
 			exit();
 		}
 	}
