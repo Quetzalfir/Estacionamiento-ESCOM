@@ -37,19 +37,17 @@
                 position: sticky;
                 color: white;
             }
-
-            main h1 {
-                font-size: xx-large;
-                padding-top: 200px;
-                margin-bottom: 100px;
-            }
-
-            main h3 {
-                padding: 5px 0;
-                font-size: x-large;
-            }
             #mapa .area-mapa{
                 display: inline-block;
+            }
+
+            .app-body .draw-area{
+                display: inline-block;  
+            }
+            #contenido{
+                min-height: calc(100vh - 17vh);
+                clear: both;
+                padding-top: 10vh;
             }
         </style>
     </head>
@@ -63,36 +61,40 @@
     <script src="js/rappid/build/rappid.min.js"></script>    
 <body>
 
-    <header>
-        <section name="index">
-            <a href="index.html"><img id="logo" src="img/escom.png"></a>
-            <h2><a href="index.html">Estacionamiento ESCOM</a></h2>
-        </section>
+<header>
+    <section name="index">
+        <a href="administrador.php"><img id="logo" src="img/escom.png"></a>
+        <h2><a href="administrador.php">Estacionamiento ESCOM</a></h2>
+    </section>
     <section name="user">
-            <nav>
-                <ul>
-                    <li><a href="mapa1.html">Mapa</a></li>
-                </ul>
-            </nav>
-    <!--------------------------------------------------------------------------------------------------->     
-            <div class="sesion" style="float:right">
-                <button class="regbtn"><a href="registro.html">Registrarse</a></button>
-            </div>
-            <div class="sesion2">
-                <button class="logbtn"><a href="iniciosesion.html">Iniciar Sesión</a></button>
-            </div>      
-        </section>
-    </header>
-
-    <main>
-        <div id="toolbar"></div>
-        <!--AQUI SE DIBUJA EL MAPA-->
-        <div id="mapa">
-                <div class="area-mapa" id="paper-mapa" style="height: 760px; width: 100%; vertical-align: middle;"></div>
-           <!--     <div class="area-mapa" id="inspector" style="height: 700px; width: 300px; position: absolute;"></div>-->
+        <nav>
+            <ul>
+                <li><a href="MapaAdmin.php">Mapa</a></li>
+                <li><a href="registraPersonal.html">Registrar Personal</a></li>
+                <li><a href="faltas.html">Faltas</a></li>
+            </ul>
+        </nav>
+        <!--------------------------------------------------------------------------------------------------->
+        <div class="sesion2">
+            <button class="logout"><a href="logout.php">Cerrar Sesión</a></button>
         </div>
-        <script src="js/mapa.js" type="text/javascript" charset="utf-8" async defer></script>
-    </main>
+    </section>
+</header>
+
+    <div id="contenido">
+      <div id="app" class="joint-app joint-theme-modern">
+        <div class="app-header"></div>
+        <div class="app-body">
+            <div class="draw-area" id="stencil" style="background: #383b61;; height: 750px; width: 15%; position: relative;"></div>
+            <div class="draw-area" id="paper" class="areaDibujo" style="background: #383b61;; height: 750px; width: 69%;  "></div>
+            <div class="draw-area" style="background: #383b61;; height: 750px; width: 15%; position:  absolute;">
+        <div id="inspector" style="height: 600px; width: 100%;"></div>
+      </div>
+        </div>
+        </div>
+        <script src="js/mapaAdmin.js" type="text/javascript" charset="utf-8" async defer></script>
+      </div>
+    </div>
 
     <footer>
         <p>Valencia Rodriguez Fernando</p>

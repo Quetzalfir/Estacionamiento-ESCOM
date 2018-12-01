@@ -1,10 +1,14 @@
-<?php session_start();?>
+<?php session_start();
+echo "<label id='tipoUsuario'>".$_SESSION["user1"]."<label>";?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <title>Inicio</title>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+    <script type="text/javascript">
+        $('#tipoUsuario').hide();
+    </script>
     <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 
@@ -41,7 +45,7 @@
 </header>
 
 <main>
-    <h4 style="text-align: center;padding-top: 50px;">¡Bienvenido <?php echo $_SESSION["user1"];?>!</h4>
+    <h4 style="text-align: center;padding-top: 50px;">¡Bienvenido <?php ?>!</h4>
 </main>
 
 <footer>

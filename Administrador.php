@@ -1,9 +1,12 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <title>Inicio</title>
-
+    <script type="text/javascript">
+        //document.getElementById("tipoUsuario").style.visibility = "hidden";
+    </script>
     <link rel="stylesheet" type="text/css" href="css/main.css">
 
     <style>
@@ -90,7 +93,7 @@
     <section name="user">
         <nav>
             <ul>
-                <li><a href="mapa1.html">Mapa</a></li>
+                <li><a href="MapaAdmin.php">Mapa</a></li>
                 <li><a href="registraPersonal.html">Registrar Personal</a></li>
                 <li><a href="faltas.html">Faltas</a></li>
             </ul>
