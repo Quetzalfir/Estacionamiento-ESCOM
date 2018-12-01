@@ -49,6 +49,32 @@
                 }
             });
         });
+
+        function disponible(nickname) {
+            $.ajax({
+                url : 'php/buscarUsuario.php',
+                type : 'POST',
+                dataType : 'html',
+                data : { IDConductor: nickname },
+                })
+
+                .done(function(resultado){
+                if(resultado == "Disponible"){
+                    $("#disponible").text(resultado);
+                    $("#disponible").css({'color':'#45932CFF'});
+                }
+                else{
+                    $("#disponible").text(resultado);
+                    $("#disponible").css({'color':'#D1322DFF'});
+                }
+
+            })
+        }
+
+    $(document).on('keyup', '#IDConductor', function(){
+        var nickname = $(this).val();
+        disponible(nickname);
+    });
     </script>
 </head>
 
@@ -67,7 +93,7 @@
         </nav>
         <!--------------------------------------------------------------------------------------------------->
         <div class="sesion" style="float:right">
-            <button class="regbtn"><a href="registro.html">Registrarse</a></button>
+            <button class="regbtn"><a href="registro.php">Registrarse</a></button>
         </div>
         <div class="sesion2">
              <button class="logbtn"><a href="iniciosesion.html">Iniciar Sesión</a></button>
@@ -79,17 +105,17 @@
     <h3>Registro de Usuario</h3>
     <section>
         <form class="form1" action="php/insertarUsuario.php" method="get">
-            <label>Nombre</label>
-            <input type="text" name="nombre" pattern="[A-Za-z áéíóúÁÉÍÓÚ]+" required><br>
+            <label>Nickname (<span id="disponible" style="color:#45932CFF;"></span>)</label> 
+            <input type="text" name="IDConductor" pattern="[A-Za-z áéíóúÁÉÍÓÚ]+" required id="IDConductor"><br>
+            <label>Nombre(s)</label>
+            <input type="text" name="nombre" required><br>
 
             <label>Apellido Paterno</label>
+
             <input type="text" name="appat" pattern="[A-Za-z áéíóúÁÉÍÓÚ]+" required><br>
 
             <label>Apellido Materno</label>
             <input type="text" name="apmat" pattern="[A-Za-z áéíóúÁÉÍÓÚ]+" required><br>
-
-            <label>CURP</label>
-            <input type="text" name="curp" required><br>
 
             <label>Teléfono</label>
             <input type="text" name="tel" required><br>

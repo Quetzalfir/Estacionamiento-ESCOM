@@ -1,9 +1,11 @@
 <?php 
     session_start();
-    
-    if($_SESSION["tipo"] != "Admin"){
-        header("Location: index.html", true, 301);
-        echo $_SESSION["tipo"];
+    if(isset($_SESSION["tipo"])){
+        if($_SESSION["tipo"] != "Admin"){
+            header("Location: index.html", true, 301);
+        }
+    }else{
+        header("Location: iniciosesion.html", true, 301);
     }
 ?>
 <!DOCTYPE html>
