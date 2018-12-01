@@ -63,24 +63,27 @@
 </header>
 
 <main>
-    <h3>Faltas</h3>
+    <h3>Reportes</h3>
     <section>
-        <table>
-            <tr>
-                <td>Id conductor</td>
+        <table border="1">
+            <tr> 
+                <th>Número Reporte</th> 
+                 <th>IDConductor</th> 
+                 <th>Fecha Reporte</th> 
+                 <th>Tipo</th> 
+                 <th>Descripcion</th> 
+                 <th>IDDenunciante</th>
+                 <th>Imágen</th>
             </tr>
-            <tr>
-                <td>Fecha</td>
-            </tr>
-            <tr>
-                <td>Descripción</td>
-            </tr>
-            <tr>
-                <td>Denunciante</td>
-            </tr>
-
+            <?php 
+                include("php/config.php");
+                $query = "SELECT * FROM tb_reporte";
+                $resultado = $conexion->query($query);
+                while ($ret = mysqli_fetch_array($resultado)){ 
+                    echo "<tr><td>".$ret['noReporte']."</td><td>".$ret['IDConductor']."</td> <td>".$ret['fechaReporte']."</td><td>".$ret['tipo']."</td><td>".$ret['descripcion']."</td><td>".$ret['IDDenunciante']."</td><td>".$ret['imagen']."</td></tr>"; 
+                } 
+             ?>
         </table>
-        
     </section>
 </main>
 
