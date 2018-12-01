@@ -108,17 +108,11 @@ snaplines.startListening();
 var toolbar = new joint.ui.Toolbar({
     // initialize tools with default settings
     tools: ['zoomIn', 'zoomOut', 'zoomToFit', 'zoomSlider', 'undo', 'redo', 
-     { type: 'button', name: 'front', text: 'Al frente' },
-     { type: 'button', name: 'back', text: 'A atrás' },
-     { type: 'button', name: 'serialize', text: 'TO JSON' },
+     { type: 'button', name: 'serialize', text: 'Guardar Mapa' },
      { type: 'label',  text: 'Mostrar imagen de fondo' },
      { type: 'toggle', name: 'showImage', value:false},
-     { type: 'label',  text: 'Modo Administrador' },
-     { type: 'toggle', name: 'interactivity', value:true},
      { type: 'label',  text: 'Lineas de ayuda' },
-     { type: 'toggle', name: 'snaplines', value:true}, 
-     { type: 'button', name: 'clear', text:'Limpiar'},
-     { type: 'button', name: 'topng', text:'TO PNG'}],
+     { type: 'toggle', name: 'snaplines', value:true}],
     references: {
         paperScroller: paperScroller,
         commandManager: commandManager
@@ -130,7 +124,6 @@ toolbar.on('serialize:pointerclick', function(event) {
     var jsonString = JSON.stringify(graph.toJSON());
     download(jsonString, 'json.txt', 'text/plain');
 });
-
 toolbar.on('showImage:change', function(value, event) {
     paper.drawBackground({
 		color: 'rgba(0,0,0,0.8)',
@@ -138,24 +131,12 @@ toolbar.on('showImage:change', function(value, event) {
         image: value ? 'img/escom.jpg' : ''
 		});
 });
-toolbar.on('interactivity:change', function(value, event) {
-	 paper.setInteractivity(value);
-});
 toolbar.on('snaplines:change', function(value, event) {
 	 if(value){
 	 	snaplines.startListening();
 	 }else{
 	 	snaplines.stopListening();
 	 }
-});
-toolbar.on('front:pointerclick', function(event) {
-   
-});
-toolbar.on('back:pointerclick', function(event) {
-   
-});
-toolbar.on('clear:pointerclick', function(event) {
-   graph.clear;
 });
 
 var lightbox = new joint.ui.Lightbox({

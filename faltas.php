@@ -80,13 +80,12 @@
                 $query = "SELECT * FROM tb_reporte";
                 $resultado = $conexion->query($query);
                 while ($ret = mysqli_fetch_array($resultado)){ 
-                    echo "<tr><td>".$ret['noReporte']."</td><td>".$ret['IDConductor']."</td> <td>".$ret['fechaReporte']."</td><td>".$ret['tipo']."</td><td>".$ret['descripcion']."</td><td>".$ret['IDDenunciante']."</td><td>".$ret['imagen']."</td></tr>"; 
+                    echo "<tr><td>".$ret['noReporte']."</td><td>".$ret['IDConductor']."</td> <td>".$ret['fechaReporte']."</td><td>".$ret['tipo']."</td><td>".$ret['descripcion']."</td><td>".$ret['IDDenunciante']."</td><td> <img style='width: 50px; height: 50px;'' src='data:image/jpeg;base64,". base64_encode($ret['imagen']). "'/> </td> </tr>"; 
                 } 
              ?>
         </table>
     </section>
 </main>
-
 <footer>
     <p>Valencia Rodriguez Fernando</p>
     <p>Azpeitia Hernánez Vladimir </p>
