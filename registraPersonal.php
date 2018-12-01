@@ -6,7 +6,7 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
 
     <style>
-        main form input, textarea{
+        main form input {
             border: 1px solid #869CA7;
             -webkit-box-shadow: 0px 0px 9px -1px rgba(179,179,179,1);
             -moz-box-shadow: 0px 0px 9px -1px rgba(179,179,179,1);
@@ -69,35 +69,47 @@
     <section name="user">
         <nav>
             <ul>
-                <li><a href="mapa1.html">Mapa</a></li>
-                <li><a href="reportarFalta.html">Reportar falta</a></li>
-                <li><a href="registraCarro.html">Registrar Auto</a></li>
+                <li><a href="MapaAdmin.php">Mapa</a></li>
+                <li><a href="registraPersonal.php">Registrar Personal</a></li>
+                <li><a href="faltas.php">Faltas</a></li>
             </ul>
         </nav>
         <!--------------------------------------------------------------------------------------------------->
         <div class="sesion2">
-            <button class="logout">Cerrar Sesión</button>
+            <button class="logout"><a href="php/logout.php">Cerrar Sesión</a></button>
         </div>
     </section>
 </header>
 
 <main>
-    <h3>Reportar Falta</h3>
+    <h3>Registrar Personal</h3>
     <section>
-        <form class="form1" action="/action_page.php" style="border: 1px;">
-            <h3>Datos Personales</h3>
-
-            <label>Usuario:</label>
-            <input type="text" name="user"> <br>
-            <h3>Datos del infractor</h3>
-            <label>Placa:</label>
-            <input type="text" name="plate"> <br>
-            <label>Color:</label>
-            <input type="text" name="color"> <br>
-            <label>Cajón de estacionamiento:</label>
-            <input type="text" name="color"> <br>
-            <label>Describa el tipo de infracción:</label>
-            <textarea name="descripción" rows="4" cols="50"></textarea><br>
+        <form action="insertarUsuario.php" method="get">
+            <label>Nombre</label>
+            <input type="text" name="nombre"><br>
+            <label>Apellido Paterno</label>
+            <input type="text" name="appat"><br>
+            <label>Apellido Materno</label>
+            <input type="text" name="apmat"><br>
+            <label>Boleta</label>
+            <input type="text" name="bole"><br>
+            <label>CURP</label>
+            <input type="text" name="curp"><br>
+            <label>Teléfono</label>
+            <input type="text" name="tel"><br>
+            <label>Correo</label>
+            <input type="text" name="correo"><br>
+            <label style="display: inline-block">Tipo de usuario: &nbsp;&nbsp;&nbsp;</label>
+            <select name="tipo">
+                <option value="Alumno">Alumno</option>
+                <option value="Profesor">Profesor</option>
+                <option value="Otro">Otro</option>
+            </select>
+            <br>
+            <label>Crear Contraseña</label>
+            <input type="password" name="pass"><br>
+            <label>Verificar Contraseña</label>
+            <input type="password" name="pass2"><br>
             <input type="reset" value="Reset">
             <input type="submit" value="Enviar">
         </form>

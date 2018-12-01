@@ -6,7 +6,7 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
 
     <style>
-        main form input {
+        main form input, textarea{
             border: 1px solid #869CA7;
             -webkit-box-shadow: 0px 0px 9px -1px rgba(179,179,179,1);
             -moz-box-shadow: 0px 0px 9px -1px rgba(179,179,179,1);
@@ -69,9 +69,9 @@
     <section name="user">
         <nav>
             <ul>
-                <li><a href="mapa1.html">Mapa</a></li>
-                <li><a href="reportarFalta.html">Reportar falta</a></li>
-                <li><a href="registraCarro.html">Registrar Auto</a></li>
+                <li><a href="mapa1.php">Mapa</a></li>
+                <li><a href="reportarFalta.php">Reportar falta</a></li>
+                <li><a href="registraCarro.php">Registrar Auto</a></li>
             </ul>
         </nav>
         <!--------------------------------------------------------------------------------------------------->
@@ -82,27 +82,23 @@
 </header>
 
 <main>
-    <h3>Registar Automovil</h3>
+    <h3>Reportar Falta</h3>
     <section>
-        <form action="insertarCarro.php" method="get">
-            <label>Placa</label>
-            <input type="text" name="placa"><br>
-            <label>Marca</label>
-            <input type="text" name="marca"><br>
-            <label>Modelo</label>
-            <input type="text" name="modelo"><br>
-            <label>Color</label>
-            <input type="text" name="color"><br>
-            <label>Año</label>
-            <input type="text" name="año"><br>
-            <label>Correo</label>
-            <input type="text" name="correo"><br>
-            <label style="display: inline-block">¿Necesitas cajón de Discapacidad? &nbsp;&nbsp;&nbsp;</label>
-            <select name="tipo">
-                <option value="No">No</option>
-                <option value="Sí">Sí</option>
-            </select>
-            <br>
+        <form class="form1" action="/action_page.php" style="border: 1px;">
+            <h3>Datos Personales</h3>
+
+            <label>Usuario:</label>
+            <input type="text" name="user"> <br>
+            <h3>Datos del infractor</h3>
+            <label>Placa:</label>
+            <input type="text" name="plate"> <br>
+            <label>Color:</label>
+            <input type="text" name="color"> <br>
+            <label>Cajón de estacionamiento:</label>
+            <input type="text" name="color"> <br>
+            <label>Describa el tipo de infracción:</label>
+            <textarea name="descripción" rows="4" cols="50"></textarea><br>
+            <input type="reset" value="Reset">
             <input type="submit" value="Enviar">
         </form>
 

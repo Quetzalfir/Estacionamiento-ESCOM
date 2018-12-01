@@ -62,7 +62,7 @@
     <section name="user">
         <nav>
             <ul>
-                <li><a href="mapa1.html">Mapa</a></li>
+                <li><a href="mapa1.php">Mapa</a></li>
             </ul>
         </nav>
         <!--------------------------------------------------------------------------------------------------->
@@ -70,20 +70,7 @@
             <button class="regbtn"><a href="registro.html">Registrarse</a></button>
         </div>
         <div class="sesion2">
-            <button class="logbtn">Iniciar Sesión</button>
-            <div class="log-content">
-                <h3>Iniciar Sesión</h3>
-                <p>
-                <form>
-                    <label>Usuario</label><br>
-                    <input type="text" name="user1"><br>
-                    <label>Contraseña</label><br>
-                    <input type="password" name="pass1"><br>
-                    <input type="reset" value="Reset">
-                    <input type="submit" name="Enviar">
-                </form>
-                </p>
-            </div>
+             <button class="logbtn"><a href="iniciosesion.html">Iniciar Sesión</a></button>
         </div>
     </section>
 </header>
@@ -91,7 +78,7 @@
 <main>
     <h3>Registro de Usuario</h3>
     <section>
-        <form class="form1" action="insertarUsuario.php" method="get">
+        <form class="form1" action="php/insertarUsuario.php" method="get">
             <label>Nombre</label>
             <input type="text" name="nombre" pattern="[A-Za-z áéíóúÁÉÍÓÚ]+" required><br>
 

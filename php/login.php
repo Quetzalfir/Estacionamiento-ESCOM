@@ -15,13 +15,13 @@
 			$_SESSION["user"] = $nickname;
 			$_SESSION["tipo"] = $tipo;
 			if($tipo  == "Admin")
-				header("Location: Administrador.php", true, 301);
+				header("Location: ../Administrador.php", true, 301);
 			else
-				header("Location: Usuario.php", true, 301);	
+				header("Location: ../Usuario.php", true, 301);	
 			exit();
 		}else{
 			echo'<script>alert("Usuario no valido");</script>';
-			header("Location: iniciosesion.html", true, 301);
+			header("Location: ../iniciosesion.html", true, 301);
 			exit();
 		}
 	}

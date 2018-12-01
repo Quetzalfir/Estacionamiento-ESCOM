@@ -41,13 +41,13 @@
         <nav>
             <ul>
                 <li><a href="MapaAdmin.php">Mapa</a></li>
-                <li><a href="registraPersonal.html">Registrar Personal</a></li>
-                <li><a href="faltas.html">Faltas</a></li>
+                <li><a href="registraPersonal.php">Registrar Personal</a></li>
+                <li><a href="faltas.php">Faltas</a></li>
             </ul>
         </nav>
         <!--------------------------------------------------------------------------------------------------->
         <div class="sesion2">
-            <button class="logout">Cerrar Sesión</button>
+            <button class="logout"><a href="php/logout.php">Cerrar Sesión</a></button>
         </div>
     </section>
 </header>

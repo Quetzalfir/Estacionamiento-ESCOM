@@ -21,14 +21,14 @@
     <section name="user">
         <nav>
             <ul>
-                <li><a href="mapa1.html">Mapa</a></li>
-                <li><a href="reportarFalta.html">Reportar falta</a></li>
-                <li><a href="registraCarro.html">Registrar Auto</a></li>
+                <li><a href="mapa1.php">Mapa</a></li>
+                <li><a href="reportarFalta.php">Reportar falta</a></li>
+                <li><a href="registraCarro.php">Registrar Auto</a></li>
             </ul>
         </nav>
         <!--------------------------------------------------------------------------------------------------->
         <div class="sesion2">
-            <button class="logout"><a href="logout.php">Cerrar Sesión</a></button>
+            <button class="logout"><a href="php/logout.php">Cerrar Sesión</a></button>
         </div>
     </section>
 </header>

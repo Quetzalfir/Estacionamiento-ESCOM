@@ -69,9 +69,9 @@
     <section name="user">
         <nav>
             <ul>
-                <li><a href="MapaAdmin.php">Mapa</a></li>
-                <li><a href="registraPersonal.html">Registrar Personal</a></li>
-                <li><a href="faltas.html">Faltas</a></li>
+                <li><a href="mapa1.php">Mapa</a></li>
+                <li><a href="reportarFalta.php">Reportar falta</a></li>
+                <li><a href="registraCarro.php">Registrar Auto</a></li>
             </ul>
         </nav>
         <!--------------------------------------------------------------------------------------------------->
@@ -82,35 +82,27 @@
 </header>
 
 <main>
-    <h3>Registrar Personal</h3>
+    <h3>Registar Automovil</h3>
     <section>
-        <form action="insertarUsuario.php" method="get">
-            <label>Nombre</label>
-            <input type="text" name="nombre"><br>
-            <label>Apellido Paterno</label>
-            <input type="text" name="appat"><br>
-            <label>Apellido Materno</label>
-            <input type="text" name="apmat"><br>
-            <label>Boleta</label>
-            <input type="text" name="bole"><br>
-            <label>CURP</label>
-            <input type="text" name="curp"><br>
-            <label>Teléfono</label>
-            <input type="text" name="tel"><br>
+        <form action="insertarCarro.php" method="get">
+            <label>Placa</label>
+            <input type="text" name="placa"><br>
+            <label>Marca</label>
+            <input type="text" name="marca"><br>
+            <label>Modelo</label>
+            <input type="text" name="modelo"><br>
+            <label>Color</label>
+            <input type="text" name="color"><br>
+            <label>Año</label>
+            <input type="text" name="año"><br>
             <label>Correo</label>
             <input type="text" name="correo"><br>
-            <label style="display: inline-block">Tipo de usuario: &nbsp;&nbsp;&nbsp;</label>
+            <label style="display: inline-block">¿Necesitas cajón de Discapacidad? &nbsp;&nbsp;&nbsp;</label>
             <select name="tipo">
-                <option value="Alumno">Alumno</option>
-                <option value="Profesor">Profesor</option>
-                <option value="Otro">Otro</option>
+                <option value="No">No</option>
+                <option value="Sí">Sí</option>
             </select>
             <br>
-            <label>Crear Contraseña</label>
-            <input type="password" name="pass"><br>
-            <label>Verificar Contraseña</label>
-            <input type="password" name="pass2"><br>
-            <input type="reset" value="Reset">
             <input type="submit" value="Enviar">
         </form>
 
