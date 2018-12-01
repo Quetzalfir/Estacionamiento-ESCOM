@@ -73,8 +73,8 @@
 
 <header>
     <section name="index">
-        <a href="Admistrador.php"><img id="logo" src="img/escom.png"></a>
-        <h2><a href="Admistrador.php">Estacionamiento ESCOM</a></h2>
+        <a href="Administrador.php"><img id="logo" src="img/escom.png"></a>
+        <h2><a href="Administrador.php">Estacionamiento ESCOM</a></h2>
     </section>
     <section name="user">
         <nav>

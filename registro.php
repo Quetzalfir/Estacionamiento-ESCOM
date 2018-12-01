@@ -105,7 +105,7 @@
     <h3>Registro de Usuario</h3>
     <section>
         <form class="form1" action="php/insertarUsuario.php" method="get">
-            <label>Nickname (<span id="disponible" style="color:#45932CFF;"></span>)</label> 
+            <label>Nickname (<span id="disponible" style="color:#45932CFF;">Disponible</span>)</label> 
             <input type="text" name="IDConductor" pattern="[A-Za-z áéíóúÁÉÍÓÚ]+" required id="IDConductor"><br>
             <label>Nombre(s)</label>
             <input type="text" name="nombre" required><br>
