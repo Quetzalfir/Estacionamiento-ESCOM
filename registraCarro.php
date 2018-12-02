@@ -1,3 +1,15 @@
+<?php 
+    session_start();
+    if(isset($_SESSION["tipo"])){
+        if($_SESSION["tipo"] == "Alumno" || $_SESSION["tipo"] == "Profesor" || $_SESSION["tipo"] == "Vigilante" || $_SESSION["tipo"] == "Otro"){
+            
+        }else{
+            header("Location: index.html", true, 301);
+        }
+    }else{
+        header("Location: iniciosesion.html", true, 301);
+    }
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -63,20 +75,20 @@
 
 <header>
     <section name="index">
-        <a href="index.html"><img id="logo" src="img/escom.png"></a>
-        <h2><a href="index.html">Estacionamiento ESCOM</a></h2>
+        <a href="Usuario.php"><img id="logo" src="img/escom.png"></a>
+        <h2><a href="Usuario.php">Estacionamiento ESCOM</a></h2>
     </section>
     <section name="user">
         <nav>
             <ul>
-                <li><a href="mapa1.php">Mapa</a></li>
+                <li><a href="mapaUsuario.php">Mapa</a></li>
                 <li><a href="reportarFalta.php">Reportar falta</a></li>
                 <li><a href="registraCarro.php">Registrar Auto</a></li>
             </ul>
         </nav>
         <!--------------------------------------------------------------------------------------------------->
         <div class="sesion2">
-            <button class="logout">Cerrar Sesión</button>
+            <button class="logout"><a href="php/logout.php">Cerrar Sesión</a></button>
         </div>
     </section>
 </header>
@@ -84,21 +96,25 @@
 <main>
     <h3>Registar Automovil</h3>
     <section>
-        <form action="insertarCarro.php" method="get">
+        <form action="php/insertarCarro.php" method="post">
             <label>Placa</label>
             <input type="text" name="placa"><br>
-            <label>Marca</label>
-            <input type="text" name="marca"><br>
+            <label style="display: inline-block">Tipo:&nbsp;&nbsp;&nbsp;</label>
+            <select name="tipo">
+                <option value="Automovil">Automovil</option>
+                <option value="Camioneta">Camioneta</option>
+                <option value="Motocicleta">Motocicleta</option>
+                <option value="Otro">Otro</option>
+            </select>
+            <br>
             <label>Modelo</label>
+            <input type="text" name="marca"><br>
+            <label>Compañia</label>
             <input type="text" name="modelo"><br>
             <label>Color</label>
-            <input type="text" name="color"><br>
-            <label>Año</label>
-            <input type="text" name="año"><br>
-            <label>Correo</label>
-            <input type="text" name="correo"><br>
+            <input type="color" name="color"><br>
             <label style="display: inline-block">¿Necesitas cajón de Discapacidad? &nbsp;&nbsp;&nbsp;</label>
-            <select name="tipo">
+            <select name="discapacidad">
                 <option value="No">No</option>
                 <option value="Sí">Sí</option>
             </select>

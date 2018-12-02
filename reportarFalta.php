@@ -1,3 +1,15 @@
+<?php 
+    session_start();
+    if(isset($_SESSION["tipo"])){
+        if($_SESSION["tipo"] == "Alumno" || $_SESSION["tipo"] == "Profesor" || $_SESSION["tipo"] == "Vigilante" || $_SESSION["tipo"] == "Otro"){
+            
+        }else{
+            header("Location: index.html", true, 301);
+        }
+    }else{
+        header("Location: iniciosesion.html", true, 301);
+    }
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -69,14 +81,14 @@
     <section name="user">
         <nav>
             <ul>
-                <li><a href="mapa1.php">Mapa</a></li>
+                <li><a href="mapaUsuario.php">Mapa</a></li>
                 <li><a href="reportarFalta.php">Reportar falta</a></li>
                 <li><a href="registraCarro.php">Registrar Auto</a></li>
             </ul>
         </nav>
         <!--------------------------------------------------------------------------------------------------->
-        <div class="sesion2">
-            <button class="logout">Cerrar Sesión</button>
+    <div class="sesion2">
+            <button class="logout"><a href="php/logout.php">Cerrar Sesión</a></button>
         </div>
     </section>
 </header>
@@ -84,20 +96,21 @@
 <main>
     <h3>Reportar Falta</h3>
     <section>
-        <form class="form1" action="/action_page.php" style="border: 1px;">
-            <h3>Datos Personales</h3>
-
-            <label>Usuario:</label>
-            <input type="text" name="user"> <br>
+        <form class="form1" action="php/insertarReporte.php" style="border: 1px;" method="get">
             <h3>Datos del infractor</h3>
             <label>Placa:</label>
-            <input type="text" name="plate"> <br>
-            <label>Color:</label>
-            <input type="text" name="color"> <br>
-            <label>Cajón de estacionamiento:</label>
-            <input type="text" name="color"> <br>
-            <label>Describa el tipo de infracción:</label>
-            <textarea name="descripción" rows="4" cols="50"></textarea><br>
+            <input type="text" name="placa"> <br>
+            <label style="display: inline-block">Tipo:&nbsp;&nbsp;&nbsp;</label>
+            <select name="tipo">
+                <option value="Mal estacionado">Mal estacionado</option>
+                <option value="Choque">Choque</option>
+                <option value="Luces encendidas">Luces encendidas</option>
+                <option value="Otro">Otro</option>
+            </select>
+            <label>Descripción:</label>
+            <textarea name="descripcion" rows="4" cols="50"></textarea><br>
+            <label>Insertar imagen:</label> 
+            <input type="file" name="color" accept="image/png, image/jpeg"> <br>
             <input type="reset" value="Reset">
             <input type="submit" value="Enviar">
         </form>
