@@ -68,20 +68,22 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.3.3/backbone.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jointjs/2.1.0/joint.js"></script>
     <link rel="stylesheet" type="text/css" href="js/rappid/build/rappid.min.css">
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="js/rappid/build/rappid.min.js"></script>    
 <body>
 
 <header>
     <section name="index">
         <a href="administrador.php"><img id="logo" src="img/escom.png"></a>
-        <h2><a href="administrador.php">Estacionamiento ESCOM</a></h2>
+        <h2><a href="administrador.php" style="text-decoration: none;">Estacionamiento ESCOM</a></h2>
     </section>
     <section name="user">
         <nav>
             <ul>
-                <li><a href="MapaAdmin.php">Mapa</a></li>
-                <li><a href="registraPersonal.php">Registrar Personal</a></li>
-                <li><a href="faltas.php">Faltas</a></li>
+                <li><a href="MapaAdmin.php" style="text-decoration: none;">Mapa</a></li>
+                <li><a href="registraPersonal.php" style="text-decoration: none;">Registrar Personal</a></li>
+                <li><a href="faltas.php" style="text-decoration: none;">Faltas</a></li>
             </ul>
         </nav>
         <!--------------------------------------------------------------------------------------------------->
@@ -105,13 +107,44 @@
         <script src="js/mapaAdmin.js" type="text/javascript" charset="utf-8" async defer></script>
       </div>
     </div>
+    <!-- Button to Open the Modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" id="btnForm">
+  Open modal
+</button>
 
+<!-- The Modal -->
+<div class="modal" id="myModal" style="margin-top: 100px;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Guadar salón</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+          <form>
+          <div class="form-group">
+            <label for="idModel">ID Model:</label>
+            <input type="file" class="form-control-file" id="imgFile" accept="image/png, image/jpeg"><br>
+          <button type="submit" class="btn btn-primary" hidden="hiden">Cambiar</button>
+        </form>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+      </div>
+
+    </div>
+  </div>
+</div>
     <footer>
         <p>Valencia Rodriguez Fernando</p>
         <p>Azpeitia Hernánez Vladimir </p>
         <p>Huerta Alvarez Diana Alejandra</p>
     </footer>
-
-
 </body>
 </html>

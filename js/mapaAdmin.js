@@ -1,7 +1,6 @@
-
 joint.setTheme('modern');
+var bgimage;
 var graph = new joint.dia.Graph;
-
 var paper = new joint.dia.Paper({
 	width: 1800,
 	height: 850,
@@ -25,7 +24,7 @@ var paperScroller = new joint.ui.PaperScroller({ autoResizePaper: true, paper: p
 $('#paper').append(paperScroller.render().el);
 paper.on('blank:pointerdown', function (evt) {
 	if(!evt.shiftKey){
-		console.log("yeah paperScroller");
+		
 		paperScroller.startPanning(evt)
 	}
 });
@@ -108,11 +107,14 @@ snaplines.startListening();
 var toolbar = new joint.ui.Toolbar({
     // initialize tools with default settings
     tools: ['zoomIn', 'zoomOut', 'zoomToFit', 'zoomSlider', 'undo', 'redo', 
-     { type: 'button', name: 'serialize', text: 'Guardar Mapa' },
+     { type: 'separator' },
      { type: 'label',  text: 'Mostrar imagen de fondo' },
      { type: 'toggle', name: 'showImage', value:false},
      { type: 'label',  text: 'Lineas de ayuda' },
-     { type: 'toggle', name: 'snaplines', value:true}],
+     { type: 'toggle', name: 'snaplines', value:true},
+     { type: 'separator' },
+     { type: 'button', name: 'selectimg', text: 'Cambiar Imágen'},
+     { type: 'button', name: 'serialize', text: 'Guardar Mapa'}],
     references: {
         paperScroller: paperScroller,
         commandManager: commandManager
@@ -120,15 +122,20 @@ var toolbar = new joint.ui.Toolbar({
 });
 $('.app-header').prepend(toolbar.render().el);
 toolbar.on('serialize:pointerclick', function(event) {
-	console.log('popo');
     var jsonString = JSON.stringify(graph.toJSON());
-    download(jsonString, 'json.txt', 'text/plain');
+	/*document.getElementById("txtIDModel").value = jsonString;
+	btnForm.click();
+    download(jsonString, 'json.txt', 'text/plain');*/
 });
 toolbar.on('showImage:change', function(value, event) {
+	cargarImagen();
     paper.drawBackground({
 		color: 'rgba(0,0,0,0.8)',
-		size: '100% 100%',
-        image: value ? 'img/escom.jpg' : ''
+		size: {
+			width:1800,
+			height:850
+		},
+        image: value ? 'data:image/jpeg;base64,'+bgimage+'' : ''
 		});
 });
 toolbar.on('snaplines:change', function(value, event) {
@@ -145,6 +152,10 @@ var lightbox = new joint.ui.Lightbox({
 });
 toolbar.on('topng:pointerclick', function(event) {
 	lightbox.open();
+});
+
+toolbar.on('selectimg:pointerclick', function(event) {
+	btnForm.click();
 });
 
 var selection = new joint.ui.Selection({
@@ -297,12 +308,13 @@ var nav = new joint.ui.Navigator({
 nav.$el.appendTo('#navigator');
 nav.render();
 $('#btnForm').hide();
-paper.on('cell:pointerdblclick',function (elementview) {
+
+/*paper.on('cell:pointerdblclick',function (elementview) {
 	var model = elementview.model;
 	document.getElementById("txtIDModel").value = model.id;
 	var btnForm = $('#btnForm');
 	btnForm.click();
-});
+});*/
 
 function download(content, fileName, contentType) {
 	var a = document.createElement("a");
@@ -310,4 +322,13 @@ function download(content, fileName, contentType) {
 	a.href = URL.createObjectURL(file);
 	a.download = fileName;
 	a.click();
+}
+function cargarImagen() {
+    $.ajax({
+        url : 'php/cargarImagen.php',
+        type : 'POST',
+        dataType : 'html',
+    }).done(function(resultado){
+    	this.bgimage = resultado;
+    });
 }
