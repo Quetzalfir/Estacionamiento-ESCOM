@@ -88,7 +88,7 @@
         </nav>
         <!--------------------------------------------------------------------------------------------------->
         <div class="sesion2">
-            <button class="logout"><a href="php/logout.php">Cerrar Sesión</a></button>
+            <button class="logout"><a href="php/logout.php" style="text-decoration: none;">Cerrar Sesión</a></button>
         </div>
     </section>
 </header>
@@ -97,9 +97,9 @@
       <div id="app" class="joint-app joint-theme-modern">
         <div class="app-header"></div>
         <div class="app-body">
-            <div class="draw-area" id="stencil" style="background: #383b61;; height: 750px; width: 15%; position: relative;"></div>
-            <div class="draw-area" id="paper" class="areaDibujo" style="background: #383b61;; height: 750px; width: 69%;  "></div>
-            <div class="draw-area" style="background: #383b61;; height: 750px; width: 15%; position:  absolute;">
+            <div class="draw-area" id="stencil" style="background: #383b61;; height: 800px; width: 15%; position: relative;"></div>
+            <div class="draw-area" id="paper" class="areaDibujo" style="background: #383b61;; height: 800px; width: 69%;  "></div>
+            <div class="draw-area" style="background: #383b61;; height: 800px; width: 15%; position:  absolute;">
         <div id="inspector" style="height: 600px; width: 100%;"></div>
       </div>
         </div>
@@ -107,7 +107,7 @@
         <script src="js/mapaAdmin.js" type="text/javascript" charset="utf-8" async defer></script>
       </div>
     </div>
-    <!-- Button to Open the Modal -->
+<!-- Button to Open the Modal -->
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" id="btnForm">
   Open modal
 </button>
@@ -125,12 +125,13 @@
 
       <!-- Modal body -->
       <div class="modal-body">
-          <form>
           <div class="form-group">
-            <label for="idModel">ID Model:</label>
-            <input type="file" class="form-control-file" id="imgFile" accept="image/png, image/jpeg"><br>
-          <button type="submit" class="btn btn-primary" hidden="hiden">Cambiar</button>
-        </form>
+            <form>
+                <label for="idModel">ID Model:</label>
+                <input type="file" class="form-control-file" id="imgFile" accept="image/png, image/jpeg"><br>
+                <button type="submit" class="btn btn-primary" hidden="hiden">Cambiar</button>
+            </form>
+        </div>
       </div>
 
       <!-- Modal footer -->
@@ -141,10 +142,37 @@
     </div>
   </div>
 </div>
-    <footer>
-        <p>Valencia Rodriguez Fernando</p>
-        <p>Azpeitia Hernánez Vladimir </p>
-        <p>Huerta Alvarez Diana Alejandra</p>
-    </footer>
+
+<!-- Button to Open the Modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal2" id="btnMapaCreado">
+  Open modal
+</button>
+
+<!-- The Modal -->
+<div class="modal" id="myModal2" style="margin-top: 100px;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Guadar salón</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <h3>Mapa guardado correctamente</h3>
+        <textarea id="txtJSONModel" class="form-control" rows="5" ></textarea>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
