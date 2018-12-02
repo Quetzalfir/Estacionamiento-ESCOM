@@ -124,7 +124,7 @@
 
     </section>
         <div>
-        <button><a href="">Agregar usuario</a></button>
+        <button><a href="registraPersonal.php">Agregar usuario</a></button>
     </div>
 </main>
 

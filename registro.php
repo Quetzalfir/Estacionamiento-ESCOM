@@ -104,11 +104,11 @@
 <main>
     <h3>Registro de Usuario</h3>
     <section>
-        <form class="form1" action="php/insertarUsuario.php" method="get">
+         <form class="form1" action="php/insertarUsuario.php" method="post">
             <label>Nickname (<span id="disponible" style="color:#45932CFF;">Disponible</span>)</label> 
-            <input type="text" name="IDConductor" pattern="[A-Za-z áéíóúÁÉÍÓÚ]+" required id="IDConductor"><br>
+            <input type="text" name="IDConductor" pattern="[A-Za-z0-9]+" required id="IDConductor" minlength="5" maxlength="20"><br>
             <label>Nombre(s)</label>
-            <input type="text" name="nombre" required><br>
+            <input type="text" name="nombre" required pattern="[A-Za-z áéíóúÁÉÍÓÚ]+"><br>
 
             <label>Apellido Paterno</label>
 
@@ -118,7 +118,7 @@
             <input type="text" name="apmat" pattern="[A-Za-z áéíóúÁÉÍÓÚ]+" required><br>
 
             <label>Teléfono</label>
-            <input type="text" name="tel" required><br>
+            <input type="tel" name="tel" required pattern="[0-9]{10}"><br>
 
             <label style="display: inline-block">Tipo de usuario: &nbsp;&nbsp;&nbsp;</label>
             <select name="tipo">
@@ -129,16 +129,16 @@
             <br>
 
             <label id="tipoId" >Boleta</label>
-            <input type="text" name="bole" required><br>
+            <input type="text" name="bole" required pattern="[0-9]{10}"><br>
 
             <label>Correo</label>
             <input type="email" name="correo" placeholder="ejemplo@email.com" required><br>
 
             <label>Crear Contraseña</label>
-            <input type="password" name="pass" required><br>
+            <input type="password" name="pass" required minlength="5" maxlength="40"><br>
 
             <label>Verificar Contraseña</label>
-            <input type="password" name="pass2" required><br>
+            <input type="password" name="pass2" required minlength="5" maxlength="40"><br>
 
             <input type="reset" value="Reset">
             <input type="submit" value="Enviar">

@@ -96,7 +96,7 @@
 <main>
     <h3>Reportar Falta</h3>
     <section>
-        <form class="form1" action="php/insertarReporte.php" style="border: 1px;" method="get">
+        <form class="form1" action="php/insertarReporte.php" style="border: 1px;" method="post">
             <h3>Datos del infractor</h3>
             <label>Placa:</label>
             <input type="text" name="placa"> <br>

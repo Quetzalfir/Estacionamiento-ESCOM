@@ -14,7 +14,7 @@
     <meta charset="UTF-8">
     <title>Inicio</title>
     <link rel="stylesheet" type="text/css" href="css/main.css">
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <style>
         main form input {
             border: 1px solid #869CA7;
@@ -67,6 +67,53 @@
             padding-top: 10px;
         }
     </style>
+     <script>
+        $(document).ready(function() {
+            $("main form [name=tipo]").on("change", function() {
+                var val = $(this).val();
+
+                if (val == "Alumno") {
+                    $("#tipoId").text("Boleta");
+                } else {
+                    $("#tipoId").text("RFC");
+                }
+            });
+
+            $("main form [name=pass2]").on("blur", function() {
+                if ($("main form [name=pass]").val() != $(this).val()) {
+                    this.setCustomValidity("Las contraseñas no coinciden");
+                } else {
+                    this.setCustomValidity("");
+                }
+            });
+        });
+
+        function disponible(nickname) {
+            $.ajax({
+                url : 'php/buscarUsuario.php',
+                type : 'POST',
+                dataType : 'html',
+                data : { IDConductor: nickname },
+                })
+
+                .done(function(resultado){
+                if(resultado == "Disponible"){
+                    $("#disponible").text(resultado);
+                    $("#disponible").css({'color':'#45932CFF'});
+                }
+                else{
+                    $("#disponible").text(resultado);
+                    $("#disponible").css({'color':'#D1322DFF'});
+                }
+
+            })
+        }
+
+    $(document).on('keyup', '#IDConductor', function(){
+        var nickname = $(this).val();
+        disponible(nickname);
+    });
+    </script>
 </head>
 
 <body>
@@ -94,32 +141,43 @@
 <main>
     <h3>Tabla de usuarios</h3>
     <section>
-        <form action="insertarUsuario.php" method="get">
-            <label>Nombre</label>
-            <input type="text" name="nombre"><br>
+        <form class="form1" action="php/insertarUsuario.php" method="post">
+            <label>Nickname (<span id="disponible" style="color:#45932CFF;">Disponible</span>)</label> 
+            <input type="text" name="IDConductor" pattern="[A-Za-z0-9]+" required id="IDConductor" minlength="5" maxlength="20"><br>
+            <label>Nombre(s)</label>
+            <input type="text" name="nombre" required pattern="[A-Za-z áéíóúÁÉÍÓÚ]+"><br>
+
             <label>Apellido Paterno</label>
-            <input type="text" name="appat"><br>
+
+            <input type="text" name="appat" pattern="[A-Za-z áéíóúÁÉÍÓÚ]+" required><br>
+
             <label>Apellido Materno</label>
-            <input type="text" name="apmat"><br>
-            <label>Boleta</label>
-            <input type="text" name="bole"><br>
-            <label>CURP</label>
-            <input type="text" name="curp"><br>
+            <input type="text" name="apmat" pattern="[A-Za-z áéíóúÁÉÍÓÚ]+" required><br>
+
             <label>Teléfono</label>
-            <input type="text" name="tel"><br>
-            <label>Correo</label>
-            <input type="text" name="correo"><br>
+            <input type="tel" name="tel" required pattern="[0-9]{10}"><br>
+
             <label style="display: inline-block">Tipo de usuario: &nbsp;&nbsp;&nbsp;</label>
             <select name="tipo">
                 <option value="Alumno">Alumno</option>
                 <option value="Profesor">Profesor</option>
+                <option value="Vigilante">Vigilante</option>
                 <option value="Otro">Otro</option>
             </select>
             <br>
+
+            <label id="tipoId" >Boleta</label>
+            <input type="text" name="bole" required pattern="[0-9]{10}"><br>
+
+            <label>Correo</label>
+            <input type="email" name="correo" placeholder="ejemplo@email.com" required><br>
+
             <label>Crear Contraseña</label>
-            <input type="password" name="pass"><br>
+            <input type="password" name="pass" required minlength="5" maxlength="40"><br>
+
             <label>Verificar Contraseña</label>
-            <input type="password" name="pass2"><br>
+            <input type="password" name="pass2" required minlength="5" maxlength="40"><br>
+
             <input type="reset" value="Reset">
             <input type="submit" value="Enviar">
         </form>

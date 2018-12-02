@@ -126,6 +126,8 @@ toolbar.on('serialize:pointerclick', function(event) {
         type : 'POST',
         dataType : 'html',
         data : { JSONModel: jsonString },
+    }).done(function(resultado){
+       console.log(resultado);
     });
    	$('#btnMapaCreado').click();
    	document.getElementById("txtJSONModel").value  = jsonString;
