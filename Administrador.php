@@ -103,7 +103,7 @@
         <nav>
             <ul>
                 <li><a href="MapaAdmin.php">Mapa</a></li>
-                <li><a href="registraPersonal.php">Registrar Personal</a></li>
+                <li><a href="tablaUsuarios.php">Tabla de usuarios</a></li>
                 <li><a href="faltas.php">Faltas</a></li>
             </ul>
         </nav>

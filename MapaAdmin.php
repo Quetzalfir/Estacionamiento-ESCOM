@@ -82,7 +82,7 @@
         <nav>
             <ul>
                 <li><a href="MapaAdmin.php" style="text-decoration: none;">Mapa</a></li>
-                <li><a href="registraPersonal.php" style="text-decoration: none;">Registrar Personal</a></li>
+                <li><a href="tablaUsuarios.php" style="text-decoration: none;">Tabla de usuarios</a></li>
                 <li><a href="faltas.php" style="text-decoration: none;">Faltas</a></li>
             </ul>
         </nav>

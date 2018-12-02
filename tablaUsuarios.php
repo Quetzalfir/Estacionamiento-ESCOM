@@ -94,37 +94,33 @@
 <main>
     <h3>Tabla de usuarios</h3>
     <section>
-        <form action="insertarUsuario.php" method="get">
-            <label>Nombre</label>
-            <input type="text" name="nombre"><br>
-            <label>Apellido Paterno</label>
-            <input type="text" name="appat"><br>
-            <label>Apellido Materno</label>
-            <input type="text" name="apmat"><br>
-            <label>Boleta</label>
-            <input type="text" name="bole"><br>
-            <label>CURP</label>
-            <input type="text" name="curp"><br>
-            <label>Teléfono</label>
-            <input type="text" name="tel"><br>
-            <label>Correo</label>
-            <input type="text" name="correo"><br>
-            <label style="display: inline-block">Tipo de usuario: &nbsp;&nbsp;&nbsp;</label>
-            <select name="tipo">
-                <option value="Alumno">Alumno</option>
-                <option value="Profesor">Profesor</option>
-                <option value="Otro">Otro</option>
-            </select>
-            <br>
-            <label>Crear Contraseña</label>
-            <input type="password" name="pass"><br>
-            <label>Verificar Contraseña</label>
-            <input type="password" name="pass2"><br>
-            <input type="reset" value="Reset">
-            <input type="submit" value="Enviar">
-        </form>
-
-        <img src="img/entrada.jpg">
+        <table style="border: 1px solid black;">
+            <tr> 
+                 <th>IDConductor</th> 
+                 <th>Nombre</th> 
+                 <th>Apellido paterno</th> 
+                 <th>Apellido materno</th> 
+                 <th>Telefono</th>
+                 <th>Correo</th>
+                 <th>Boleta o RFC</th>
+                 <th>Tipo</th>
+                 <th>Password</th>
+                 <th>Fecha de registro</th>
+                 <th>Autorizado</th>
+                 <th>No Cajon<th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+            <?php 
+                include("php/config.php");
+                $query = "SELECT * FROM `tb_conductor` WHERE `tipo` != 'Admin'";
+                $resultado = $conexion->query($query);
+                while ($ret = mysqli_fetch_array($resultado)){ 
+                    echo "<tr><td>".$ret['IDConductor']."</td><td>".$ret['nombre']."</td> <td>".$ret['apellidoPat']."</td><td>".$ret['apellidoMat']."</td><td>".$ret['telefono']."</td><td>".$ret['correo']."</td><td>".$ret['boletaRFC']."</td><td>".$ret['tipo']."</td><td>".$ret['password']."</td><td>".$ret['fechaRegistro']."</td><td>". (($ret['autorizado'] == 0)?'No':'Si') ."</td><td>".$ret['noCajon']."</td><td><button><a href='php/autorizar.php?IDConductor=".$ret['IDConductor']."&value=".$ret['autorizado']."'>" . (($ret['autorizado'] == 1)?'Permitir Acceso':'Negar Acesso') . "</a></button></td><td><button><a href=''>Editar</a></button></td><td><button><a href=''>Eliminar</a></button></td></tr>"; 
+                } 
+             ?>
+        </table>
     </section>
 </main>
 
