@@ -126,9 +126,9 @@
       <!-- Modal body -->
       <div class="modal-body">
           <div class="form-group">
-            <form>
+            <form action="php/actualizarImagen.php" method="post" enctype="multipart/form-data">
                 <label for="idModel">ID Model:</label>
-                <input type="file" class="form-control-file" id="imgFile" accept="image/png, image/jpeg"><br>
+                <input type="file" class="form-control-file" id="imgFile" accept="image/png, image/jpeg" name="imagen"><br>
                 <button type="submit" class="btn btn-primary" hidden="hiden">Cambiar</button>
             </form>
         </div>

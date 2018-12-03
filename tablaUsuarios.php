@@ -5,7 +5,7 @@
             header("Location: index.html", true, 301);
         }
     }else{
-        header("Location: iniciosesion.html", true, 301);
+        header("Location: index.html", true, 301);
     }
 ?>
 <!DOCTYPE html>
@@ -117,7 +117,7 @@
                 $query = "SELECT * FROM `tb_conductor` WHERE `tipo` != 'Admin'";
                 $resultado = $conexion->query($query);
                 while ($ret = mysqli_fetch_array($resultado)){ 
-                    echo "<tr><td>".$ret['IDConductor']."</td><td>".$ret['nombre']."</td> <td>".$ret['apellidoPat']."</td><td>".$ret['apellidoMat']."</td><td>".$ret['telefono']."</td><td>".$ret['correo']."</td><td>".$ret['boletaRFC']."</td><td>".$ret['tipo']."</td><td>".$ret['password']."</td><td>".$ret['fechaRegistro']."</td><td>". (($ret['autorizado'] == 0)?'No':'Si') ."</td><td>".$ret['noCajon']."</td><td><button><a href='php/autorizar.php?IDConductor=".$ret['IDConductor']."&value=".$ret['autorizado']."'>" . (($ret['autorizado'] == 0)?'Permitir Acceso':'Negar Acesso') . "</a></button></td><td><button><a href=''>Editar</a></button></td><td><button><a href=''>Eliminar</a></button></td></tr>"; 
+                    echo "<tr><td>".$ret['IDConductor']."</td><td>".$ret['nombre']."</td> <td>".$ret['apellidoPat']."</td><td>".$ret['apellidoMat']."</td><td>".$ret['telefono']."</td><td>".$ret['correo']."</td><td>".$ret['boletaRFC']."</td><td>".$ret['tipo']."</td><td>".$ret['password']."</td><td>".$ret['fechaRegistro']."</td><td>". (($ret['autorizado'] == 0)?'No':'Si') ."</td><td>".$ret['noCajon']."</td><td><button><a href='php/autorizar.php?IDConductor=".$ret['IDConductor']."&value=".$ret['autorizado']."'>" . (($ret['autorizado'] == 0)?'Permitir Acceso':'Negar Acesso') . "</a></button></td><td><button><a href='actualizarPersonal.php?IDConductor=".$ret['IDConductor']."&nombre=".$ret['nombre']."&apellidoPat=".$ret['apellidoPat']."&apellidoMat=".$ret['apellidoMat']."&telefono=".$ret['telefono']."&correo=".$ret['correo']."&boletaRFC=".$ret['boletaRFC']."&tipo=".$ret['tipo']."&password=".$ret['password']."'>Editar</a></button></td><td><button><a href=''>Eliminar</a></button></td></tr>"; 
                 } 
              ?>
         </table>

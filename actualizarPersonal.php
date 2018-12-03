@@ -141,46 +141,71 @@
 <main>
     <h3>Tabla de usuarios</h3>
     <section>
-        <form class="form1" action="php/insertarUsuario.php" method="post">
-            <label>Nickname (<span id="disponible" style="color:#45932CFF;">Disponible</span>)</label> 
-            <input type="text" name="IDConductor" pattern="[A-Za-z0-9]+" required id="IDConductor" minlength="5" maxlength="20"><br>
+            <?php 
+                echo'<form class="form1" action="php/actualizarUsuario.php" method="post">
+            <label>Nickname (<span id="disponible" style="color:#FF2B10FF;">No puede modificar su nickname</span>)</label> 
+            <input type="text" name="IDConductor" required pattern="[A-Za-z áéíóúÁÉÍÓÚ]+" value="'.$_GET['IDConductor'].'" readonly="readonly"><br>
             <label>Nombre(s)</label>
-            <input type="text" name="nombre" required pattern="[A-Za-z áéíóúÁÉÍÓÚ]+"><br>
+            <input type="text" name="nombre" required pattern="[A-Za-z áéíóúÁÉÍÓÚ]+" value="'.$_GET['nombre'].'"><br>
 
             <label>Apellido Paterno</label>
 
-            <input type="text" name="appat" pattern="[A-Za-z áéíóúÁÉÍÓÚ]+" required><br>
+            <input type="text" name="appat" pattern="[A-Za-z áéíóúÁÉÍÓÚ]+" required value="'.$_GET['apellidoPat'].'"><br>
 
             <label>Apellido Materno</label>
-            <input type="text" name="apmat" pattern="[A-Za-z áéíóúÁÉÍÓÚ]+" required><br>
+            <input type="text" name="apmat" pattern="[A-Za-z áéíóúÁÉÍÓÚ]+" required value="'.$_GET['apellidoMat'].'"><br>
 
             <label>Teléfono</label>
-            <input type="tel" name="tel" required pattern="[0-9]{10}"><br>
+            <input type="tel" name="tel" required pattern="[0-9]{10}" value="'.$_GET['telefono'].'"><br>
 
             <label style="display: inline-block">Tipo de usuario: &nbsp;&nbsp;&nbsp;</label>
-            <select name="tipo">
-                <option value="Profesor">Profesor</option>
-                <option value="Alumno" selected>Alumno</option>
+            <select name="tipo">';
+            switch ($_GET['tipo']) {
+                case 'Alumno':
+                    echo ' <option value="Alumno" selected>Alumno</option>
+                <option value="Profesor" >Profesor</option>
                 <option value="Vigilante">Vigilante</option>
-                <option value="Otro">Otro</option>
-            </select>
+                <option value="Otro">Otro</option>';
+                    break;
+                 case 'Profesor':
+                    echo ' <option value="Alumno">Alumno</option>
+                <option value="Profesor" selected>Profesor</option>
+                <option value="Vigilante">Vigilante</option>
+                <option value="Otro">Otro</option>';
+                    break;
+                 case 'Vigilante':
+                    echo ' <option value="Alumno">Alumno</option>
+                <option value="Profesor" >Profesor</option>
+                <option value="Vigilante" selected>Vigilante</option>
+                <option value="Otro">Otro</option>';
+                    break;
+                 case 'Otro':
+                    echo ' <option value="Alumno">Alumno</option>
+                <option value="Profesor" >Profesor</option>
+                <option value="Vigilante" >Vigilante</option>
+                <option value="Otro" selected>Otro</option>';
+                    break;
+            }
+            echo '</select>
             <br>
 
             <label id="tipoId" >Boleta</label>
-            <input type="text" name="bole" required pattern="[0-9]{10}"><br>
+            <input type="text" name="bole" required pattern="[0-9]{10}" value="'.$_GET['boletaRFC'].'"><br>
 
             <label>Correo</label>
-            <input type="email" name="correo" placeholder="ejemplo@email.com" required><br>
+            <input type="email" name="correo" placeholder="ejemplo@email.com" required value="'.$_GET['correo'].'"><br>
 
             <label>Crear Contraseña</label>
-            <input type="password" name="pass" required minlength="5" maxlength="40"><br>
+            <input type="text" name="pass" required minlength="5" maxlength="40" value="'.$_GET['password'].'"><br>
 
             <label>Verificar Contraseña</label>
-            <input type="password" name="pass2" required minlength="5" maxlength="40"><br>
+            <input type="text" name="pass2" required minlength="5" maxlength="40"><br>
 
             <input type="reset" value="Reset">
-            <input type="submit" value="Enviar">
-        </form>
+            <input type="submit" value="Enviar">         </form>';
+             ?>
+
+
 
         <img src="img/entrada.jpg">
     </section>
