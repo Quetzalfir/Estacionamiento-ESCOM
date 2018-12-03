@@ -23,7 +23,7 @@
 					header("Location: ../Usuario.php", true, 301);
 				}
 				else{
-					//echo'<script>$("#info").text = "Usuario no autorizado";</script>';
+					header("Location: ../usuarioNoAutorizado.html", true, 301);
 					exit();
 				}
 			exit();
