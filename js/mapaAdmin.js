@@ -270,8 +270,8 @@ var stencil = new joint.ui.Stencil({
     paper: paper,
     height: 800,
 	groups: {
-	      edificio: { label: 'Formas edificio', index: 1 },
-	      aula: { label: 'Formas aula', index: 2, closed: true },
+	      edificio: { label: 'Carretera', index: 1 },
+	      aula: { label: 'Cajones', index: 2, closed: true },
 	      otras: { label: 'Otras formas', index: 3, closed: true }
 	}
 });$('#stencil').append(stencil.render().el);
@@ -285,14 +285,12 @@ edificio.attr('body/fill', '#c0c0c0');
 edificio.attr('body/stroke-width', 0);
 
 stencil.loadGroup([edificio], 'edificio');
-
-var salon = new joint.shapes.standard.EmbeddedImage();
+var salon = new joint.shapes.standard.Rectangle();
+salon.resize(26, 53);
 salon.position(10, 10);
-salon.resize(113, 56);
-salon.attr('root/title', 'joint.shapes.standard.EmbeddedImage');
-salon.attr('label/text', 'Salon\nNumero');
+salon.attr('root/title', 'joint.shapes.standard.Rectangle');
+salon.attr('label/text', '');
 salon.attr('body/fill', '#ff8040');
-salon.attr('image/xlinkHref', 'img/icon/classroom.png');
 salon.attr('body/stroke-width', 0);
 
 stencil.loadGroup([salon], 'aula');
