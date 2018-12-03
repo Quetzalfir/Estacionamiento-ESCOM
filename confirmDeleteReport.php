@@ -63,30 +63,9 @@
 </header>
 
 <main>
-    <h3>Reportes</h3>
-    <section>
-        <table border="1">
-            <tr> 
-                <th>Número Reporte</th> 
-                 <th>IDConductor</th> 
-                 <th>Fecha Reporte</th> 
-                 <th>Tipo</th> 
-                 <th>Descripcion</th> 
-                 <th>IDDenunciante</th>
-                 <th>Imágen</th>
-                 <th></th>
-                 <th></th>
-            </tr>
-            <?php 
-                include("php/config.php");
-                $query = "SELECT * FROM tb_reporte  ORDER BY fechaReporte ASC";
-                $resultado = $conexion->query($query);
-                while ($ret = mysqli_fetch_array($resultado)){ 
-                    echo "<tr><td>".$ret['noReporte']."</td><td>".$ret['IDConductor']."</td> <td>".$ret['fechaReporte']."</td><td>".$ret['tipo']."</td><td>".$ret['descripcion']."</td><td>".$ret['IDDenunciante']."</td><td> <img style='width: 50px; height: 50px;'' src='data:image/jpeg;base64,". base64_encode($ret['imagen']). "'/> </td> <td><button><a href='actualizarFalta.php?noReporte=".$ret['noReporte']."&IDConductor=".$ret['IDConductor']."&fechaReporte=".$ret['fechaReporte']."&tipo=".$ret['tipo']."&descripcion=".$ret['descripcion']."&IDDenunciante=".$ret['IDDenunciante']."'>Editar</a></button></td> <td><button><a href='confirmDeleteReport.php?noReporte=".$ret['noReporte']."&IDConductor=".$ret['IDConductor']."'>Eliminar</a></button></td> </tr>"; 
-                } 
-             ?>
-        </table>
-    </section>
+    <h3>¿Deseas borrar el reporte <?php echo $_GET['noReporte']; ?> del usuario <?php echo $_GET['IDConductor']; ?>?</h3>
+    <?php echo '<button><a href="php/borrarReporte.php?IDConductor='.$_GET['IDConductor'].'&noReporte='.$_GET['noReporte'].'">SÍ</a></button>'; ?>
+    <button><a href="faltas.php">NO</a></button>
 </main>
 <footer>
     <p>Valencia Rodriguez Fernando</p>

@@ -75,8 +75,8 @@
 
 <header>
     <section name="index">
-        <a href="index.html"><img id="logo" src="img/escom.png"></a>
-        <h2><a href="index.html">Estacionamiento ESCOM</a></h2>
+        <a href="Usuario.php"><img id="logo" src="img/escom.png"></a>
+        <h2><a href="Usuario.php">Estacionamiento ESCOM</a></h2>
     </section>
     <section name="user">
         <nav>
@@ -96,10 +96,10 @@
 <main>
     <h3>Reportar Falta</h3>
     <section>
-        <form class="form1" action="php/insertarReporte.php" style="border: 1px;" method="post">
+        <form class="form1" action="php/insertarReporte.php" style="border: 1px;" method="post" enctype="multipart/form-data">
             <h3>Datos del infractor</h3>
             <label>Placa:</label>
-            <input type="text" name="placa"> <br>
+            <input type="text" name="placas"> <br>
             <label style="display: inline-block">Tipo:&nbsp;&nbsp;&nbsp;</label>
             <select name="tipo">
                 <option value="Mal estacionado">Mal estacionado</option>
@@ -110,7 +110,7 @@
             <label>Descripción:</label>
             <textarea name="descripcion" rows="4" cols="50"></textarea><br>
             <label>Insertar imagen:</label> 
-            <input type="file" name="color" accept="image/png, image/jpeg"> <br>
+            <input type="file" name="imagen" accept="image/png, image/jpeg"> <br>
             <input type="reset" value="Reset">
             <input type="submit" value="Enviar">
         </form>

@@ -92,12 +92,9 @@
 </header>
 
 <main>
-
 	<h3>¿Deseas borrar al usuario <?php echo $_GET['IDConductor']; ?>?</h3>
-    </section>
-        <?php echo '<button><a href="php/borrarUsuario.php?IDConductor='.$_GET['IDConductor'].'">SÍ</a></button>'; ?>
-        <button><a href="tablaUsuarios.php">NO</a></button>
-    </div>
+    <?php echo '<button><a href="php/borrarUsuario.php?IDConductor='.$_GET['IDConductor'].'">SÍ</a></button>'; ?>
+    <button><a href="tablaUsuarios.php">NO</a></button>
 </main>
 
 <footer>

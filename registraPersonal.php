@@ -178,7 +178,7 @@
             <label>Verificar Contraseña</label>
             <input type="password" name="pass2" required minlength="5" maxlength="40"><br>
 
-            <input type="reset" value="Reset">
+            <button><a href="tablaUsuarios.php">Cancelar</a></button>
             <input type="submit" value="Enviar">
         </form>
 
