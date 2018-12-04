@@ -17,11 +17,32 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+     <script type="text/javascript">
+        function disponible() {
+            $("#alertMax").hide();
+            $.ajax({
+                url : 'php/contarCajones.php',
+                type : 'POST',
+                dataType : 'html',
+            }).done(function(resultado){
+
+                if(parseInt(resultado, 10) >= 5){
+                    console.log(resultado);
+                    $("#asignar").click(function () {$("#alertMax").show();$("#alertMax").hide(5000);return false;});
+                }
+                else{
+                    console.log(resultado);
+                    $("#asignar").unbind('click');
+                }
+            });
+        }
+        window.addEventListener('load', disponible, false);
+    </script>
 </head>
 
 <body>
     
-     <nav class="navbar navbar-inverse">
+    <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
                 <a class="navbar-brand" href="Administrador.php">Estacionamiento ESCOM</a>
@@ -48,18 +69,75 @@
     </nav>  
 
     <div class="container">
-        <h1>¡ Bienvenido <?php echo $_SESSION['nombre'].' '.$_SESSION['apellidoPat'].' '.$_SESSION['apellidoMat']; ?>!</h1>
-        <h2>CUENTA DEL ADMISTRADOR</h2>
-        <img src="img/peaje1.png" class="img-responsive" >
-        <blockquote>
-            Esta página es para ayudarnos a tener un estacionamiento más seguro y eficaz
-            Cualquier persona en la comunidad que conforma a la ESCOM puede ayudar
-            Si observas alguna anomalía en el estacionamiento, puedes reportarla en ésta página
-            Pero antes por favor inicia sesión o registrate para continuar
-            Te pedimos que denuncies de manera honesta ya que se le hará seguimiento
-            Ninguno de tus datos será revelado al público
-        </blockquote>
-    </div>
+        <h1>Solicitudes de cajones para discapacitados</h1>
+        <div class="alert alert-info">
+          <strong>Informacion:</strong> Recuerda que contamos con un número límitado de cajones. 
+        </div>
+        <hr>
+        <table class="table table-striped">
+            <tr>
+                <th>Número de petición</th>
+                <th>ID de conductor</th>
+                <th>Estado</th>
+                <th>Cajón asignado</th>
+                <th></th>
+            </tr>
+            <?php 
+                include("php/config.php");
+                $query = "SELECT `noPeticion`, IDConductor, `aprobada`, `info` FROM `tb_peticion` ";
+                $query2 = "SELECT noCajon FROM `tb_cajon` WHERE estado != '1' AND `tipoCajon` = 'Discapacitado' ";
+                $resultado = $conexion->query($query);
+                $resultado2 = $conexion->query($query2);
+                while ($ret = mysqli_fetch_array($resultado)){ 
+                    $i = 1;
+                    echo "<tr><td>".$ret['noPeticion']."</td><td>".$ret['IDConductor']."</td><td>".(($ret['aprobada'] == '1')?'Aprobada':'No aprobada')."</td><td>".$ret['info']."</td><td>".(($ret['aprobada'] == '1')?"<a role='button' class='btn btn-danger' href ='php/quitarCajon.php?noCajon=".$ret['info']."&IDConductor=".$ret['IDConductor']."'>
+                          Quitar asignación</a>":"<button type='button' class='btn btn-primary' data-toggle='modal' id='asignar' data-target='#myModal".$i."'>
+                          Asigar cajón</button>")." </td></tr>
+                        <div class='modal' id='myModal".$i."' style='margin-top:150px;'>
+                          <div class='modal-dialog'>
+                            <div class='modal-content'>
 
+                              <!-- Modal Header -->
+                              <div class='modal-header'>
+                                <h3 class='modal-title'>Asignar cajón</h3>
+                                <button type='button' class='close' data-dismiss='modal'>&times;</button>
+                              </div>
+
+                              <!-- Modal body -->
+                              <div class='modal-body'>
+                                <h5>Selecciona uno de los cajones disponibles: </h5>
+                                <form class='form-horizontal'  method='post' accept-charset='utf-8' action='php/asignarCajon.php'>
+                                    <label>Nombre de usuario:</label>
+                                    <input class='form-control' type='text' name='IDConductor' value='".$ret['IDConductor']."' readonly>
+                                    <label>Número del cajón:</label>
+                                    <select name='noCajon' class='form-control'>";
+                                        while ($ret2 = mysqli_fetch_array($resultado2)){
+                                            echo "<option value='".$ret2['noCajon']."' >".$ret2['noCajon']."</option>";
+                                        }
+                                    echo "</select><br>
+                                     <div class='form-group row'>
+                                        <div class='col-xs-6'>
+                                            <button class='form-control btn btn-danger' data-dismiss='modal'>Cancelar</button>
+                                        </div>
+                                        <div class='col-xs-6'>
+                                            <input class='form-control btn btn-primary' type='submit' value='Asignar cajon'>
+                                        </div>
+                                    </div>
+                                </form>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                    
+                    ";
+                    $i++; 
+                } 
+             ?>
+        </table >
+        
+        <div class="alert alert-danger" id="alertMax">
+            <strong>Error:</strong> Ya no hay cajones disponibles.
+        </div>
+    </div>
 </body>
 </html>
