@@ -88,10 +88,7 @@
                 <div class="col-xs-6">
                     <input class="form-control btn btn-primary" type="submit" value="Registrar">
                 </div>
-                
-            
             </div>
-            
         </form>
     </div>
 

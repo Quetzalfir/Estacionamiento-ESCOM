@@ -2,10 +2,10 @@
     session_start();
     if(isset($_SESSION["tipo"])){
         if($_SESSION["tipo"] != "Admin"){
-            header("Location: index.html", true, 301);
-        }
+            header("Location: Usuario.php", true, 301);
+        }             
     }else{
-        header("Location: iniciosesion.html", true, 301);
+        header("Location: index.html", true, 301);
     }
 ?>
 <!DOCTYPE html>
@@ -67,6 +67,7 @@
                 } 
              ?>
         </table>
+        <a href="reportarFalta.php" class="btn btn-success" role="button">Agregar reporte</a>
     </div>
 
 </body>

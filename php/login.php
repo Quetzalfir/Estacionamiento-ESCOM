@@ -13,6 +13,12 @@
 			$tipo = $ret['tipo'];
 			$autorizado = $ret['autorizado']; 
 			$_SESSION["user"] = $nickname;
+			$_SESSION["nombre"] = $ret['nombre'];
+			$_SESSION["apellidoPat"] = $ret['apellidoPat'];
+			$_SESSION["apellidoMat"] = $ret['apellidoMat'];
+			$_SESSION["correo"] = $ret['correo'];
+			$_SESSION["telefono"] = $ret['telefono'];
+			$_SESSION["boletaRFC"] = $ret['boletaRFC'];
 			$_SESSION["tipo"] = $tipo;
 			$_SESSION['autorizado'] = $autorizado;
 			if($tipo  == "Admin"){

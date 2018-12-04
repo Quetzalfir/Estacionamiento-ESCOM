@@ -16,85 +16,34 @@
     <meta charset="UTF-8">
     <title>Inicio</title>
     <link rel="stylesheet" type="text/css" href="css/main.css">
-
-    <style>
-        main form input {
-            border: 1px solid #869CA7;
-            -webkit-box-shadow: 0px 0px 9px -1px rgba(179,179,179,1);
-            -moz-box-shadow: 0px 0px 9px -1px rgba(179,179,179,1);
-            box-shadow: 0px 0px 9px -1px rgba(179,179,179,1);
-        }
-
-        main form input[type=submit], main form input[type=reset] {
-            display: inline-block;
-            width: 100px;
-            height: 30px;
-            margin: 0 20px;
-            margin-top: 20px;
-            font-weight: bolder;
-        }
-
-        main form input[type=submit] {
-            background-color: #6fed74;
-        }
-
-        main h3 {
-            padding-top: 50px;
-            margin-bottom: 8px;
-            font-size: x-large;
-        }
-
-        main form label {
-            margin-top: 5px;
-            display: block;
-        }
-
-        main section {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        main .bg section img {
-            width: 40%;
-            height: auto;
-            flex-basis: 40%;
-        }
-
-        main section form {
-            box-sizing: border-box;
-            padding: 0 30px;
-            box-sizing: border-box;
-            padding-bottom: 50px;
-            padding-top: 10px;
-        }
-    </style>
-       
 </head>
 
 <body>
 
-<header>
-    <section name="index">
-        <a href="Usuario.php"><img id="logo" src="img/escom.png"></a>
-        <h2><a href="Usuario.php">Estacionamiento ESCOM</a></h2>
-    </section>
-    <section name="user">
-        <nav>
-            <ul>
-                <li><a href="mapaUsuario.php">Mapa</a></li>
-                <li><a href="reportarFalta.php">Reportar falta</a></li>
-                <li><a href="registraCarro.php">Registrar Auto</a></li>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="Usuario.php">Estacionamiento ESCOM</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="Usuario.php">Inicio</a></li>
+                <li><a href="notiUSR.php">Notificaciones</a></li>
+                <li><a href="MapaUsuario.php">Mapa</a></li>
+                <li><a href="reportarFaltaUser.php">Reportar Falta</a></li>
+                <li><a href="#">Tabla automóviles</a></li>
             </ul>
-        </nav>
-        <!--------------------------------------------------------------------------------------------------->
-        <div class="sesion2">
-            <button class="logout"><a href="php/logout.php">Cerrar Sesión</a></button>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php echo $_SESSION['user'];?>  <img src="img/usuario.png" class="img-circle" alt="Cinque Terre" width="25" height="25"></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Configuración</a></li>
+                        <li><a href="php/logout.php">Cerrar Sesión</a></li>
+                    </ul>
+                </li>
+            </ul>
         </div>
-    </section>
-</header>
+    </nav>  
 
-<main>
+<div class="container">
     <h3>Registar Automovil</h3>
     <section>
         <form action="php/insertarCarro.php" method="post">
@@ -125,7 +74,7 @@
 
         <img src="img/entrada.jpg">
     </section>
-</main>
+</div>
 
 <footer>
     <p>Valencia Rodriguez Fernando</p>
