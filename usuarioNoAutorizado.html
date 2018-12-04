@@ -3,63 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <title>Inicio de sesion</title>
-    <link rel="stylesheet" type="text/css" href="css/main.css">
-    <link rel="stylesheet" type="text/css" href="css/form1.css">
-
-
-    <style>
-        main h3 {
-            padding-top: 50px;
-            margin-bottom: 8px;
-            font-size: x-large;
-        }
-
-        main section {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        main .bg section img {
-            width: 40%;
-            height: auto;
-            flex-basis: 40%;
-        }
-    </style>
+    <!--Dependencias BOOTSTRAP-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
 <body>
-
-    <header>
-        <section name="index">
-            <a href="index.html"><img id="logo" src="img/escom.png"></a>
-            <h2><a href="index.html">Estacionamiento ESCOM</a></h2>
-        </section>
-        <section name="user">
-            <nav>
-                <ul>
-                    <li><a href="mapa1.php">Mapa</a></li>
-                </ul>
-            </nav>
-    <!--------------------------------------------------------------------------------------------------->     
-            <div class="sesion" style="float:right">
-                <button class="regbtn"><a href="registro.php">Registrarse</a></button>
+ <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="index.html">Estacionamiento ESCOM</a>
             </div>
-            <div class="sesion2">
-                <button class="logbtn"><a href="iniciosesion.html">Iniciar Sesión</a></button>
-            </div>      
-        </section>
-    </header>
+            <ul class="nav navbar-nav">
+                <li><a href="index.html" class="active">Inicio</a></li>
+                <li><a href="acercade.html">Acerca de</a></li>
+                <li><a href="mapa1.php">Mapa interactivo</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="registro.php"><span class="glyphicon glyphicon-user"></span> Registrarse </a></li>
+                <li><a href="iniciosesion.html"><span class="glyphicon glyphicon-log-in"></span> Iniciar Sesión </a></li>
+            </ul>
+        </div>
+    </nav>
 
-    <main>
+    <div class="container">
         <h3>Tu cuenta de usuario no ha sido autorizada!</h3>
-    </main>
-
-    <footer>
-        <p>Valencia Rodriguez Fernando</p>
-        <p>Azpeitia Hernánez Vladimir </p>
-        <p>Huerta Alvarez Diana Alejandra</p>
-    </footer>
+    </div>
 
 
 </body>

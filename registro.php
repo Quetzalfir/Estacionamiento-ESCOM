@@ -3,125 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <title>Inicio</title>
-    <link rel="stylesheet" type="text/css" href="css/main.css">
-    <link rel="stylesheet" type="text/css" href="css/form1.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-
-    <style>
-        main h3 {
-            padding-top: 50px;
-            margin-bottom: 8px;
-            font-size: x-large;
-        }
-
-        main section {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        main .bg section img {
-            width: 40%;
-            height: auto;
-            flex-basis: 40%;
-        }
-    </style>
-
-    <script>
-        $(document).ready(function() {
-            $("main form [name=tipo]").on("change", function() {
-                var val = $(this).val();
-
-                if (val == "Alumno") {
-                    $("#tipoId").text("Boleta");
-                } else {
-                    $("#tipoId").text("RFC");
-                }
-            });
-
-            $("main form [name=pass2]").on("blur", function() {
-                if ($("main form [name=pass]").val() != $(this).val()) {
-                    this.setCustomValidity("Las contraseñas no coinciden");
-                } else {
-                    this.setCustomValidity("");
-                }
-            });
-        });
-
-        function disponible(nickname) {
-            $.ajax({
-                url : 'php/buscarUsuario.php',
-                type : 'POST',
-                dataType : 'html',
-                data : { IDConductor: nickname },
-                })
-
-                .done(function(resultado){
-                if(resultado == "Disponible"){
-                    $("#disponible").text(resultado);
-                    $("#disponible").css({'color':'#45932CFF'});
-                }
-                else{
-                    $("#disponible").text(resultado);
-                    $("#disponible").css({'color':'#D1322DFF'});
-                }
-
-            })
-        }
-
-    $(document).on('keyup', '#IDConductor', function(){
-        var nickname = $(this).val();
-        disponible(nickname);
-    });
-    </script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/registro.js"></script>
 </head>
 
 <body>
 
-<header>
-    <section name="index">
-        <a href="index.html"><img id="logo" src="img/escom.png"></a>
-        <h2><a href="index.html">Estacionamiento ESCOM</a></h2>
-    </section>
-    <section name="user">
-        <nav>
-            <ul>
-                <li><a href="mapa1.php">Mapa</a></li>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="index.html">Estacionamiento ESCOM</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="index.html" class="active">Inicio</a></li>
+                <li><a href="acercade.html">Acerca de</a></li>
+                <li><a href="mapa1.php">Mapa interactivo</a></li>
             </ul>
-        </nav>
-        <!--------------------------------------------------------------------------------------------------->
-        <div class="sesion" style="float:right">
-            <button class="regbtn"><a href="registro.php">Registrarse</a></button>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="registro.php"><span class="glyphicon glyphicon-user"></span> Registrarse </a></li>
+                <li><a href="iniciosesion.html"><span class="glyphicon glyphicon-log-in"></span> Iniciar Sesión </a></li>
+            </ul>
         </div>
-        <div class="sesion2">
-             <button class="logbtn"><a href="iniciosesion.html">Iniciar Sesión</a></button>
-        </div>
-    </section>
-</header>
+    </nav>
 
-<main>
-    <h3>Registro de Usuario</h3>
-    <section>
-         <form class="form1" action="php/insertarUsuario.php" method="post">
+    
+    <div class="container">
+        <h3>Registro de Usuario</h3>
+        <form class="form1" action="php/insertarUsuario.php" method="post" accept-charset="utf-8" class="form-horizontal">
             <label>Nickname (<span id="disponible" style="color:#45932CFF;">Disponible</span>)</label> 
-            <input type="text" name="IDConductor" pattern="[A-Za-z0-9]+" required id="IDConductor" minlength="5" maxlength="20"><br>
+            <input class="form-control" type="text" name="IDConductor" pattern="[A-Za-z0-9]+" required id="IDConductor" minlength="5" maxlength="20"><br>
             <label>Nombre(s)</label>
-            <input type="text" name="nombre" required pattern="[A-Za-z áéíóúÁÉÍÓÚ]+"><br>
+            <input class="form-control" type="text" name="nombre" required pattern="[A-Za-z áéíóúÁÉÍÓÚ]+"><br>
 
             <label>Apellido Paterno</label>
 
-            <input type="text" name="appat" pattern="[A-Za-z áéíóúÁÉÍÓÚ]+" required><br>
+            <input class="form-control" type="text" name="appat" pattern="[A-Za-z áéíóúÁÉÍÓÚ]+" required><br>
 
             <label>Apellido Materno</label>
-            <input type="text" name="apmat" pattern="[A-Za-z áéíóúÁÉÍÓÚ]+" required><br>
+            <input class="form-control" type="text" name="apmat" pattern="[A-Za-z áéíóúÁÉÍÓÚ]+" required><br>
 
             <label>Teléfono</label>
-            <input type="tel" name="tel" required pattern="[0-9]{10}"><br>
+            <input class="form-control" type="tel" name="tel" required pattern="[0-9]{10}"><br>
 
             <label style="display: inline-block">Tipo de usuario: &nbsp;&nbsp;&nbsp;</label>
-            <select name="tipo">
+            <select name="tipo" class="form-control">
                 <option value="Alumno">Alumno</option>
                 <option value="Profesor">Profesor</option>
                 <option value="Otro">Otro</option>
@@ -129,31 +57,21 @@
             <br>
 
             <label id="tipoId" >Boleta</label>
-            <input type="text" name="bole" required pattern="[0-9]{10}"><br>
+            <input class="form-control" type="text" name="bole" required pattern="[0-9]{10}"><br>
 
             <label>Correo</label>
-            <input type="email" name="correo" placeholder="ejemplo@email.com" required><br>
+            <input class="form-control" type="email" name="correo" placeholder="ejemplo@email.com" required><br>
 
             <label>Crear Contraseña</label>
-            <input type="password" name="pass" required minlength="5" maxlength="40"><br>
+            <input class="form-control" type="password" name="pass" required minlength="5" maxlength="40"><br>
 
             <label>Verificar Contraseña</label>
-            <input type="password" name="pass2" required minlength="5" maxlength="40"><br>
+            <input class="form-control" type="password" name="pass2" required minlength="5" maxlength="40"><br>
 
-            <input type="reset" value="Reset">
-            <input type="submit" value="Enviar">
+            <input class="form-control btn btn-primary" type="submit" value="Enviar">
         </form>
-
-        <img src="img/entrada.jpg">
-    </section>
-</main>
-
-<footer>
-    <p>Valencia Rodriguez Fernando</p>
-    <p>Azpeitia Hernánez Vladimir </p>
-    <p>Huerta Alvarez Diana Alejandra</p>
-</footer>
-
+    
+    </div>
 
 </body>
 </html>

@@ -1,11 +1,7 @@
 <?php 
     session_start();
     if(isset($_SESSION["tipo"])){
-        if($_SESSION["tipo"] == "Alumno" || $_SESSION["tipo"] == "Profesor" || $_SESSION["tipo"] == "Vigilante" || $_SESSION["tipo"] == "Otro"){
-            
-        }else{
-            header("Location: index.html", true, 301);
-        }
+       
     }else{
         header("Location: iniciosesion.html", true, 301);
     }

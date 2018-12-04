@@ -13,153 +13,59 @@
 <head>
     <meta charset="UTF-8">
     <title>Inicio</title>
-    <link rel="stylesheet" type="text/css" href="css/main.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <style>
-        main form input {
-            border: 1px solid #869CA7;
-            -webkit-box-shadow: 0px 0px 9px -1px rgba(179,179,179,1);
-            -moz-box-shadow: 0px 0px 9px -1px rgba(179,179,179,1);
-            box-shadow: 0px 0px 9px -1px rgba(179,179,179,1);
-        }
-
-        main form input[type=submit], main form input[type=reset] {
-            display: inline-block;
-            width: 100px;
-            height: 30px;
-            margin: 0 20px;
-            margin-top: 20px;
-            font-weight: bolder;
-        }
-
-        main form input[type=submit] {
-            background-color: #6fed74;
-        }
-
-        main h3 {
-            padding-top: 50px;
-            margin-bottom: 8px;
-            font-size: x-large;
-        }
-
-        main form label {
-            margin-top: 5px;
-            display: block;
-        }
-
-        main section {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        main .bg section img {
-            width: 40%;
-            height: auto;
-            flex-basis: 40%;
-        }
-
-        main section form {
-            box-sizing: border-box;
-            padding: 0 30px;
-            box-sizing: border-box;
-            padding-bottom: 50px;
-            padding-top: 10px;
-        }
-    </style>
-     <script>
-        $(document).ready(function() {
-            $("main form [name=tipo]").on("change", function() {
-                var val = $(this).val();
-
-                if (val == "Alumno") {
-                    $("#tipoId").text("Boleta");
-                } else {
-                    $("#tipoId").text("RFC");
-                }
-            });
-
-            $("main form [name=pass2]").on("blur", function() {
-                if ($("main form [name=pass]").val() != $(this).val()) {
-                    this.setCustomValidity("Las contraseñas no coinciden");
-                } else {
-                    this.setCustomValidity("");
-                }
-            });
-        });
-
-        function disponible(nickname) {
-            $.ajax({
-                url : 'php/buscarUsuario.php',
-                type : 'POST',
-                dataType : 'html',
-                data : { IDConductor: nickname },
-                })
-
-                .done(function(resultado){
-                if(resultado == "Disponible"){
-                    $("#disponible").text(resultado);
-                    $("#disponible").css({'color':'#45932CFF'});
-                }
-                else{
-                    $("#disponible").text(resultado);
-                    $("#disponible").css({'color':'#D1322DFF'});
-                }
-
-            })
-        }
-
-    $(document).on('keyup', '#IDConductor', function(){
-        var nickname = $(this).val();
-        disponible(nickname);
-    });
-    </script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/registro.js"></script>
 </head>
 
 <body>
 
-<header>
-    <section name="index">
-        <a href="Administrador.php"><img id="logo" src="img/escom.png"></a>
-        <h2><a href="Administrador.php">Estacionamiento ESCOM</a></h2>
-    </section>
-    <section name="user">
-        <nav>
-            <ul>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="Administrador.php">Estacionamiento ESCOM</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="Administrador.php">Inicio</a></li>
                 <li><a href="MapaAdmin.php">Mapa</a></li>
-                <li><a href="tablaUsuarios.php">Tabla de usuarios</a></li>
+                <li><a href="#">Automoviles</a></li>
+                <li><a href="tablaUsuarios.php">Usuarios</a></li>
                 <li><a href="faltas.php">Faltas</a></li>
             </ul>
-        </nav>
-        <!--------------------------------------------------------------------------------------------------->
-        <div class="sesion2">
-            <button class="logout"><a href="php/logout.php">Cerrar Sesión</a></button>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php echo $_SESSION['user'];?>  <img src="img/usuario.png" class="img-circle" alt="Cinque Terre" width="25" height="25"></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Configuración</a></li>
+                        <li><a href="php/logout.php">Cerrar Sesión</a></li>
+                    </ul>
+                </li>
+            </ul>
         </div>
-    </section>
-</header>
+    </nav>
 
-<main>
-    <h3>Tabla de usuarios</h3>
-    <section>
+    <div class="container">
+        <h3>Tabla de usuarios</h3>
+        <form class="form1" action="php/actualizarUsuario.php" method="post" accept-charset="utf-8" class="form-horizontal">
             <?php 
-                echo'<form class="form1" action="php/actualizarUsuario.php" method="post">
+                echo'
             <label>Nickname (<span id="disponible" style="color:#FF2B10FF;">No puede modificar su nickname</span>)</label> 
-            <input type="text" name="IDConductor" required pattern="[A-Za-z áéíóúÁÉÍÓÚ]+" value="'.$_GET['IDConductor'].'" readonly="readonly"><br>
+            <input class="form-control" type="text" name="IDConductor" required pattern="[A-Za-z áéíóúÁÉÍÓÚ]+" value="'.$_GET['IDConductor'].'" readonly="readonly"><br>
             <label>Nombre(s)</label>
-            <input type="text" name="nombre" required pattern="[A-Za-z áéíóúÁÉÍÓÚ]+" value="'.$_GET['nombre'].'"><br>
+            <input class="form-control" type="text" name="nombre" required pattern="[A-Za-z áéíóúÁÉÍÓÚ]+" value="'.$_GET['nombre'].'"><br>
 
             <label>Apellido Paterno</label>
 
-            <input type="text" name="appat" pattern="[A-Za-z áéíóúÁÉÍÓÚ]+" required value="'.$_GET['apellidoPat'].'"><br>
+            <input class="form-control" type="text" name="appat" pattern="[A-Za-z áéíóúÁÉÍÓÚ]+" required value="'.$_GET['apellidoPat'].'"><br>
 
             <label>Apellido Materno</label>
-            <input type="text" name="apmat" pattern="[A-Za-z áéíóúÁÉÍÓÚ]+" required value="'.$_GET['apellidoMat'].'"><br>
+            <input class="form-control" type="text" name="apmat" pattern="[A-Za-z áéíóúÁÉÍÓÚ]+" required value="'.$_GET['apellidoMat'].'"><br>
 
             <label>Teléfono</label>
-            <input type="tel" name="tel" required pattern="[0-9]{10}" value="'.$_GET['telefono'].'"><br>
+            <input class="form-control" type="tel" name="tel" required pattern="[0-9]{10}" value="'.$_GET['telefono'].'"><br>
 
             <label style="display: inline-block">Tipo de usuario: &nbsp;&nbsp;&nbsp;</label>
-            <select name="tipo">';
+            <select name="tipo" class="form-control">';
             switch ($_GET['tipo']) {
                 case 'Alumno':
                     echo ' <option value="Alumno" selected>Alumno</option>
@@ -190,33 +96,27 @@
             <br>
 
             <label id="tipoId" >Boleta</label>
-            <input type="text" name="bole" required pattern="[0-9]{10}" value="'.$_GET['boletaRFC'].'"><br>
+            <input class="form-control" type="text" name="bole" required pattern="[0-9]{10}" value="'.$_GET['boletaRFC'].'"><br>
 
             <label>Correo</label>
-            <input type="email" name="correo" placeholder="ejemplo@email.com" required value="'.$_GET['correo'].'"><br>
+            <input class="form-control" type="email" name="correo" placeholder="ejemplo@email.com" required value="'.$_GET['correo'].'"><br>
 
             <label>Crear Contraseña</label>
-            <input type="text" name="pass" required minlength="5" maxlength="40" value="'.$_GET['password'].'"><br>
+            <input class="form-control" type="text" name="pass" required minlength="5" maxlength="40" value="'.$_GET['password'].'"><br>
 
             <label>Verificar Contraseña</label>
-            <input type="text" name="pass2" required minlength="5" maxlength="40"><br>
-
-            <button><a href="tablaUsuarios.php">Cancelar</a></button>
-            <input type="submit" value="Enviar">         </form>';
+            <input class="form-control" type="text" name="pass2" required minlength="5" maxlength="40"><br>
+            <div class="form-group row">
+                <div class="col-xs-6">
+                    <a href="tablaUsuarios.php" class="btn btn-danger" role="button" style="width: 100%;">Cancelar</a>
+                </div>
+                <div class="col-xs-6">
+                    <input type="submit" value="Actualizar" class="form-control btn btn-primary">
+                </div>
+            </div>';
              ?>
-
-
-
-        <img src="img/entrada.jpg">
-    </section>
-</main>
-
-<footer>
-    <p>Valencia Rodriguez Fernando</p>
-    <p>Azpeitia Hernánez Vladimir </p>
-    <p>Huerta Alvarez Diana Alejandra</p>
-</footer>
-
+        </form>
+    </div>
 
 </body>
 </html>

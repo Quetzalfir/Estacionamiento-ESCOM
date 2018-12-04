@@ -1,5 +1,5 @@
 //Seleccionamos un tema personalizado para los widgets 
-joint.setTheme('material');
+joint.setTheme('dark');
 //Creamos el objeto graph
 var graph = new joint.dia.Graph;
 //Creamos el objeto paper

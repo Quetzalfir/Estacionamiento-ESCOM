@@ -13,66 +13,42 @@
 <head>
     <meta charset="UTF-8">
     <title>Inicio</title>
-    <link rel="stylesheet" type="text/css" href="css/main.css">
-    <link rel="stylesheet" type="text/css" href="css/form1.css">
-
-    <style>
-        main h3 {
-            padding-top: 50px;
-            margin-bottom: 8px;
-            font-size: x-large;
-        }
-
-        main section {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        main .bg section img {
-            widtd: 40%;
-            height: auto;
-            flex-basis: 40%;
-        }
-        table{
-            border:1px solid black;
-        }
-    </style>
+    <!-- Dependencias bootstrap -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
 <body>
 
-<header>
-    <section name="index">
-        <a href="administrador.php"><img id="logo" src="img/escom.png"></a>
-        <h2><a href="administrador.php">Estacionamiento ESCOM</a></h2>
-    </section>
-    <section name="user">
-        <nav>
-            <ul>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="Administrador.php">Estacionamiento ESCOM</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="Administrador.php">Inicio</a></li>
                 <li><a href="MapaAdmin.php">Mapa</a></li>
-                <li><a href="tablaUsuarios.php">Tabla de usuarios</a></li>
+                <li><a href="#">Automoviles</a></li>
+                <li><a href="tablaUsuarios.php">Usuarios</a></li>
                 <li><a href="faltas.php">Faltas</a></li>
             </ul>
-        </nav>
-        <!--------------------------------------------------------------------------------------------------->
-        <div class="sesion2">
-            <button class="logout"><a href="php/logout.php">Cerrar Sesión</a></button>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php echo $_SESSION['user'];?>  <img src="img/usuario.png" class="img-circle" alt="Cinque Terre" width="25" height="25"></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Configuración</a></li>
+                        <li><a href="php/logout.php">Cerrar Sesión</a></li>
+                    </ul>
+                </li>
+            </ul>
         </div>
-    </section>
-</header>
+    </nav>
 
-<main>
-    <h3>¿Deseas borrar el reporte <?php echo $_GET['noReporte']; ?> del usuario <?php echo $_GET['IDConductor']; ?>?</h3>
-    <?php echo '<button><a href="php/borrarReporte.php?IDConductor='.$_GET['IDConductor'].'&noReporte='.$_GET['noReporte'].'">SÍ</a></button>'; ?>
-    <button><a href="faltas.php">NO</a></button>
-</main>
-<footer>
-    <p>Valencia Rodriguez Fernando</p>
-    <p>Azpeitia Hernánez Vladimir </p>
-    <p>Huerta Alvarez Diana Alejandra</p>
-</footer>
-
+    <div class="container">
+        <h3>¿Deseas borrar el reporte <?php echo $_GET['noReporte']; ?> del usuario <?php echo $_GET['IDConductor']; ?>?</h3>
+        <?php echo '<a class="btn btn-info" role="button" href="php/borrarReporte.php?IDConductor='.$_GET['IDConductor'].'&noReporte='.$_GET['noReporte'].'">SÍ</a>'; ?>
+        <a class="btn btn-info" role="button" href="faltas.php">NO</a>
+    </div>
 
 </body>
 </html>
