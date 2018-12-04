@@ -29,7 +29,7 @@
             <ul class="nav navbar-nav">
                 <li><a href="Administrador.php">Inicio</a></li>
                 <li><a href="MapaAdmin.php">Mapa</a></li>
-                <li><a href="#">Automoviles</a></li>
+                <li><a href="tablaAutoAdmin.php">Automoviles</a></li>
                 <li><a href="tablaUsuarios.php">Usuarios</a></li>
                 <li><a href="faltas.php">Faltas</a></li>
             </ul>

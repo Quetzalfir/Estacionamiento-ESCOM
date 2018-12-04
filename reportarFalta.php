@@ -29,7 +29,7 @@
             <ul class="nav navbar-nav">
                 <li><a href="Administrador.php">Inicio</a></li>
                 <li><a href="MapaAdmin.php">Mapa</a></li>
-                <li><a href="#">Automoviles</a></li>
+                <li><a href="tablaAutoAdmin.php">Automoviles</a></li>
                 <li><a href="tablaUsuarios.php">Usuarios</a></li>
                 <li><a href="faltas.php">Faltas</a></li>
             </ul>
@@ -48,32 +48,29 @@
         <h1>Reportar Falta</h1>
         <hr>
         <h3>Datos del infractor</h3>
-        <section>
-            <form action="php/insertarReporte.php" method="post" enctype="multipart/form-data" class="form-horizontal" accept-charset="utf-8">    
-                <label>Placa:</label>
-                <input class="form-control" type="text" name="placas"> <br>
-                <label style="display: inline-block">Tipo:&nbsp;&nbsp;&nbsp;</label>
-                <select name="tipo" class="form-control">
-                    <option value="Mal estacionado">Mal estacionado</option>
-                    <option value="Choque">Choque</option>
-                    <option value="Luces encendidas">Luces encendidas</option>
-                    <option value="Otro">Otro</option>
-                </select>
-                <label>Descripción:</label>
-                <textarea name="descripcion" class="form-control"></textarea><br>
-                <label>Insertar imagen:</label> 
-                <input class="form-control" type="file" name="imagen" accept="image/png, image/jpeg"> <br>
-                <div class="form-group row">
-                    <div class="col-xs-6">
-                        <a href="faltas.php" class="btn btn-danger" role="button" style="width: 100%;">Cancelar</a>
-                    </div>
-                    <div class="col-xs-6">
-                        <input class="form-control btn btn-primary" type="submit" value="Realizar reporte">
-                    </div>
+        <form action="php/insertarReporte.php" method="post" enctype="multipart/form-data" class="form-horizontal" accept-charset="utf-8">    
+            <label>Placa:</label>
+            <input class="form-control" type="text" name="placas"> <br>
+            <label style="display: inline-block">Tipo:&nbsp;&nbsp;&nbsp;</label>
+            <select name="tipo" class="form-control">
+                <option value="Mal estacionado">Mal estacionado</option>
+                <option value="Choque">Choque</option>
+                <option value="Luces encendidas">Luces encendidas</option>
+                <option value="Otro">Otro</option>
+            </select>
+            <label>Descripción:</label>
+            <textarea name="descripcion" class="form-control"></textarea><br>
+            <label>Insertar imagen:</label> 
+            <input class="form-control" type="file" name="imagen" accept="image/png, image/jpeg"> <br>
+            <div class="form-group row">
+                <div class="col-xs-6">
+                    <a href="faltas.php" class="btn btn-danger" role="button" style="width: 100%;">Cancelar</a>
                 </div>
-                
-            </form>
-        </section>
+                <div class="col-xs-6">
+                    <input class="form-control btn btn-primary" type="submit" value="Realizar reporte">
+                </div>
+            </div>
+        </form>
     </div>
 
 </body>

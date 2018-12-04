@@ -48,9 +48,9 @@
     <section>
         <form action="php/insertarCarro.php" method="post">
             <label>Placa</label>
-            <input type="text" name="placa"><br>
+            <input class="form-control" type="text" name="placa"><br>
             <label style="display: inline-block">Tipo:&nbsp;&nbsp;&nbsp;</label>
-            <select name="tipo">
+            <select name="tipo" class="form-control">
                 <option value="Automovil">Automovil</option>
                 <option value="Camioneta">Camioneta</option>
                 <option value="Motocicleta">Motocicleta</option>
@@ -58,18 +58,18 @@
             </select>
             <br>
             <label>Modelo</label>
-            <input type="text" name="marca"><br>
+            <input class="form-control" type="text" name="marca"><br>
             <label>Compañia</label>
-            <input type="text" name="modelo"><br>
+            <input class="form-control" type="text" name="modelo"><br>
             <label>Color</label>
-            <input type="color" name="color"><br>
+            <input class="form-control" type="color" name="color"><br>
             <label style="display: inline-block">¿Necesitas cajón de Discapacidad? &nbsp;&nbsp;&nbsp;</label>
-            <select name="discapacidad">
+            <select name="discapacidad" class="form-control">
                 <option value="No">No</option>
                 <option value="Sí">Sí</option>
             </select>
             <br>
-            <input type="submit" value="Enviar">
+            <input class="form-control" type="submit" value="Enviar">
         </form>
 
         <img src="img/entrada.jpg">
