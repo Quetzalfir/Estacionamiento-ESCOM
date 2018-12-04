@@ -23,11 +23,11 @@
         function disponible() {
             $("#alertMax").hide();
             $.ajax({
-                url : 'php/contarAutos.php',
+                url : 'php/contarNoti.php',
                 type : 'POST',
                 dataType : 'html',
             }).done(function(resultado){
-                if(parseInt(resultado, 10) >= 2){
+                if(parseInt(resultado, 10) >= 1){
                     console.log(resultado);
                     $("#btnNC").click(function () {$("#alertMax").show();$("#alertMax").hide(5000);return false;});
                 }
@@ -68,43 +68,41 @@
     </nav>  
 
     <div class="container">
-        <h1>Tabla de automóviles de <?php echo $_SESSION['user']; ?></h1>
+        <h1>Realizar solicitud para asignación de cajón para discapacitado</h1>
         <div class="alert alert-info">
-          <strong>Informacion:</strong> Recuerda que sólo puedes registrar dos automóviles.
+          <strong>Informacion:</strong> Una vez aprobado tu solicitud deberas dirigirte a gestión escolar para 
+          entregar los papeles corresponidentes. (Recuerda que contamos con un número límitado de cajones)
         </div>
         <hr>
         <table class="table table-striped">
             <tr>
-                <th>Placas</th>
-                <th>Tipo</th>
-                <th>Modelo</th>
-                <th>Compañia</th>
-                <th>Color</th>
-                <th></th>
+                <th>Número de petición</th>
+                <th>Estado</th>
+                <th>Información</th>
                 <th></th>
             </tr>
             <?php 
                 include("php/config.php");
-                $query = "SELECT `placas`, `IDConductor`, `tipo`, `modelo`, `compania`, `colorAutomovil` FROM `tb_automovil` WHERE `IDConductor` = '".$_SESSION['user']."'";
+                $query = "SELECT `noPeticion`, `aprobada`, `info` FROM `tb_peticion` WHERE `IDConductor`= '".$_SESSION['user']."'";
                 $resultado = $conexion->query($query);
                 while ($ret = mysqli_fetch_array($resultado)){ 
-                    echo "<tr><td>".$ret['placas']."</td><td>".$ret['tipo']."</td><td>".$ret['modelo']."</td><td>".$ret['compania']."</td><td><input type='color' value = '".$ret['colorAutomovil']."' disabled></td><td><a class='btn btn-primary' role='button' href='actualizarAutoUser.php?placas=".$ret['placas']."&IDConductor=".$ret['IDConductor']."&tipo=".$ret['tipo']."&modelo=".$ret['modelo']."&compania=".$ret['compania']."&colorAutomovil=".$ret['colorAutomovil']."'>Editar</a></td><td> <button type='button' class='btn btn-danger' data-toggle='modal' data-target='#myModal2' id='btnMapaCreado'>
-                          Eliminar</button></td></tr>
+                    echo "<tr><td>".$ret['noPeticion']."</td><td>".(($ret['aprobada'] == '1')?'Aprobada':'No aprobada')."</td><td>".$ret['info']."</td><td> <button type='button' class='btn btn-danger' data-toggle='modal' data-target='#myModal2' id='btnMapaCreado'>
+                          Cancelar</button></td></tr>
                         <div class='modal' id='myModal2' style='margin-top:150px;'>
                           <div class='modal-dialog'>
                             <div class='modal-content'>
 
                               <!-- Modal Header -->
                               <div class='modal-header'>
-                                <h3 class='modal-title'>Eliminar automóvil</h3>
+                                <h3 class='modal-title'>Cancelar petición</h3>
                                 <button type='button' class='close' data-dismiss='modal'>&times;</button>
                               </div>
 
                               <!-- Modal body -->
                               <div class='modal-body'>
-                                <h5>¿Desea borrar el coche de placas <b>".$ret['placas']."</b> del usuario <b>".$ret['IDConductor']."</b>?</h5>
+                                <h5>¿Deseas cancelar la petición?</h5>
                                 <form class='form-horizontal' action=' method='get' accept-charset='utf-8'>
-                                    <a href='php/borrarAuto.php?placas=".$ret['placas']."' role ='button' class='btn btn-success'>SÍ</a>
+                                    <a href='php/borrarPeticion.php?noPeticion=".$ret['noPeticion']."' role ='button' class='btn btn-success'>SÍ</a>
                                     <button type='button' class='btn btn-danger' data-dismiss='modal'>No</button>
                                 </form>
                               </div>
@@ -116,10 +114,10 @@
                 } 
              ?>
         </table >
-        <a href="registraCarro.php" class="btn btn-success" role="button" id='btnNC'>Agregar Nuevo Coche</a>
+        <a href="php/insertarPeticion.php" class="btn btn-success" role="button" id='btnNC'>Solicitar cajón para discapacitado</a>
         
         <div class="alert alert-danger" id="alertMax">
-            <strong>Error:</strong> Solo puedes ingresar dos automóviles.
+            <strong>Error:</strong> Solo puedes enviar una solictud.
         </div>
     </div>
 </body>

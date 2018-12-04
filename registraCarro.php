@@ -34,8 +34,9 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php echo $_SESSION['user'];?>  <img src="img/usuario.png" class="img-circle" alt="Cinque Terre" width="25" height="25"></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="OpcionesAdmin.php">Configuración</a></li>
+                     <ul class="dropdown-menu">
+                        <li><a href="OpcionesUsuario.php">Configuración</a></li>
+                        <li><a href="solicitudUser.php">Solicitar cajón para discapacitado</a></li>
                         <li><a href="cambiarPassUser.php">Cambiar Contraseña</a></li>
                         <li><a href="php/logout.php">Cerrar Sesión</a></li>
                     </ul>

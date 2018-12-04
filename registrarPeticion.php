@@ -23,7 +23,7 @@
 
 <body>
 
-   <nav class="navbar navbar-inverse">
+    <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
                 <a class="navbar-brand" href="Usuario.php">Estacionamiento ESCOM</a>
@@ -49,30 +49,7 @@
     </nav>  
 
     <div class="container">
-        <h3>Notificaciones</h3>
-        <section>
-            <table class="table table-striped">
-                <tr> 
-                    <th>Número Reporte</th> 
-                     <th>Fecha Reporte</th> 
-                     <th>Tipo</th> 
-                     <th>Descripcion</th> 
-                     <th>Imágen</th>
-                     <th></th>
-                     <th></th>
-                     <th></th>
-                </tr>
-                <?php 
-                    include("php/config.php");
-                    $query = "SELECT * FROM tb_reporte WHERE IDConductor = '".$_SESSION['user']."' ORDER BY fechaReporte ASC";
-                    $resultado = $conexion->query($query);
-                    while ($ret = mysqli_fetch_array($resultado)){ 
-                        echo "<tr><td>".$ret['noReporte']."</td> <td>".$ret['fechaReporte']."</td><td>".$ret['tipo']."</td><td>".$ret['descripcion']."</td><td> <img style='width: 50px; height: 50px;'' src='data:image/jpeg;base64,". base64_encode($ret['imagen']). "'/> </td></tr>"; 
-                    } 
-                 ?>
-            </table>
-        </section>
+        
     </div>
-
 </body>
 </html>

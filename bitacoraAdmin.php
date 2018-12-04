@@ -1,20 +1,18 @@
 <?php 
     session_start();
     if(isset($_SESSION["tipo"])){
-        if($_SESSION["tipo"] == "Alumno" || $_SESSION["tipo"] == "Profesor" || $_SESSION["tipo"] == "Vigilante" || $_SESSION["tipo"] == "Otro"){
-            
-        }else{
+        if($_SESSION["tipo"] != "Admin"){
             header("Location: index.html", true, 301);
         }
     }else{
-        header("Location: index.html", true, 301);
+        header("Location: iniciosesion.html", true, 301);
     }
 ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Inicio</title>
+    <title>Bitacora</title>
     <!-- Dependencias bootstrap -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -22,25 +20,26 @@
 </head>
 
 <body>
-
-    <nav class="navbar navbar-inverse">
+    
+     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="Usuario.php">Estacionamiento ESCOM</a>
+                <a class="navbar-brand" href="Administrador.php">Estacionamiento ESCOM</a>
             </div>
             <ul class="nav navbar-nav">
-                <li><a href="Usuario.php">Inicio</a></li>
-                <li><a href="notiUSR.php">Notificaciones</a></li>
-                <li><a href="MapaUsuario.php">Mapa</a></li>
-                <li><a href="reportarFaltaUser.php">Reportar Falta</a></li>
-                <li><a href="tablaAuto.php">Tabla automóviles</a></li>
+                <li><a href="Administrador.php">Inicio</a></li>
+                <li><a href="MapaAdmin.php">Mapa</a></li>
+                <li><a href="tablaAutoAdmin.php">Automoviles</a></li>
+                <li><a href="tablaUsuarios.php">Usuarios</a></li>
+                <li><a href="faltas.php">Faltas</a></li>
+                <li><a href="bitacoraAdmin.php">Bitacora</a></li>
+                <li><a href="solicitudAdmin.php">Solicitudes de usuarios</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php echo $_SESSION['user'];?>  <img src="img/usuario.png" class="img-circle" alt="Cinque Terre" width="25" height="25"></a>
-                     <ul class="dropdown-menu">
-                        <li><a href="OpcionesUsuario.php">Configuración</a></li>
-                        <li><a href="solicitudUser.php">Solicitar cajón para discapacitado</a></li>
-                        <li><a href="cambiarPassUser.php">Cambiar Contraseña</a></li>
+                    <ul class="dropdown-menu">
+                        <li><a href="OpcionesAdmin.php">Configuración</a></li>
+                        <li><a href="cambiarPassAdmin.php">Cambiar contraseña</a></li>
                         <li><a href="php/logout.php">Cerrar Sesión</a></li>
                     </ul>
                 </li>
@@ -48,18 +47,8 @@
         </div>
     </nav>  
 
-    <div class="container">
-        <h3>Bienvenido <?php echo $_SESSION['nombre'].' '.$_SESSION['apellidoPat'].' '.$_SESSION['apellidoMat']; ?></h3>
-        <hr>
-        <blockquote>
-            En esta página puedes realziar reportes acerca de las infracciones o faltas que 
-            se cometen en el estacionamiento de la ESCOM. <br>
-            Por favor utiliza esta herramienta con responsabilidad, ya que los usuarios que 
-            los usuarios que hagan mal uso de la misma serán sancionados.
-            <footer>Atentamente la admistración de la ESCOM</footer>
-        </blockquote>
-        <br><hr><br>
-        <h3>Actividad del usuario:</h3>
+    <div class="container-fluid">
+        <h1>Bitacora general del estacionamiento</h1>
         <table class="table table-striped">
             <tr>
                 <th>IDBitacora</th>
@@ -73,7 +62,7 @@
             </tr>
             <?php 
                 include("php/config.php");
-                $query = "SELECT `IDBitacora`, `horaEntrada`,`horaSalida`,`noCajon`,`fecha`,`sancion`,`noReporte`  FROM `tb_bitacora` WHERE `IDConductor` = '".$_SESSION['user']."'";
+                $query = "SELECT `IDBitacora`, `horaEntrada`,`horaSalida`,`noCajon`,`fecha`,`sancion`,`noReporte`  FROM `tb_bitacora` ORDER BY fecha";
                 
                 $resultado = $conexion->query($query);
                 while ($ret = mysqli_fetch_array($resultado)){ 
@@ -106,7 +95,7 @@
                                         <th></th>
                                     </tr>
                                   ";
-                                    $query = "SELECT `IDBitacora`, `horaEntrada`,`horaSalida`,`noCajon`,`fecha`,`sancion`,`noReporte`  FROM `tb_bitacora` WHERE `IDConductor` = '".$_SESSION['user']."'";
+                                    $query = "SELECT `IDBitacora`, `horaEntrada`,`horaSalida`,`noCajon`,`fecha`,`sancion`,`noReporte`  FROM `tb_bitacora` ORDER BY fecha";
                                     
                                     $resultado = $conexion->query($query);
                                     $ret = mysqli_fetch_array($resultado);
