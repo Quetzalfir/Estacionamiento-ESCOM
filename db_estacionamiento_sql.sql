@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 04-12-2018 a las 08:02:27
+-- Tiempo de generación: 04-12-2018 a las 08:24:46
 -- Versión del servidor: 5.7.23
 -- Versión de PHP: 7.2.10
 
@@ -190,6 +190,22 @@ CREATE TABLE IF NOT EXISTS `tb_reporte` (
   KEY `fk_tb_reporte_tb_conductor2_idx` (`IDConductor`),
   KEY `fk_tb_reporte_tb_conductor3_idx` (`IDDenunciante`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `tb_reporte`
+--
+
+INSERT INTO `tb_reporte` (`noReporte`, `IDConductor`, `fechaReporte`, `tipo`, `descripcion`, `IDDenunciante`, `imagen`) VALUES
+(1, 'baldillo', '2018-12-04', 'Doble Fila', 'El conductor se estacionó en doble fila por mas de 5 minutos.', 'macomo11', NULL),
+(2, 'JosAln', '2018-12-04', 'Exceso de Velocidad', 'El conductor iba a exceso de velocidad.', 'macomo11', NULL),
+(3, 'dianahua', '2018-12-04', 'Telefono', 'El conductor iba usando el telefono', 'xavisotu', NULL),
+(4, 'vladimirah', '2018-12-04', 'Lugar de Discapacitados', 'Se estacionó en un lugar para discapacitados sin necesidad', 'carfghy', NULL),
+(5, 'bonafont65', '2018-12-04', 'Telefono', 'Usaba el telefono mientras manejaba', 'macomo11', NULL),
+(6, 'azr_67', '2018-12-04', 'Mal Estacionado', 'El conductor estaba estacionado sobre la línea amarilla divisoria', 'Santidad', NULL),
+(7, 'JosAln', '2018-12-04', 'Exceso de Velocidad', 'El conductor iba a exceso de velocidad y casi atropella a alguien', 'xavisotu', NULL),
+(8, 'yakio_midna', '2018-12-04', 'Lugar erróneo', 'El conductor se estacionó en un lugar que no le correspondía', 'omyaperi', NULL),
+(9, 'jolu23', '2018-12-04', 'Lugar de Discapacitados', 'Estacionado en lugar especial sin necesitarlo', 'jcsm', NULL),
+(10, 'xavisotu', '2018-12-04', 'Sin casco', 'Iba en la moto sin casco', 'macomo11', NULL);
 
 --
 -- Restricciones para tablas volcadas
