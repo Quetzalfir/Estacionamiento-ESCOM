@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-12-2018 a las 19:07:09
+-- Tiempo de generación: 04-12-2018 a las 20:24:14
 -- Versión del servidor: 10.1.37-MariaDB
 -- Versión de PHP: 7.2.12
 
@@ -105,26 +105,26 @@ CREATE TABLE `tb_cajon` (
 --
 
 INSERT INTO `tb_cajon` (`noCajon`, `tipoCajon`, `estado`) VALUES
-(1, 'Discapacitado', NULL),
-(2, 'Discapacitado', NULL),
-(3, 'Discapacitado', NULL),
-(4, 'Discapacitado', NULL),
-(5, 'Discapacitado', NULL),
-(6, 'Normal', NULL),
-(7, 'Normal', NULL),
-(8, 'Normal', NULL),
-(9, 'Normal', NULL),
-(10, 'Normal', NULL),
-(11, 'Normal', NULL),
-(12, 'Normal', NULL),
-(13, 'Normal', NULL),
-(14, 'Normal', NULL),
-(15, 'Normal', NULL),
-(16, 'Normal', NULL),
-(17, 'Normal', NULL),
-(18, 'Normal', NULL),
-(19, 'Moto', NULL),
-(20, 'Moto', NULL);
+(1, 'Discapacitado', 1),
+(2, 'Discapacitado', 0),
+(3, 'Discapacitado', 0),
+(4, 'Discapacitado', 0),
+(5, 'Discapacitado', 0),
+(6, 'Normal', 0),
+(7, 'Normal', 0),
+(8, 'Normal', 0),
+(9, 'Normal', 0),
+(10, 'Normal', 0),
+(11, 'Normal', 0),
+(12, 'Normal', 0),
+(13, 'Normal', 0),
+(14, 'Normal', 0),
+(15, 'Normal', 0),
+(16, 'Normal', 0),
+(17, 'Normal', 0),
+(18, 'Normal', 0),
+(19, 'Moto', 0),
+(20, 'Moto', 0);
 
 -- --------------------------------------------------------
 
