@@ -21,7 +21,7 @@
 
 <body>
 
-    <nav class="navbar navbar-inverse">
+     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
                 <a class="navbar-brand" href="Administrador.php">Estacionamiento ESCOM</a>
@@ -32,17 +32,20 @@
                 <li><a href="tablaAutoAdmin.php">Automoviles</a></li>
                 <li><a href="tablaUsuarios.php">Usuarios</a></li>
                 <li><a href="faltas.php">Faltas</a></li>
+                <li><a href="bitacoraAdmin.php">Bitacora</a></li>
+                <li><a href="solicitudAdmin.php">Solicitudes de usuarios</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php echo $_SESSION['user'];?>  <img src="img/usuario.png" class="img-circle" alt="Cinque Terre" width="25" height="25"></a>
                     <ul class="dropdown-menu">
                         <li><a href="OpcionesAdmin.php">Configuración</a></li>
+                        <li><a href="cambiarPassAdmin.php">Cambiar contraseña</a></li>
                         <li><a href="php/logout.php">Cerrar Sesión</a></li>
                     </ul>
                 </li>
             </ul>
         </div>
-    </nav>
+    </nav>  
 
     <div class="container">
         <h3>¿Deseas borrar el reporte <?php echo $_GET['noReporte']; ?> del usuario <?php echo $_GET['IDConductor']; ?>?</h3>
