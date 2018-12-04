@@ -19,11 +19,34 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        function init(argument) {
+            $("#alertMax").hide();
+            $("#alertMax2").hide();       
+        }
+
+        $( "#btn" ).click(function() {
+            $.ajax({
+                url : 'php/pass.php',
+                type : 'POST',
+                dataType : 'html',
+                data : { pwd: alumnos },
+            }).done(function(resultado){
+                if(parseInt(resultado, 10) >= 2){
+                    
+                }
+                else{
+
+                }
+            });
+        });
+        window.addEventListener('load', init, false);
+    </script>
 </head>
 
 <body>
 
-   <nav class="navbar navbar-inverse">
+    <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
                 <a class="navbar-brand" href="Usuario.php">Estacionamiento ESCOM</a>
@@ -48,29 +71,28 @@
     </nav>  
 
     <div class="container">
-        <h3>Notificaciones</h3>
-        <section>
-            <table class="table table-striped">
-                <tr> 
-                    <th>Número Reporte</th> 
-                     <th>Fecha Reporte</th> 
-                     <th>Tipo</th> 
-                     <th>Descripcion</th> 
-                     <th>Imágen</th>
-                     <th></th>
-                     <th></th>
-                     <th></th>
-                </tr>
-                <?php 
-                    include("php/config.php");
-                    $query = "SELECT * FROM tb_reporte WHERE IDConductor = '".$_SESSION['user']."' ORDER BY fechaReporte ASC";
-                    $resultado = $conexion->query($query);
-                    while ($ret = mysqli_fetch_array($resultado)){ 
-                        echo "<tr><td>".$ret['noReporte']."</td> <td>".$ret['fechaReporte']."</td><td>".$ret['tipo']."</td><td>".$ret['descripcion']."</td><td> <img style='width: 50px; height: 50px;'' src='data:image/jpeg;base64,". base64_encode($ret['imagen']). "'/> </td></tr>"; 
-                    } 
-                 ?>
-            </table>
-        </section>
+        <h3>Cambiar contraseña actual</h3>
+        <hr>
+            <label>Contraseña actual</label>
+            <input class="form-control" type="password" id="apass" placeholder="Contraseña actual">
+            <label>Nueva contraseña</label>
+            <input class="form-control" type="password" id="pass" placeholder="Nueva contraseña">
+            <label>Confirmar contraseña</label>
+            <input class="form-control" type="password" id="pass2" placeholder="Confirmar contraseña"><br>
+            <div class="form-group row">
+                <div class="col-xs-6">
+                    <a href="Usuario.php" class="btn btn-danger" role="button" style="width: 100%;">Cancelar</a>
+                </div>
+                <div class="col-xs-6">
+                    <button class="form-control btn btn-primary" id="btn" type="submit"></button>
+                </div>
+            </div>
+            <div class="alert alert-danger" id="alertMax">
+                <strong>Error:</strong> Solo puedes ingresar dos automóviles.
+            </div>
+            <div class="alert alert-danger" id="alertMax2">
+                <strong>Error:</strong> Las contraseñas no coiciden
+            </div>
     </div>
 
 </body>

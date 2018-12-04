@@ -13,6 +13,7 @@
 			$tipo = $ret['tipo'];
 			$autorizado = $ret['autorizado']; 
 			$_SESSION["user"] = $nickname;
+			$_SESSION["pwd"] = $password;
 			$_SESSION["nombre"] = $ret['nombre'];
 			$_SESSION["apellidoPat"] = $ret['apellidoPat'];
 			$_SESSION["apellidoMat"] = $ret['apellidoMat'];

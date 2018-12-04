@@ -35,7 +35,7 @@ $(document).ready(function() {
         }
     });
 
-    $("main form [name=pass2]").on("blur", function() {
+    $(".container form [name=pass2]").on("blur", function() {
         if ($("main form [name=pass]").val() != $(this).val()) {
             this.setCustomValidity("Las contraseñas no coinciden");
         } else {

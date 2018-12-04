@@ -34,12 +34,13 @@
                 <li><a href="notiUSR.php">Notificaciones</a></li>
                 <li><a href="MapaUsuario.php">Mapa</a></li>
                 <li><a href="reportarFaltaUser.php">Reportar Falta</a></li>
-                <li><a href="#">Tabla automóviles</a></li>
+                <li><a href="tablaAdmin.php">Tabla automóviles</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php echo $_SESSION['user'];?>  <img src="img/usuario.png" class="img-circle" alt="Cinque Terre" width="25" height="25"></a>
                     <ul class="dropdown-menu">
                         <li><a href="OpcionesUsuario.php">Configuración</a></li>
+                        <li><a href="cambiarPassUser.php">Cambiar Contraseña</a></li>
                         <li><a href="php/logout.php">Cerrar Sesión</a></li>
                     </ul>
                 </li>
