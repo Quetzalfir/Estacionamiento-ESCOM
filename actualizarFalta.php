@@ -87,6 +87,13 @@
                     <option value="Luces encendidas">Luces encendidas</option>
                     <option value="Otro" selected>Otro</option>';
                     break;
+                    default:
+                        echo '
+                    <option value="Mal estacionado">Mal estacionado</option>
+                    <option value="Choque">Choque</option>
+                    <option value="Luces encendidas">Luces encendidas</option>
+                    <option value="Otro" selected>Otro</option>';
+                    break;
                 } 
                 echo '</select>
                 <label>Descripción de la infracción</label>

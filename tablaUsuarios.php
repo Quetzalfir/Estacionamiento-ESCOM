@@ -43,7 +43,7 @@
             </ul>
         </div>
     </nav>  
-    <div class="container">
+    <div class="container-fluid">
         <h3>Tabla de usuarios</h3>
         <table class="table table-striped">
             <tr> 

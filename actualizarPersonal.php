@@ -52,14 +52,14 @@
             <label>Nickname (<span id="disponible" style="color:#FF2B10FF;">No puede modificar su nickname</span>)</label> 
             <input class="form-control" type="text" name="IDConductor" required pattern="[A-Za-z áéíóúÁÉÍÓÚ]+" value="'.$_GET['IDConductor'].'" readonly="readonly"><br>
             <label>Nombre(s)</label>
-            <input class="form-control" type="text" name="nombre" required pattern="[A-Za-z áéíóúÁÉÍÓÚ]+" value="'.$_GET['nombre'].'"><br>
+            <input class="form-control" type="text" name="nombre" required pattern="[A-Za-z áéíóúÁÉÍÓÚñ]+" value="'.$_GET['nombre'].'"><br>
 
             <label>Apellido Paterno</label>
 
-            <input class="form-control" type="text" name="appat" pattern="[A-Za-z áéíóúÁÉÍÓÚ]+" required value="'.$_GET['apellidoPat'].'"><br>
+            <input class="form-control" type="text" name="appat" pattern="[A-Za-z áéíóúÁÉÍÓÚñ]+" required value="'.$_GET['apellidoPat'].'"><br>
 
             <label>Apellido Materno</label>
-            <input class="form-control" type="text" name="apmat" pattern="[A-Za-z áéíóúÁÉÍÓÚ]+" required value="'.$_GET['apellidoMat'].'"><br>
+            <input class="form-control" type="text" name="apmat" pattern="[A-Za-z áéíóúÁÉÍÓÚñ]+" required value="'.$_GET['apellidoMat'].'"><br>
 
             <label>Teléfono</label>
             <input class="form-control" type="tel" name="tel" required pattern="[0-9]{10}" value="'.$_GET['telefono'].'"><br>
@@ -96,16 +96,14 @@
             <br>
 
             <label id="tipoId" >Boleta</label>
-            <input class="form-control" type="text" name="bole" required pattern="[0-9]{10}" value="'.$_GET['boletaRFC'].'"><br>
+            <input class="form-control" type="text" name="bole" required  value="'.$_GET['boletaRFC'].'"><br>
 
             <label>Correo</label>
             <input class="form-control" type="email" name="correo" placeholder="ejemplo@email.com" required value="'.$_GET['correo'].'"><br>
 
-            <label>Crear Contraseña</label>
-            <input class="form-control" type="text" name="pass" required minlength="5" maxlength="40" value="'.$_GET['password'].'"><br>
+            <label>Contraseña</label>
+            <input class="form-control" type="password" name="pass" required minlength="5" maxlength="40" value="'.$_GET['password'].'"><br>
 
-            <label>Verificar Contraseña</label>
-            <input class="form-control" type="text" name="pass2" required minlength="5" maxlength="40"><br>
             <div class="form-group row">
                 <div class="col-xs-6">
                     <a href="tablaUsuarios.php" class="btn btn-danger" role="button" style="width: 100%;">Cancelar</a>
