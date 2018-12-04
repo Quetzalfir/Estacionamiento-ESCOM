@@ -51,7 +51,7 @@
         <section>
             <form action="php/insertarReporte.php" method="post" enctype="multipart/form-data" class="form-horizontal" accept-charset="utf-8">    
                 <label>Placa:</label>
-                <input class="form-control" type="text" name="placas"> <br>
+                <input class="form-control" type="text" name="placas" pattern=¨"[A-Z0-9]{3}+[-]+[A-Z0-9]"required> <br>
                 <label style="display: inline-block">Tipo:&nbsp;&nbsp;&nbsp;</label>
                 <select name="tipo" class="form-control">
                     <option value="Mal estacionado">Mal estacionado</option>
