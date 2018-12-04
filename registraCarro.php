@@ -51,7 +51,7 @@
     <section>
         <form action="php/insertarAuto.php" method="post">
             <label>Placa</label>
-            <input class="form-control" type="text" name="placas">
+            <input class="form-control" type="text" name="placas" pattern="[A-Z0-9]+[-]+[A-Z0-9]">
             <label style="display: inline-block">Tipo:&nbsp;&nbsp;&nbsp;</label>
             <select name="tipo" class="form-control">
                 <option value="Automovil">Automovil</option>
@@ -61,7 +61,7 @@
             </select>
             <label>Modelo</label>
             <input class="form-control" type="text" name="modelo">
-            <label>Compañia</label>
+            <label>Compa&#241;ia</label>
             <input class="form-control" type="text" name="compania">
             <label>Color</label>
             <input class="form-control" type="color" name="colorAutomovil"><br>
