@@ -13,9 +13,9 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Inicio</title>
-    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -30,12 +30,12 @@
                 <li><a href="notiUSR.php">Notificaciones</a></li>
                 <li><a href="MapaUsuario.php">Mapa</a></li>
                 <li><a href="reportarFaltaUser.php">Reportar Falta</a></li>
-                <li><a href="#">Tabla automóviles</a></li>
+                <li><a href="tablaAuto.php">Tabla automóviles</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php echo $_SESSION['user'];?>  <img src="img/usuario.png" class="img-circle" alt="Cinque Terre" width="25" height="25"></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Configuración</a></li>
+                        <li><a href="OpcionesAdmin.php">Configuración</a></li>
                         <li><a href="php/logout.php">Cerrar Sesión</a></li>
                     </ul>
                 </li>
@@ -45,10 +45,11 @@
 
 <div class="container">
     <h3>Registar Automovil</h3>
+    <hr>
     <section>
-        <form action="php/insertarCarro.php" method="post">
+        <form action="php/insertarAuto.php" method="post">
             <label>Placa</label>
-            <input class="form-control" type="text" name="placa"><br>
+            <input class="form-control" type="text" name="placas">
             <label style="display: inline-block">Tipo:&nbsp;&nbsp;&nbsp;</label>
             <select name="tipo" class="form-control">
                 <option value="Automovil">Automovil</option>
@@ -56,32 +57,23 @@
                 <option value="Motocicleta">Motocicleta</option>
                 <option value="Otro">Otro</option>
             </select>
-            <br>
             <label>Modelo</label>
-            <input class="form-control" type="text" name="marca"><br>
+            <input class="form-control" type="text" name="modelo">
             <label>Compañia</label>
-            <input class="form-control" type="text" name="modelo"><br>
+            <input class="form-control" type="text" name="compania">
             <label>Color</label>
-            <input class="form-control" type="color" name="color"><br>
-            <label style="display: inline-block">¿Necesitas cajón de Discapacidad? &nbsp;&nbsp;&nbsp;</label>
-            <select name="discapacidad" class="form-control">
-                <option value="No">No</option>
-                <option value="Sí">Sí</option>
-            </select>
-            <br>
-            <input class="form-control" type="submit" value="Enviar">
+            <input class="form-control" type="color" name="colorAutomovil"><br>
+            <div class="form-group row">
+                <div class="col-xs-6">
+                    <a href="tablaAuto.php" class="btn btn-danger" role="button" style="width: 100%;">Cancelar</a>
+                </div>
+                <div class="col-xs-6">
+                    <input  class="form-control btn btn-success" type="submit" value="Registrar">
+                </div>
+            </div>
         </form>
-
-        <img src="img/entrada.jpg">
     </section>
 </div>
-
-<footer>
-    <p>Valencia Rodriguez Fernando</p>
-    <p>Azpeitia Hernánez Vladimir </p>
-    <p>Huerta Alvarez Diana Alejandra</p>
-</footer>
-
 
 </body>
 </html>

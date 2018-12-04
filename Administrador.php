@@ -36,7 +36,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php echo $_SESSION['user'];?>  <img src="img/usuario.png" class="img-circle" alt="Cinque Terre" width="25" height="25"></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Configuración</a></li>
+                        <li><a href="OpcionesAdmin.php">Configuración</a></li>
                         <li><a href="php/logout.php">Cerrar Sesión</a></li>
                     </ul>
                 </li>
@@ -45,8 +45,8 @@
     </nav>  
 
     <div class="container">
-        <h1>¡ Bienvenido Administrador!</h1>
-        <h2>Inicio de sesión exitoso</h2>
+        <h1>¡ Bienvenido <?php echo $_SESSION['nombre'].' '.$_SESSION['apellidoPat'].' '.$_SESSION['apellidoMat']; ?>!</h1>
+        <h2>CUENTA DEL ADMISTRADOR</h2>
         <img src="img/peaje1.png" class="img-responsive" >
         <blockquote>
             Esta página es para ayudarnos a tener un estacionamiento más seguro y eficaz
