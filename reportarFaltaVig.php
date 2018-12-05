@@ -1,9 +1,9 @@
 <?php 
     session_start();
     if(isset($_SESSION["tipo"])){
-       if($_SESSION["tipo"] != 'Admin'){
-            header("Location: Usuario.php", true, 301);
-       }
+        if($_SESSION["tipo"] != "Vigilante"){
+            header("Location: index.html", true, 301);
+        }
     }else{
         header("Location: index.html", true, 301);
     }
@@ -21,31 +21,26 @@
 
 <body>
 
-        <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="Administrador.php">Estacionamiento ESCOM</a>
-            </div>
-            <ul class="nav navbar-nav">
-                <li><a href="Administrador.php">Inicio</a></li>
-                <li><a href="MapaAdmin.php">Mapa</a></li>
-                <li><a href="tablaAutoAdmin.php">Automoviles</a></li>
-                <li><a href="tablaUsuarios.php">Usuarios</a></li>
-                <li><a href="faltas.php">Faltas</a></li>
-                <li><a href="bitacoraAdmin.php">Bitacora</a></li>
-                <li><a href="solicitudAdmin.php">Solicitudes de usuarios</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php echo $_SESSION['user'];?>  <img src="img/usuario.png" class="img-circle" alt="Cinque Terre" width="25" height="25"></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="OpcionesAdmin.php">Configuración</a></li>
-                        <li><a href="cambiarPassAdmin.php">Cambiar contraseña</a></li>
-                        <li><a href="php/logout.php">Cerrar Sesión</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </nav>  
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+          <div class="navbar-header">
+              <a class="navbar-brand" href="Vigilante.php">Estacionamiento ESCOM</a>
+          </div>
+          <ul class="nav navbar-nav">
+              <li><a href="Vigilante.php">Inicio</a></li>
+              <li><a href="MapaVigilante.php">Mapa</a></li>
+              <li><a href="reportarFaltaVig.php">Reportar falta</a></li>
+              <li><a href="bitacoraVig.php">Bitacora</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php echo $_SESSION['user'];?>  <img src="img/usuario.png" class="img-circle" alt="Cinque Terre" width="25" height="25"></a>
+                  <ul class="dropdown-menu">
+                      <li><a href="php/logout.php">Cerrar Sesión</a></li>
+                  </ul>
+              </li>
+          </ul>
+      </div>
+    </nav> 
 
     <div class="container">
         <h1>Reportar Falta</h1>
@@ -55,7 +50,7 @@
             <label>Placa:</label>
             <input class="form-control" type="text" name="placas" pattern="[A-Z]{3}[-]\d{3}" required> <br>
             <label style="display: inline-block">Tipo:&nbsp;&nbsp;&nbsp;</label>
-            <select name="tipo" class="form-control" required>
+            <select name="tipo" class="form-control">
                 <option value="Mal estacionado">Mal estacionado</option>
                 <option value="Choque">Choque</option>
                 <option value="Luces encendidas">Luces encendidas</option>
@@ -67,7 +62,7 @@
             <input class="form-control" type="file" name="imagen" accept="image/png, image/jpeg"> <br>
             <div class="form-group row">
                 <div class="col-xs-6">
-                    <a href="faltas.php" class="btn btn-danger" role="button" style="width: 100%;">Cancelar</a>
+                    <a href=Vigilante.php" class="btn btn-danger" role="button" style="width: 100%;">Cancelar</a>
                 </div>
                 <div class="col-xs-6">
                     <input class="form-control btn btn-primary" type="submit" value="Realizar reporte">

@@ -68,7 +68,7 @@
             </tr>
             <?php 
                 include("php/config.php");
-                $query = "SELECT * FROM `tb_conductor` WHERE `tipo` != 'Admin'";
+                $query = "SELECT * FROM `tb_conductor` WHERE `tipo` != 'Admin' ORDER BY fechaRegistro DESC";
                 $resultado = $conexion->query($query);
                 while ($ret = mysqli_fetch_array($resultado)){ 
                     echo "<tr><td>".$ret['IDConductor']."</td><td>".$ret['nombre']."</td> <td>".$ret['apellidoPat']."</td><td>".$ret['apellidoMat']."</td><td>".$ret['telefono']."</td><td>".$ret['correo']."</td><td>".$ret['boletaRFC']."</td><td>".$ret['tipo']."</td><td>".$ret['password']."</td><td>".$ret['fechaRegistro']."</td><td>". (($ret['autorizado'] == 0)?'No':'Si') ."</td><td>".$ret['noCajon']."</td><td><a class='btn btn-info' role='button' href='php/autorizar.php?IDConductor=".$ret['IDConductor']."&value=".$ret['autorizado']."'>" . (($ret['autorizado'] == 0)?'Permitir Acceso':'Negar Acesso') . "</a></td><td><a class='btn btn-primary' role='button' href='actualizarPersonal.php?IDConductor=".$ret['IDConductor']."&nombre=".$ret['nombre']."&apellidoPat=".$ret['apellidoPat']."&apellidoMat=".$ret['apellidoMat']."&telefono=".$ret['telefono']."&correo=".$ret['correo']."&boletaRFC=".$ret['boletaRFC']."&tipo=".$ret['tipo']."&password=".$ret['password']."'>Editar</a></td><td><a href='confirmDeleteUSR.php?IDConductor=".$ret['IDConductor']."' class='btn btn-danger' role='button'>Eliminar</a></td></tr>"; 

@@ -57,16 +57,17 @@
                 <th>Número de cajon</th>
                 <th>Fecha</th>
                 <th>¿Tuvo sanción?</th>
-                <th>Número reporte</th>  
+                <th>Número reporte</th>
+                <th>IDVigilante</th>    
                 <th></th>
             </tr>
             <?php 
                 include("php/config.php");
-                $query = "SELECT `IDBitacora`, `horaEntrada`,`horaSalida`,`noCajon`,`fecha`,`sancion`,`noReporte`  FROM `tb_bitacora` ORDER BY fecha";
+                $query = "SELECT `IDBitacora`, `horaEntrada`,`horaSalida`,`noCajon`,`fecha`,`sancion`,`noReporte`,IDVigilante  FROM `tb_bitacora` ORDER BY fecha";
                 
                 $resultado = $conexion->query($query);
                 while ($ret = mysqli_fetch_array($resultado)){ 
-                    echo "<tr><td>".$ret['IDBitacora']."</td> <td>".$ret['horaEntrada']."</td><td>".$ret['horaSalida']."</td><td>".$ret['noCajon']."</td><td>".$ret['fecha']."</td><td>".(($ret['sancion'] == '1')?'SÍ':'NO')."</td><td>".$ret['noReporte']."</td><td><button type='button' class='btn btn-danger' data-toggle='modal' data-target='#myModal2' id='btnMapaCreado'> Ver sancion </button></td></tr> "; 
+                    echo "<tr><td>".$ret['IDBitacora']."</td> <td>".$ret['horaEntrada']."</td><td>".$ret['horaSalida']."</td><td>".$ret['noCajon']."</td><td>".$ret['fecha']."</td><td>".(($ret['sancion'] == '1')?'SÍ':'NO')."</td><td>".$ret['noReporte']."</td><td>".$ret['IDVigilante']."</td><td><button type='button' class='btn btn-danger' data-toggle='modal' data-target='#myModal2' id='btnMapaCreado'> Ver sancion </button></td></tr> "; 
                     }
                  ?>       
         </table>
@@ -86,11 +87,11 @@
                               <div class='modal-body'>
                                   <table class='table table-striped table-condensed'>
                                     <tr>
-                                        <th>Placas</th>
-                                        <th>Tipo</th>
-                                        <th>Modelo</th>
-                                        <th>Compañia</th>
-                                        <th>Color</th>
+                                        <th>Número reporte</th>
+                                        <th>Fecha</th>
+                                        <th>Tipo de falta</th>
+                                        <th>Descripción</th>
+                                        <th>Foto</th>
                                         <th></th>
                                         <th></th>
                                     </tr>
