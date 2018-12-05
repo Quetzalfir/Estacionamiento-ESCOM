@@ -28,7 +28,36 @@
                     this.setCustomValidity("");
                 }
             });
+            $("input[type=submit]").attr("disabled", "disabled");
         });
+
+        $(document).on('keyup', '#apass', function(){
+            var pass = $(this).val();
+            esCorrecta(pass);
+        });
+
+        function esCorrecta(pass) {
+            $.ajax({
+                url : 'php/buscarPass.php',
+                type : 'POST',
+                dataType : 'html',
+                data : { pwd: pass },
+                })
+
+                .done(function(resultado){
+                    if(resultado == "si"){
+                        $("#info").text("La contraseña es correcta");
+                        $("input[type=submit]").removeAttr("disabled"); 
+                        $("#info").css({'color':'#45932CFF'});
+                    }
+                    else{
+                        $("#info").text("La contraseña es incorrecta");
+                        $("input[type=submit]").attr("disabled", "disabled");
+                        $("#info").css({'color':'#D1322DFF'});
+                    }
+            })
+        }
+
     </script>
 </head>
 
@@ -62,13 +91,13 @@
     <div class="container">
         <h3>Cambiar contraseña actual</h3>
         <hr>
-        <form>
-            <label>Contraseña actual</label>
+        <form action="php/cambiarPass.php" method="post">
+            <label>Contraseña actual: </label><span id='info'> Esperando..</span>
             <input class="form-control" type="password" id="apass" placeholder="Contraseña actual" required autofocus>
             <label>Nueva contraseña</label>
-            <input class="form-control" type="password" id="pass" placeholder="Nueva contraseña" required>
+            <input class="form-control" type="password" id="pass"  name='pass' placeholder="Nueva contraseña" required min="5">
             <label>Confirmar contraseña</label>
-            <input class="form-control" type="password" id="pass2" placeholder="Confirmar contraseña" required><br>
+            <input class="form-control" type="password" id="pass2" placeholder="Confirmar contraseña" required min="5"><br>
             <div class="form-group row">
                 <div class="col-xs-6">
                     <a href="Usuario.php" class="btn btn-danger" role="button" style="width: 100%;">Cancelar</a>
@@ -77,7 +106,7 @@
                     <input type="submit" class="form-control btn btn-primary" id="btn"></input>
                 </div>
             </div>
-        </form>
+        </form> <br>
     </div>
 
 </body>

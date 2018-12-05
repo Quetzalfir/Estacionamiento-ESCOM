@@ -27,59 +27,88 @@ if(isset($_SESSION["tipo"])){
                     this.setCustomValidity("");
                 }
             });
+            $("input[type=submit]").attr("disabled", "disabled");
         });
+
+        $(document).on('keyup', '#apass', function(){
+            var pass = $(this).val();
+            esCorrecta(pass);
+        });
+
+        function esCorrecta(pass) {
+            $.ajax({
+                url : 'php/buscarPass.php',
+                type : 'POST',
+                dataType : 'html',
+                data : { pwd: pass },
+                })
+
+                .done(function(resultado){
+                    if(resultado == "si"){
+                        $("#info").text("La contraseña es correcta");
+                        $("input[type=submit]").removeAttr("disabled"); 
+                        $("#info").css({'color':'#45932CFF'});
+                    }
+                    else{
+                        $("#info").text("La contraseña es incorrecta");
+                        $("input[type=submit]").attr("disabled", "disabled");
+                        $("#info").css({'color':'#D1322DFF'});
+                    }
+            })
+        }
+
     </script>
 
 </head>
 
 <body>
 
-<nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="Administrador.php">Estacionamiento ESCOM</a>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="Administrador.php">Estacionamiento ESCOM</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="Administrador.php">Inicio</a></li>
+                <li><a href="MapaAdmin.php">Mapa</a></li>
+                <li><a href="tablaAutoAdmin.php">Automoviles</a></li>
+                <li><a href="tablaUsuarios.php">Usuarios</a></li>
+                <li><a href="faltas.php">Faltas</a></li>
+                <li><a href="bitacoraAdmin.php">Bitacora</a></li>
+                <li><a href="solicitudAdmin.php">Solicitudes de usuarios</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php echo $_SESSION['user'];?>  <img src="img/usuario.png" class="img-circle" alt="Cinque Terre" width="25" height="25"></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="OpcionesAdmin.php">Configuración</a></li>
+                        <li><a href="cambiarPassAdmin.php">Cambiar contraseña</a></li>
+                        <li><a href="php/logout.php">Cerrar Sesión</a></li>
+                    </ul>
+                </li>
+            </ul>
         </div>
-        <ul class="nav navbar-nav">
-            <li><a href="Administrador.php">Inicio</a></li>
-            <li><a href="MapaAdmin.php">Mapa</a></li>
-            <li><a href="tablaAutoAdmin.php">Automoviles</a></li>
-            <li><a href="tablaUsuarios.php">Usuarios</a></li>
-            <li><a href="faltas.php">Faltas</a></li>
-            <li><a href="bitacoraAdmin.php">Bitacora</a></li>
-            <li><a href="solicitudAdmin.php">Solicitudes de usuarios</a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php echo $_SESSION['user'];?>  <img src="img/usuario.png" class="img-circle" alt="Cinque Terre" width="25" height="25"></a>
-                <ul class="dropdown-menu">
-                    <li><a href="OpcionesAdmin.php">Configuración</a></li>
-                    <li><a href="cambiarPassAdmin.php">Cambiar contraseña</a></li>
-                    <li><a href="php/logout.php">Cerrar Sesión</a></li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-</nav>
+    </nav>
 
-<div class="container">
-    <h3>Cambiar contraseña actual</h3>
-    <hr>
-    <form>
-        <label>Contraseña actual</label>
-        <input class="form-control" type="password" id="apass" placeholder="Contraseña actual" required autofocus>
-        <label>Nueva contraseña</label>
-        <input class="form-control" type="password" id="pass" placeholder="Nueva contraseña" required>
-        <label>Confirmar contraseña</label>
-        <input class="form-control" type="password" id="pass2" placeholder="Confirmar contraseña" required><br>
-        <div class="form-group row">
-            <div class="col-xs-6">
-                <a href="Administrador.php" class="btn btn-danger" role="button" style="width: 100%;">Cancelar</a>
-            </div>
-            <div class="col-xs-6">
-                <input type="submit" class="form-control btn btn-primary" id="btn"></input>
-            </div>
-        </div>
-    </form>
-</div>
+    <div class="container">
+       <h3>Cambiar contraseña actual</h3>
+       <hr>
+       <form action="php/cambiarPass.php" method="post">
+           <label>Contraseña actual: </label><span id='info'> Esperando..</span>
+           <input class="form-control" type="password" id="apass" placeholder="Contraseña actual" required autofocus>
+           <label>Nueva contraseña</label>
+           <input class="form-control" type="password" id="pass"  name='pass' placeholder="Nueva contraseña" required min="5">
+           <label>Confirmar contraseña</label>
+           <input class="form-control" type="password" id="pass2" placeholder="Confirmar contraseña" required min="5"><br>
+           <div class="form-group row">
+               <div class="col-xs-6">
+                   <a href="Usuario.php" class="btn btn-danger" role="button" style="width: 100%;">Cancelar</a>
+               </div>
+               <div class="col-xs-6">
+                   <input type="submit" class="form-control btn btn-primary" id="btn"></input>
+               </div>
+           </div>
+       </form> <br>
+   </div>
 
 </body>
 </html>
