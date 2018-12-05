@@ -17,11 +17,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/quick.css">
+
 </head>
 
 <body>
     
-      <nav class="navbar navbar-inverse">
+    <nav class="navbar navbar-inverse">
       <div class="container-fluid">
           <div class="navbar-header">
               <a class="navbar-brand" href="Vigilante.php">Estacionamiento ESCOM</a>
@@ -44,7 +46,7 @@
       </div>
     </nav> 
 
-    <div class="container"> 
+    <div class="container formm">
         <h3>Registrar en bitacora</h3>
         <hr>
         <form action="php/entradaCarro.php" method="post" accept-charset="utf-8" class="form-horizontal">

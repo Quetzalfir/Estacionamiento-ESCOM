@@ -16,6 +16,7 @@
     <!-- Dependencias bootstrap -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/quick.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
@@ -64,7 +65,7 @@
       </div>
     </nav> 
 
-    <div class="container"> 
+    <div class="container formm">
         <h3>Registrar en bitacora</h3>
         <hr>
         <form action="php/entradaCarro.php" method="post" accept-charset="utf-8" class="form-horizontal">
