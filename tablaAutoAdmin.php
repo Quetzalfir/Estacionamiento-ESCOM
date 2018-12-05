@@ -69,10 +69,11 @@
                     include("php/config.php");
                     $query = "SELECT `placas`, `IDConductor`, `tipo`, `modelo`, `compania`, `colorAutomovil` FROM `tb_automovil` GROUP BY `IDConductor`";
                     $resultado = $conexion->query($query);
+                    $i = 1;
                     while ($ret = mysqli_fetch_array($resultado)){
-                        echo "<tr><td>".$ret['placas']."</td><td>".$ret['IDConductor']."</td> <td>".$ret['tipo']."</td><td>".$ret['modelo']."</td><td>".$ret['compania']."</td><td><input type='color' value = '".$ret['colorAutomovil']."' disabled></td><td><a class='btn btn-primary' role='button' href='actualizarAuto.php?placas=".$ret['placas']."&IDConductor=".$ret['IDConductor']."&tipo=".$ret['tipo']."&modelo=".$ret['modelo']."&compania=".$ret['compania']."&colorAutomovil=".$ret['colorAutomovil']."'>Editar</a></td><td> <button type='button' class='btn btn-danger' data-toggle='modal' data-target='#myModal2' id='btnMapaCreado'>
+                        echo "<tr><td>".$ret['placas']."</td><td>".$ret['IDConductor']."</td> <td>".$ret['tipo']."</td><td>".$ret['modelo']."</td><td>".$ret['compania']."</td><td><input type='color' value = '".$ret['colorAutomovil']."' disabled></td><td><a class='btn btn-primary' role='button' href='actualizarAuto.php?placas=".$ret['placas']."&IDConductor=".$ret['IDConductor']."&tipo=".$ret['tipo']."&modelo=".$ret['modelo']."&compania=".$ret['compania']."&colorAutomovil=".$ret['colorAutomovil']."'>Editar</a></td><td> <button type='button' class='btn btn-danger' data-toggle='modal' data-target='#myModal".$i."' id='btnMapaCreado'>
                               Eliminar</button></td></tr>
-                            <div class='modal' id='myModal2' style='margin-top:150px;'>
+                            <div class='modal' id='myModal".$i."' style='margin-top:150px;'>
                               <div class='modal-dialog'>
                                 <div class='modal-content'>
     
@@ -95,6 +96,7 @@
                             </div>
                         
                         ";
+                        $i++;
                     }
                  ?>
             </tbody>

@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `tb_automovil` (
   `compania` varchar(45) DEFAULT NULL,
   `colorAutomovil` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`placas`),
-  KEY `fk_tb_reporte_tb_conductor1_idx` (`IDConductor`)
+    KEY `fk_tb_reporte_tb_conductor1_idx` (`IDConductor`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -177,7 +177,7 @@ CREATE TABLE IF NOT EXISTS `tb_conductor` (
   `autorizado` tinyint(1) DEFAULT NULL,
   `noCajon` int(11) DEFAULT NULL,
   PRIMARY KEY (`IDConductor`),
-  KEY `fk_tb_conductor_tb_cajon_idx` (`noCajon`)
+   KEY `fk_tb_conductor_tb_cajon_idx` (`noCajon`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
