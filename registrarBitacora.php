@@ -12,7 +12,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Inicio</title>
+    <title>Registro bitacora</title>
     <!-- Dependencias bootstrap -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -20,7 +20,7 @@
 </head>
 
 <body>
-
+    
     <nav class="navbar navbar-inverse">
       <div class="container-fluid">
           <div class="navbar-header">
@@ -42,30 +42,31 @@
       </div>
     </nav> 
 
-    <div class="container">
-        <h1>Reportar Falta</h1>
+    <div class="container"> 
+        <h3>Registrar en bitacora</h3>
         <hr>
-        <h3>Datos del infractor</h3>
-        <form action="php/insertarReporte.php" method="post" enctype="multipart/form-data" class="form-horizontal" accept-charset="utf-8">    
-            <label>Placa:</label>
-            <input class="form-control" type="text" name="placas" pattern="[A-Z]{3}[-]\d{3}" required> <br>
-            <label style="display: inline-block">Tipo:&nbsp;&nbsp;&nbsp;</label>
-            <select name="tipo" class="form-control">
-                <option value="Mal estacionado">Mal estacionado</option>
-                <option value="Choque">Choque</option>
-                <option value="Luces encendidas">Luces encendidas</option>
-                <option value="Otro">Otro</option>
+        <form action="php/insertarBitacora.php" method="post" accept-charset="utf-8" class="form-horizontal">
+            <label>Hora de entrada</label> 
+            <input class="form-control" type="time" name="horaEntrada" min="7:00" max="23:00" required>
+            <label>Cajon donde se estaciono</label> 
+            <select name="" class="form-control">  
+                <?php
+                include("php/config.php");
+                    $query = "SELECT `noCajon` FROM `tb_cajon` WHERE `tipoCajon` != 'Discapacitado' AND `estado` = '0'";
+                    $resultado = $conexion->query($query);
+                    while ($ret = mysqli_fetch_array($resultado)){
+                        echo "<option value='".$ret['noCajon']."' >".$ret['noCajon']."</option>";
+                    }
+                ?>
             </select>
-            <label>Descripción:</label>
-            <textarea name="descripcion" class="form-control" required></textarea><br>
-            <label>Insertar imagen:</label> 
-            <input class="form-control" type="file" name="imagen" accept="image/png, image/jpeg"> <br>
+            <label>Placas del carro</label> 
+            <input class="form-control" type="text"name="placas" min="6" max="350" pattern="[A-Z]{3}[-]\d{3}" required><br>
             <div class="form-group row">
                 <div class="col-xs-6">
-                    <a href="Vigilante.php" class="btn btn-danger" role="button" style="width: 100%;">Cancelar</a>
+                    <a href="bitacoraVig.php" class="btn btn-danger" role='button' style="width: 100%;">Cancelar</a>
                 </div>
                 <div class="col-xs-6">
-                    <input class="form-control btn btn-primary" type="submit" value="Realizar reporte">
+                    <input class="form-control btn btn-primary" type="submit" value="Registrar">
                 </div>
             </div>
         </form>

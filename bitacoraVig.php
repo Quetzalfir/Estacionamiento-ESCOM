@@ -110,6 +110,7 @@
                   </div>
                 </div>";
          ?>
+         <a href="registrarBitacora.php" class='btn btn-success' role='button'>Nuevo registro</a>
     </div>
 
 </body>
