@@ -17,8 +17,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="js/sorttable.js"></script>
-
 </head>
 
 <body>
@@ -48,31 +46,27 @@
 
     <div class="container-fluid">
         <h1>Bitacora del estacionamiento</h1>
-        <hr>
-        <table class="table table-striped sortble">
-            <thead>
-                <tr>
-                    <th>IDBitacora</th>
-                    <th>Hora entrada</th>
-                    <th>Hora salida</th>
-                    <th>Número de cajon</th>
-                    <th>Fecha</th>
-                    <th>¿Tuvo sanción?</th>
-                    <th>Número reporte</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-            <?php
+        <table class="table table-striped">
+            <tr>
+                <th>IDBitacora</th>
+                <th>Hora entrada</th>
+                <th>Hora salida</th>
+                <th>Número de cajon</th>
+                <th>Fecha</th>
+                <th>¿Tuvo sanción?</th>
+                <th>Número reporte</th>  
+                <th></th>
+                <th></th>
+            </tr>
+            <?php 
                 include("php/config.php");
-                $query = "SELECT `IDBitacora`, `horaEntrada`,`horaSalida`,`noCajon`,`fecha`,`sancion`,`noReporte`  FROM `tb_bitacora` WHERE IDVigilante = '" . $_SESSION['user'] . "' ORDER BY fecha DESC";
-
+                $query = "SELECT `IDBitacora`, `horaEntrada`,`horaSalida`,`noCajon`,`fecha`,`sancion`,`noReporte`  FROM `tb_bitacora` WHERE IDVigilante = '".$_SESSION['user']."' ORDER BY fecha DESC";
+                
                 $resultado = $conexion->query($query);
-                while ($ret = mysqli_fetch_array($resultado)) {
-                    echo "<tr><td>" . $ret['IDBitacora'] . "</td> <td>" . $ret['horaEntrada'] . "</td><td>" . $ret['horaSalida'] . "</td><td>" . $ret['noCajon'] . "</td><td>" . $ret['fecha'] . "</td><td>" . (($ret['sancion'] == '1') ? 'SÍ' : 'NO') . "</td><td>" . $ret['noReporte'] . "</td><td><button type='button' class='btn btn-danger' data-toggle='modal' data-target='#myModal2' id='btnMapaCreado'> Ver sancion </button></td></tr> ";
-                }
-                ?>
-            </tbody>
+                while ($ret = mysqli_fetch_array($resultado)){ 
+                    echo "<tr><td>".$ret['IDBitacora']."</td> <td>".$ret['horaEntrada']."</td><td>".$ret['horaSalida']."</td><td>".$ret['noCajon']."</td><td>".$ret['fecha']."</td><td>".(($ret['sancion'] == '1')?'SÍ':'NO')."</td><td>".$ret['noReporte']."</td><td><a href='registraSalida.php?IDBitacora=".$ret['IDBitacora']."' class = 'btn btn-success' role='button'>Registra Salida</a></td><td>".(($ret['sancion'] == '1')?"<button type='button' class='btn btn-danger' data-toggle='modal' data-target='#myModal2' id='btnMapaCreado'> Ver sancion </button>":"<button type='button' class='btn btn-danger' data-toggle='modal' data-target='#myModal2' id='btnMapaCreado' disabled> Ver sancion </button>")."</td></tr> "; 
+                    }
+                 ?>       
         </table>
         <?php 
             echo "
