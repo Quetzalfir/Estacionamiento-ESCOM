@@ -54,17 +54,18 @@
                 <th>Número de cajon</th>
                 <th>Fecha</th>
                 <th>¿Tuvo sanción?</th>
-                <th>Número reporte</th>  
+                <th>Número reporte</th> 
+                <th>IDConductor</th>  
                 <th></th>
                 <th></th>
             </tr>
             <?php 
                 include("php/config.php");
-                $query = "SELECT `IDBitacora`, `horaEntrada`,`horaSalida`,`noCajon`,`fecha`,`sancion`,`noReporte`  FROM `tb_bitacora` WHERE IDVigilante = '".$_SESSION['user']."' ORDER BY fecha DESC";
+                $query = "SELECT `IDBitacora`, `horaEntrada`,`horaSalida`,`noCajon`,`fecha`,`sancion`,`noReporte`, IDConductor  FROM `tb_bitacora` WHERE IDVigilante = '".$_SESSION['user']."' ORDER BY fecha DESC";
                 
                 $resultado = $conexion->query($query);
                 while ($ret = mysqli_fetch_array($resultado)){ 
-                    echo "<tr><td>".$ret['IDBitacora']."</td> <td>".$ret['horaEntrada']."</td><td>".$ret['horaSalida']."</td><td>".$ret['noCajon']."</td><td>".$ret['fecha']."</td><td>".(($ret['sancion'] == '1')?'SÍ':'NO')."</td><td>".$ret['noReporte']."</td><td><a href='registraSalida.php?IDBitacora=".$ret['IDBitacora']."' class = 'btn btn-success' role='button'>Registra Salida</a></td><td>".(($ret['sancion'] == '1')?"<button type='button' class='btn btn-danger' data-toggle='modal' data-target='#myModal2' id='btnMapaCreado'> Ver sancion </button>":"<button type='button' class='btn btn-danger' data-toggle='modal' data-target='#myModal2' id='btnMapaCreado' disabled> Ver sancion </button>")."</td></tr> "; 
+                    echo "<tr><td>".$ret['IDBitacora']."</td> <td>".$ret['horaEntrada']."</td><td>".$ret['horaSalida']."</td><td>".$ret['noCajon']."</td><td>".$ret['fecha']."</td><td>".(($ret['sancion'] == '1')?'SÍ':'NO')."</td><td>".$ret['noReporte']."</td><td>".$ret['IDConductor']."</td><td><a href='registraSalida.php?IDBitacora=".$ret['IDBitacora']."&horaEntrada=".$ret['horaEntrada']."&IDConductor=".$ret['IDConductor']."' class = 'btn btn-success' role='button'>Registra Salida</a></td><td>".(($ret['sancion'] == '1')?"<button type='button' class='btn btn-danger' data-toggle='modal' data-target='#myModal2' id='btnMapaCreado'> Ver sancion </button>":"<button type='button' class='btn btn-danger' data-toggle='modal' data-target='#myModal2' id='btnMapaCreado' disabled> Ver sancion </button>")."</td></tr> "; 
                     }
                  ?>       
         </table>

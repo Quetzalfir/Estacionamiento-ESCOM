@@ -22,16 +22,19 @@
             $(".container form [name=noReporte]").hide();
             $("#lbl").hide();
             $("#alertMax").hide();
+            $("#btn").hide();
             $(".container form [name=sancion]").on("change", function() {
               var val = $(this).val();
 
               if (val == "0") {
                     $("#lbl").hide();
                     $("#alertMax").hide();
+                    $("#btn").hide();
                     $(".container form [name=noReporte]").hide();
               } else {
                     $("#lbl").show();
                      $("#alertMax").show();
+                     $("#btn").show();
                     $(".container form [name=noReporte]").show();
               }
             });
@@ -67,9 +70,11 @@
     <div class="container"> 
         <h3>Registrar en bitacora</h3>
         <hr>
-        <form action="php/entradaCarro.php" method="post" accept-charset="utf-8" class="form-horizontal">
+        <form action="php/salidaCarro.php" method="post" accept-charset="utf-8" class="form-horizontal">
+            <label>Clave de bitacora</label> 
+            <input class="form-control" type="text" name="IDBitacora" value=<?php echo "'".$_GET['IDBitacora']."'"; ?> readonly>
             <label>Hora de salida</label> 
-            <input class="form-control" type="time" name="horaSalida" min="7:00" max="23:00" required>
+            <input class="form-control" type="time" name="horaSalida" min=<?php echo "'".$_GET['horaEntrada']."'"; ?> max="23:00" required>
             <label>¿Tuvo algun reporte?</label>
             <select name="sancion" class="form-control">
               <option value="0">NO</option>
@@ -79,10 +84,13 @@
             <select class="form-control" name="noReporte" class="form-control">  
                 <?php
                 include("php/config.php");
-                    $query = "SELECT `noReporte`, IDConductor FROM `tb_reporte`";
+                    $query = "SELECT `noReporte`, IDConductor FROM `tb_reporte` WHERE IDConductor = '".$_GET['IDConductor']."'";
                     $resultado = $conexion->query($query);
                     while ($ret = mysqli_fetch_array($resultado)){
-                        echo "<option value='".$ret['noReporte']."-".$ret['IDConductor']."' >".$ret['noReporte']."-".$ret['IDConductor']."</option>";
+                      $query2 = "SELECT `placas` FROM `tb_automovil` WHERE IDConductor = '".$ret['IDConductor']."'";
+                      $resultado2 = $conexion->query($query2);
+                      $ret2 = mysqli_fetch_array($resultado2);
+                        echo "<option value='".$ret['noReporte']."'>".$ret['noReporte']." - [".$ret2['placas']."]</option>";
                     }
                 ?>
             </select><br>
@@ -98,6 +106,14 @@
         <div class="alert alert-info" id="alertMax">
             <strong>Nota:</strong> Primero tienes que hacer el reporte.
         </div>
+        <?php  
+          $query = "SELECT `noReporte`, IDConductor FROM `tb_reporte` WHERE IDConductor = '".$_GET['IDConductor']."'";
+          $resultado = $conexion->query($query);
+          $query2 = "SELECT `placas` FROM `tb_automovil` WHERE IDConductor = '".$ret['IDConductor']."'";
+          $resultado2 = $conexion->query($query2);
+          $ret2 = mysqli_fetch_array($resultado2);
+        echo '<a href="reportarFaltaVig2.php?'.$ret2['placas'].'" class="btn btn-success" role="button" id="btn"> Reportar falta </a>';
+         ?> 
     </div>
 
 </body>
