@@ -50,7 +50,8 @@
     </nav>  
 
  <div class="container">
-        <h3>Actualizar información personal</h3>
+     <h3>Actualizar información personal</h3>
+     <hr>
         <form action="php/actualizarInfo.php" method="post" accept-charset="utf-8" class="form-horizontal">
             <?php 
                 echo'
