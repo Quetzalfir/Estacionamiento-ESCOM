@@ -33,6 +33,7 @@
     
     <div class="container formm">
         <h1>Registro de Usuario</h1>
+        <hr>
         <form class="form1" action="php/insertarUsuario.php" method="post" accept-charset="utf-8" class="form-horizontal">
             <label>Nickname (<span id="disponible" style="color:#45932CFF;">Disponible</span>)</label> 
             <input class="form-control" type="text" name="IDConductor" pattern="[A-Za-z0-9]+" required autofocus id="IDConductor" minlength="5" maxlength="20"><br>
