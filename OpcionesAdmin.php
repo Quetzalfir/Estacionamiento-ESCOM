@@ -66,7 +66,7 @@
             <input class="form-control" type="text" name="apmat" pattern="[A-Za-z áéíóúÁÉÍÓÚ]+" required value="'.$_SESSION['apellidoMat'].'"><br>
 
             <label>Teléfono</label>
-            <input class="form-control" type="tel" name="tel" required pattern="[0-9]{10}" value="'.$_SESSION['telefono'].'"><br>
+            <input class="form-control" type="tel" name="tel" required pattern="(([0-9]{1,3}( )?)?([0-9]{0,4})[ -]?([0-9]{0,4})" value="'.$_SESSION['telefono'].'"><br>
 
             <label id="tipoId" >Boleta</label>
             <input class="form-control" type="text" name="bole" required pattern="[0-9]{10}" value="'.$_SESSION['boletaRFC'].'"><br>

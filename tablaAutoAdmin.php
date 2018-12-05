@@ -17,6 +17,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/sorttable.js"></script>
+
 </head>
 
 <body>
@@ -49,50 +51,53 @@
     <div class="container">
         <h1>Tabla de automóviles</h1>
         <hr>
-        <table class="table table-striped">
-            <tr>
-                <th>Placas</th>
-                <th>IDConductor</th>
-                <th>Tipo</th>
-                <th>Modelo</th>
-                <th>Compañia</th>
-                <th>Color</th>
-                <th></th>
-                <th></th>
-            </tr>
-            <?php 
-                include("php/config.php");
-                $query = "SELECT `placas`, `IDConductor`, `tipo`, `modelo`, `compania`, `colorAutomovil` FROM `tb_automovil` GROUP BY `IDConductor`";
-                $resultado = $conexion->query($query);
-                while ($ret = mysqli_fetch_array($resultado)){ 
-                    echo "<tr><td>".$ret['placas']."</td><td>".$ret['IDConductor']."</td> <td>".$ret['tipo']."</td><td>".$ret['modelo']."</td><td>".$ret['compania']."</td><td><input type='color' value = '".$ret['colorAutomovil']."' disabled></td><td><a class='btn btn-primary' role='button' href='actualizarAuto.php?placas=".$ret['placas']."&IDConductor=".$ret['IDConductor']."&tipo=".$ret['tipo']."&modelo=".$ret['modelo']."&compania=".$ret['compania']."&colorAutomovil=".$ret['colorAutomovil']."'>Editar</a></td><td> <button type='button' class='btn btn-danger' data-toggle='modal' data-target='#myModal2' id='btnMapaCreado'>
-                          Eliminar</button></td></tr>
-                        <div class='modal' id='myModal2' style='margin-top:150px;'>
-                          <div class='modal-dialog'>
-                            <div class='modal-content'>
-
-                              <!-- Modal Header -->
-                              <div class='modal-header'>
-                                <h3 class='modal-title'>Eliminar automóvil</h3>
-                                <button type='button' class='close' data-dismiss='modal'>&times;</button>
-                              </div>
-
-                              <!-- Modal body -->
-                              <div class='modal-body'>
-                                <h5>¿Desea borrar el coche de placas <b>".$ret['placas']."</b> del usuario <b>".$ret['IDConductor']."</b>?</h5>
-                                <form class='form-horizontal' action=' method='get' accept-charset='utf-8'>
-                                    <a href='php/borrarAuto.php?placas=".$ret['placas']."' role ='button' class='btn btn-success'>SÍ</a>
-                                    <button type='button' class='btn btn-danger' data-dismiss='modal'>No</button>
-                                </form>
+        <table class="table table-striped sortable">
+            <thead>
+                <tr>
+                    <th>Placas</th>
+                    <th>IDConductor</th>
+                    <th>Tipo</th>
+                    <th>Modelo</th>
+                    <th>Compañia</th>
+                    <th>Color</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                    include("php/config.php");
+                    $query = "SELECT `placas`, `IDConductor`, `tipo`, `modelo`, `compania`, `colorAutomovil` FROM `tb_automovil` GROUP BY `IDConductor`";
+                    $resultado = $conexion->query($query);
+                    while ($ret = mysqli_fetch_array($resultado)){
+                        echo "<tr><td>".$ret['placas']."</td><td>".$ret['IDConductor']."</td> <td>".$ret['tipo']."</td><td>".$ret['modelo']."</td><td>".$ret['compania']."</td><td><input type='color' value = '".$ret['colorAutomovil']."' disabled></td><td><a class='btn btn-primary' role='button' href='actualizarAuto.php?placas=".$ret['placas']."&IDConductor=".$ret['IDConductor']."&tipo=".$ret['tipo']."&modelo=".$ret['modelo']."&compania=".$ret['compania']."&colorAutomovil=".$ret['colorAutomovil']."'>Editar</a></td><td> <button type='button' class='btn btn-danger' data-toggle='modal' data-target='#myModal2' id='btnMapaCreado'>
+                              Eliminar</button></td></tr>
+                            <div class='modal' id='myModal2' style='margin-top:150px;'>
+                              <div class='modal-dialog'>
+                                <div class='modal-content'>
+    
+                                  <!-- Modal Header -->
+                                  <div class='modal-header'>
+                                    <h3 class='modal-title'>Eliminar automóvil</h3>
+                                    <button type='button' class='close' data-dismiss='modal'>&times;</button>
+                                  </div>
+    
+                                  <!-- Modal body -->
+                                  <div class='modal-body'>
+                                    <h5>¿Desea borrar el coche de placas <b>".$ret['placas']."</b> del usuario <b>".$ret['IDConductor']."</b>?</h5>
+                                    <form class='form-horizontal' action=' method='get' accept-charset='utf-8'>
+                                        <a href='php/borrarAuto.php?placas=".$ret['placas']."' role ='button' class='btn btn-success'>SÍ</a>
+                                        <button type='button' class='btn btn-danger' data-dismiss='modal'>No</button>
+                                    </form>
+                                  </div>
+                                </div>
                               </div>
                             </div>
-                          </div>
-                        </div>
-                    
-                    "; 
-                } 
-             ?>
-                
+                        
+                        ";
+                    }
+                 ?>
+            </tbody>
         </table >
     </div>
 </body>
