@@ -20,27 +20,15 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript">
-        function init(argument) {
-            $("#alertMax").hide();
-            $("#alertMax2").hide();       
-        }
-
-        $( "#btn" ).click(function() {
-            $.ajax({
-                url : 'php/pass.php',
-                type : 'POST',
-                dataType : 'html',
-                data : { pwd: alumnos },
-            }).done(function(resultado){
-                if(parseInt(resultado, 10) >= 2){
-                    
-                }
-                else{
-
+        $(document).ready(function () {
+            $("#pass2").on("blur", function() {
+                if ($("#pass").val() != $(this).val()) {
+                    this.setCustomValidity("Las contraseñas no coinciden");
+                } else {
+                    this.setCustomValidity("");
                 }
             });
         });
-        window.addEventListener('load', init, false);
     </script>
 </head>
 
@@ -74,26 +62,22 @@
     <div class="container">
         <h3>Cambiar contraseña actual</h3>
         <hr>
+        <form>
             <label>Contraseña actual</label>
-            <input class="form-control" type="password" id="apass" placeholder="Contraseña actual">
+            <input class="form-control" type="password" id="apass" placeholder="Contraseña actual" required autofocus>
             <label>Nueva contraseña</label>
-            <input class="form-control" type="password" id="pass" placeholder="Nueva contraseña">
+            <input class="form-control" type="password" id="pass" placeholder="Nueva contraseña" required>
             <label>Confirmar contraseña</label>
-            <input class="form-control" type="password" id="pass2" placeholder="Confirmar contraseña"><br>
+            <input class="form-control" type="password" id="pass2" placeholder="Confirmar contraseña" required><br>
             <div class="form-group row">
                 <div class="col-xs-6">
                     <a href="Usuario.php" class="btn btn-danger" role="button" style="width: 100%;">Cancelar</a>
                 </div>
                 <div class="col-xs-6">
-                    <button class="form-control btn btn-primary" id="btn" type="submit"></button>
+                    <input type="submit" class="form-control btn btn-primary" id="btn"></input>
                 </div>
             </div>
-            <div class="alert alert-danger" id="alertMax">
-                <strong>Error:</strong> Solo puedes ingresar dos automóviles.
-            </div>
-            <div class="alert alert-danger" id="alertMax2">
-                <strong>Error:</strong> Las contraseñas no coiciden
-            </div>
+        </form>
     </div>
 
 </body>
