@@ -19,6 +19,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/sorttable.js"></script>
+    
 </head>
 
 <body>
@@ -60,7 +62,7 @@
         </blockquote>
         <br><hr><br>
         <h3>Actividad del usuario:</h3>
-        <table class="table table-striped">
+        <table class="table table-striped sortable">
             <tr>
                 <th>IDBitacora</th>
                 <th>Hora entrada</th>

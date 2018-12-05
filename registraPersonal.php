@@ -17,8 +17,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="js/registro.js"></script>
-    <link rel="stylesheet" href="css/quick.css">
-
 </head>
 </head>
 
@@ -45,9 +43,7 @@
             </ul>
         </div>
     </nav>
-
-
-    <div class="container formm">
+    <div class="container">
         <h3>Tabla de usuarios</h3>
         <form action="php/insertarUsuario.php" method="post" accept-charset="utf-8" class="form-horizontal">
             <label>Nickname (<span id="disponible" style="color:#45932CFF;">Disponible</span>)</label> 
