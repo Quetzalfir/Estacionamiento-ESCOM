@@ -47,11 +47,11 @@
     <div class="container"> 
         <h3>Registrar en bitacora</h3>
         <hr>
-        <form action="php/insertarBitacora.php" method="post" accept-charset="utf-8" class="form-horizontal">
+        <form action="php/entradaCarro.php" method="post" accept-charset="utf-8" class="form-horizontal">
             <label>Hora de entrada</label> 
             <input class="form-control" type="time" name="horaEntrada" min="7:00" max="23:00" required>
             <label>Cajon donde se estaciono</label> 
-            <select name="" class="form-control">  
+            <select name="noCajon" class="form-control">  
                 <?php
                 include("php/config.php");
                     $query = "SELECT `noCajon` FROM `tb_cajon` WHERE `tipoCajon` != 'Discapacitado' AND `estado` = '0'";
@@ -62,7 +62,16 @@
                 ?>
             </select>
             <label>Placas del carro</label> 
-            <input class="form-control" type="text"name="placas" min="6" max="350" pattern="[A-Z]{3}[-]\d{3}" required><br>
+            <select name="placas" class="form-control">  
+                <?php
+                include("php/config.php");
+                    $query = "SELECT `placas` FROM `tb_automovil`";
+                    $resultado = $conexion->query($query);
+                    while ($ret = mysqli_fetch_array($resultado)){
+                        echo "<option value='".$ret['placas']."' >".$ret['placas']."</option>";
+                    }
+                ?>
+            </select><br>
             <div class="form-group row">
                 <div class="col-xs-6">
                     <a href="bitacoraVig.php" class="btn btn-danger" role='button' style="width: 100%;">Cancelar</a>

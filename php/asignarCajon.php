@@ -6,6 +6,7 @@
 	mysqli_query( $conexion, $query ) or die ( "Algo ha ido mal en la consulta a la base de datos");
 	mysqli_query( $conexion, $query1 ) or die ( "Algo ha ido mal en la consulta a la base de datos");
 	mysqli_query( $conexion, $query2 ) or die ( "Algo ha ido mal en la consulta a la base de datos");
+	mysqli_close( $conexion );
 	header("Location: ../solicitudAdmin.php", true, 301);
-    mysqli_close( $conexion );
+    exit();
 ?>
