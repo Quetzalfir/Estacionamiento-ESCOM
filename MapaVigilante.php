@@ -34,7 +34,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <body>
   
-    <nav class="navbar navbar-inverse">
+      <nav class="navbar navbar-inverse">
       <div class="container-fluid">
           <div class="navbar-header">
               <a class="navbar-brand" href="Vigilante.php">Estacionamiento ESCOM</a>
@@ -48,6 +48,8 @@
           <ul class="nav navbar-nav navbar-right">
               <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php echo $_SESSION['user'];?>  <img src="img/usuario.png" class="img-circle" alt="Cinque Terre" width="25" height="25"></a>
                   <ul class="dropdown-menu">
+                      <li><a href="php/OpcionesVig.php">Configuración</a></li>
+                      <li><a href="php/cambiarPassVig.php">Cambiar Contraseña</a></li>
                       <li><a href="php/logout.php">Cerrar Sesión</a></li>
                   </ul>
               </li>
