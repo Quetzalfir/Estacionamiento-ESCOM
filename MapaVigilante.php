@@ -64,7 +64,7 @@
                 <div class="area-mapa" id="paper-mapa" style="height: 750px; width: 100%; vertical-align: middle;"></div>
             <!--<div class="area-mapa" id="inspector" style="height: 700px; width: 300px; position: absolute;"></div>-->
         </div>
-        <script src="js/mapa.js" type="text/javascript" charset="utf-8" async defer></script>
+        <script src="js/mapaVigilante.js" type="text/javascript" charset="utf-8" async defer></script>
     </div>
 
 </body>

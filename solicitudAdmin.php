@@ -5,7 +5,7 @@
             header("Location: index.html", true, 301);
         }
     }else{
-        header("Location: iniciosesion.html", true, 301);
+        header("Location: index.html", true, 301);
     }
 ?>
 <!DOCTYPE html>
@@ -85,12 +85,15 @@
             <?php 
                 include("php/config.php");
                 $query = "SELECT `noPeticion`, IDConductor, `aprobada`, `info` FROM `tb_peticion` ";
-                $query2 = "SELECT noCajon FROM `tb_cajon` WHERE estado != '1' AND `tipoCajon` = 'Discapacitado' ";
                 $resultado = $conexion->query($query);
-                $resultado2 = $conexion->query($query2);
+
+                $i = 1;
                 while ($ret = mysqli_fetch_array($resultado)){ 
-                    $i = 1;
-                    echo "<tr><td>".$ret['noPeticion']."</td><td>".$ret['IDConductor']."</td><td>".(($ret['aprobada'] == '1')?'Aprobada':'No aprobada')."</td><td>".$ret['info']."</td><td>".(($ret['aprobada'] == '1')?"<a role='button' class='btn btn-danger' href ='php/quitarCajon.php?noCajon=".$ret['info']."&IDConductor=".$ret['IDConductor']."'>
+                    $query2 = "SELECT noCajon FROM `tb_cajon` WHERE estado = '0' AND `tipoCajon` = 'Discapacitado' ";           
+                    $resultado2 = $conexion->query($query2);
+                    echo "
+                        
+                        <tr><td>".$ret['noPeticion']."</td><td>".$ret['IDConductor']."</td><td>".(($ret['aprobada'] == '1')?'Aprobada':'No aprobada')."</td><td>".$ret['info']."</td><td>".(($ret['aprobada'] == '1')?"<a role='button' class='btn btn-danger' href ='php/quitarCajon.php?noCajon=".$ret['info']."&IDConductor=".$ret['IDConductor']."'>
                           Quitar asignación</a>":"<button type='button' class='btn btn-primary' data-toggle='modal' id='asignar' data-target='#myModal".$i."'>
                           Asigar cajón</button>")." </td></tr>
                         <div class='modal' id='myModal".$i."' style='margin-top:150px;'>
