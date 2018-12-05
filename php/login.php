@@ -27,7 +27,10 @@
 			}
 			else{
 				if($autorizado == 1){
-					header("Location: ../Usuario.php", true, 301);
+					if ($tipo  == "Vigilante") 
+						header("Location: ../Vigilante.php", true, 301);
+					else
+						header("Location: ../Usuario.php", true, 301);
 				}
 				else{
 					header("Location: ../usuarioNoAutorizado.html", true, 301);

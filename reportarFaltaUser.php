@@ -51,7 +51,7 @@
         <section>
             <form action="php/insertarReporte.php" method="post" enctype="multipart/form-data" class="form-horizontal" accept-charset="utf-8">    
                 <label>Placa:</label>
-                <input class="form-control" type="text" name="placas" pattern=¨"[A-Z0-9]{3}+[-]+[A-Z0-9]"required> <br>
+                <input class="form-control" type="text" name="placas" pattern="[A-Z]{3}[-]\d{3}" required> <br>
                 <label style="display: inline-block">Tipo:&nbsp;&nbsp;&nbsp;</label>
                 <select name="tipo" class="form-control">
                     <option value="Mal estacionado">Mal estacionado</option>
@@ -60,12 +60,12 @@
                     <option value="Otro">Otro</option>
                 </select>
                 <label>Descripción:</label>
-                <textarea name="descripcion" class="form-control"></textarea><br>
+                <textarea name="descripcion" class="form-control" required></textarea><br>
                 <label>Insertar imagen:</label> 
                 <input class="form-control" type="file" name="imagen" accept="image/png, image/jpeg"> <br>
                 <div class="form-group row">
                     <div class="col-xs-6">
-                        <a href="faltas.php" class="btn btn-danger" role="button" style="width: 100%;">Cancelar</a>
+                        <a href="Usuario.php" class="btn btn-danger" role="button" style="width: 100%;">Cancelar</a>
                     </div>
                     <div class="col-xs-6">
                         <input class="form-control btn btn-primary" type="submit" value="Realizar reporte">
