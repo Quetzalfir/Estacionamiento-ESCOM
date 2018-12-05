@@ -112,7 +112,7 @@
           $query2 = "SELECT `placas` FROM `tb_automovil` WHERE IDConductor = '".$ret['IDConductor']."'";
           $resultado2 = $conexion->query($query2);
           $ret2 = mysqli_fetch_array($resultado2);
-        echo '<a href="reportarFaltaVig2.php?'.$ret2['placas'].'" class="btn btn-success" role="button" id="btn"> Reportar falta </a>';
+        echo '<a href="reportarFaltaVig2.php?placas='.$ret2['placas'].'" class="btn btn-success" role="button" id="btn"> Reportar falta </a>';
          ?> 
     </div>
 

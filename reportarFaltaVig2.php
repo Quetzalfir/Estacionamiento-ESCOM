@@ -64,7 +64,7 @@
             <input class="form-control" type="file" name="imagen" accept="image/png, image/jpeg"> <br>
             <div class="form-group row">
                 <div class="col-xs-6">
-                    <a href="Vigilante.php" class="btn btn-danger" role="button" style="width: 100%;">Cancelar</a>
+                    <a href="registraSalida.php" class="btn btn-danger" role="button" style="width: 100%;">Cancelar</a>
                 </div>
                 <div class="col-xs-6">
                     <input class="form-control btn btn-primary" type="submit" value="Realizar reporte">
