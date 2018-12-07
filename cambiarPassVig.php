@@ -40,7 +40,7 @@
         });
 
         function esCorrecta(pass) {
-            $.ajax({
+            $.ajax({ // se actualiza dinamicamente con AJAX
                 url : 'php/buscarPass.php',
                 type : 'POST',
                 dataType : 'html',

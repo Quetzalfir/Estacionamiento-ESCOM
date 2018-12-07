@@ -15,16 +15,16 @@
     <meta author="Huerta Alvarez Diana Alejandra">
     <meta author="Valencia Rodríguez Fernando Quetzalcóatl">
     <meta charset="UTF-8">
-    <title>Inicio</title>
+    <title>Solicitud Admin</title>
     <!-- Dependencias bootstrap -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="js/sorttable.js"></script>
      <script type="text/javascript">
-        function disponible() {
+        function disponible() { // validacion de campo dinamica
             $("#alertMax").hide();
-            $.ajax({
+            $.ajax({ // se actualiza dinamicamente con AJAX
                 url : 'php/contarCajones.php',
                 type : 'POST',
                 dataType : 'html',

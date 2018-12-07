@@ -15,7 +15,7 @@
     <meta author="Huerta Alvarez Diana Alejandra">
     <meta author="Valencia Rodríguez Fernando Quetzalcóatl">
     <meta charset="UTF-8">
-    <title>Inicio</title>
+    <title>Solicitud Eliminada</title>
     <!-- Dependencias bootstrap -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">

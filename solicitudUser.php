@@ -25,9 +25,9 @@
     <script src="js/sorttable.js"></script>
     
     <script type="text/javascript">
-        function disponible() {
+        function disponible() { // validacion de campo dinamica
             $("#alertMax").hide();
-            $.ajax({
+            $.ajax({ // se actualiza dinamicamente con AJAX
                 url : 'php/contarNoti.php',
                 type : 'POST',
                 dataType : 'html',
@@ -45,7 +45,7 @@
         window.addEventListener('load', disponible, false);
     </script>
 </head>
-<bodu>
+<body>
 
    <nav class="navbar navbar-inverse">
         <!-- barra de navegacion estandar responsiva ancho 100% -->

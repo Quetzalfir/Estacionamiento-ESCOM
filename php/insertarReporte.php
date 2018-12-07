@@ -4,7 +4,8 @@
     if (!isset($_FILES["imagen"]) || $_FILES["imagen"]["error"] > 0){
         echo "No cargo la imagen.";
         $query = "SELECT `IDConductor` FROM `tb_automovil` WHERE `placas` = '".$_POST['placas']."'";
-		$res = mysqli_query( $conexion, $query ) or die ( "1Algo ha ido mal en la consulta a la base de datos");
+		$res = //consulta a base de datos
+mysqli_query( $conexion, $query ) or die ( "1Algo ha ido mal en la consulta a la base de datos");
 		if($res->num_rows>0){
 			$ret = mysqli_fetch_array($res);
 			$consulta = "INSERT INTO `tb_reporte`(`IDConductor`, `fechaReporte`, `tipo`, `descripcion`, `IDDenunciante`) VALUES ('".$ret['IDConductor']."','".date("Y/n/j")."','".$_POST['tipo']."','".$_POST['descripcion']."','".$_SESSION['user']."')";
@@ -24,7 +25,8 @@
 			fclose($fp);
 			$data = mysqli_real_escape_string ($conexion, $data);
 			$query = "SELECT `IDConductor` FROM `tb_automovil` WHERE `placas` = '".$_POST['placas']."'";
-			$res = mysqli_query( $conexion, $query ) or die ( "1Algo ha ido mal en la consulta a la base de datos");
+			$res = //consulta a base de datos
+mysqli_query( $conexion, $query ) or die ( "1Algo ha ido mal en la consulta a la base de datos");
 			if($res->num_rows>0){
 				$ret = mysqli_fetch_array($res);
 				$consulta = "INSERT INTO `tb_reporte`(`IDConductor`, `fechaReporte`, `tipo`, `descripcion`, `IDDenunciante`) VALUES ('".$ret['IDConductor']."','".date("Y/n/j")."','".$_POST['tipo']."','".$_POST['descripcion']."','".$_SESSION['user']."','".$data."')";

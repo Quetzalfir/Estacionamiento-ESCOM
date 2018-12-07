@@ -24,9 +24,9 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="js/sorttable.js"></script>
     <script type="text/javascript">
-        function disponible() {
+        function disponible() { // validacion de campo dinamica
             $("#alertMax").hide();
-            $.ajax({
+            $.ajax({ // se actualiza dinamicamente con AJAX
                 url : 'php/contarAutos.php',
                 type : 'POST',
                 dataType : 'html',
@@ -34,8 +34,7 @@
                 if(parseInt(resultado, 10) >= 2){
                     console.log(resultado);
                     $("#btnNC").click(function () {$("#alertMax").show();$("#alertMax").hide(5000);return false;});
-                }
-                else{
+                } else {
                     console.log(resultado);
                     $("#btnNC").unbind('click');
                 }
