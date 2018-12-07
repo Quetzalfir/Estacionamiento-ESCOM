@@ -52,7 +52,7 @@
     </nav> 
 
     <div class="container">
-        <!-- se optienen datos del usuario -->
+        <!-- se obtienen datos del usuario -->
         <h1>¡ Bienvenido <?php echo $_SESSION['nombre'].' '.$_SESSION['apellidoPat'].' '.$_SESSION['apellidoMat']; ?>!</h1>
         <h2>CUENTA DE VIGILANTE</h2>
         <img src="img/peaje1.png" class="img-responsive" >

@@ -2,7 +2,7 @@
     // verificar sesion iniciada
     session_start(); // se crea o reanuda la sesion actual
     if(isset($_SESSION["tipo"])){
-        if($_SESSION["tipo"] != "Admin"){ // si le usuario no es Admin
+        if($_SESSION["tipo"] != "Admin"){
             header("Location: index.html", true, 301);
         }
     }else{
@@ -16,10 +16,7 @@
     <meta author="Huerta Alvarez Diana Alejandra">
     <meta author="Valencia Rodríguez Fernando Quetzalcóatl">
     <meta charset="UTF-8">
-    <meta author="Azpeita Hernández Vladimir">
-    <meta author="Huerta Alvarez Diana Alejandra">
-    <meta author="Valencia Rodríguez Fernando Quetzalcóatl">
-    <meta title="Acerca de">
+    <meta title="Actualizar Auto">
     <title>Inicio</title>
     <!-- Dependencias bootstrap -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
@@ -60,8 +57,9 @@
        <form method="post" accept-charset="utf-8" class="form-horizontal" action="php/actualizarAuto.php">
            <?php 
                 echo '
+                  <!-- Cada variable que se ingrese va a ser buscada en la base de datos. Donde placas es la placa del coche, IDConductor la clave unica del conductor, tipo es el tipo de coche (auto, camioneta, moto u otro) y los colores en rgb-->
                 <label>Placas</label>
-                <!formulario  conectado con la base de datos con validaciones-->
+                <!--formulario  conectado con la base de datos con validaciones-->
                 <input  class="form-control" type="text" name="placas" value="'.$_GET['placas'].'" readonly>
                 <label>ID del Conductor</label>
                 <input  class="form-control" type="text" name="IDConductor" value="'.$_GET['IDConductor'].'" disabled >

@@ -55,6 +55,7 @@
        <form method="post" accept-charset="utf-8" class="form-horizontal" action="php/actualizarAuto.php">
            <?php 
                 echo '
+                <!-- Cada variable que se ingrese va a ser buscada en la base de datos. Donde placas es la placa del coche, IDConductor la clave unica del conductor, tipo es el tipo de coche (auto, camioneta, moto u otro) y los colores en rgb-->
                 <label>Placas</label>
                 <input  class="form-control" type="text" name="placas" value="'.$_GET['placas'].'" readonly>
                 <label>ID del Conductor</label>
