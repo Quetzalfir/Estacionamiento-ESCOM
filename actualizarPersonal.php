@@ -1,7 +1,7 @@
 <?php 
     session_start(); // se crea o reanuda la sesion actual
     if(isset($_SESSION["tipo"])){
-        if($_SESSION["tipo"] != "Admin"){ // si le usuario no es Admin
+        if($_SESSION["tipo"] != "Admin"){ // si el usuario no es Admin
             header("Location: index.html", true, 301);
         }
     }else{
@@ -56,6 +56,7 @@
         <form class="form1" action="php/actualizarUsuario.php" method="post" accept-charset="utf-8" class="form-horizontal">
             <?php 
                 echo'
+                <!--Despliega la información personal del usuario, el nickname, que es una clave única no se puede cambiar. Compara el resto de las variables que hay en la base. IDConductor, que es la clave unica principal, Nombre, Apellidos Paterno y Materno, telefono, tipo de usuario, correo y la contraseña para guardar los cambios-->
             <label>Nickname (<span id="disponible" style="color:#FF2B10FF;">No puede modificar su nickname</span>)</label> 
             <input class="form-control" type="text" name="IDConductor" required pattern="[A-Za-z áéíóúÁÉÍÓÚ]+" value="'.$_GET['IDConductor'].'" readonly="readonly"><br>
             <label>Nombre(s)</label>
