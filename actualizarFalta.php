@@ -56,7 +56,7 @@
         <h3>Reportes</h3>
         <form action="php/actualizarReporte.php"  method="post" accept-charset="utf-8" class="form-horizontal">
         <?php 
-            echo '           
+            echo '     
                 <h3>Datos del infractor</h3>
                 <label>Número reporte:</label>
                 <input class="form-control" type="text" name="noReporte" value="'.$_GET['noReporte'].'" readonly="readonly"> <br>
