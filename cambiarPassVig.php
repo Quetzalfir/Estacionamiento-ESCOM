@@ -2,7 +2,7 @@
     session_start(); // se crea o reanuda la sesion actual
     if(isset($_SESSION["tipo"])){
         if($_SESSION["tipo"] == "Alumno" || $_SESSION["tipo"] == "Profesor" || $_SESSION["tipo"] == "Vigilante" || $_SESSION["tipo"] == "Otro"){
-            
+          // si la sesion ya fue iniciada
         }else{
             header("Location: index.html", true, 301);
         }
