@@ -95,7 +95,7 @@
                 $resultado = $conexion->query($query); // se hace la busqueda en la base de datos
 
                 $i = 1;
-                while ($ret = mysqli_fetch_array($resultado)){ 
+                while ($ret = mysqli_fetch_array($resultado)){ // se llena la tabla con los datos obtenidos de la consulta
                     $query2 = "SELECT noCajon FROM `tb_cajon` WHERE estado = '0' AND `tipoCajon` = 'Discapacitado' ";           
                     $resultado2 = $conexion->query($query2);
                     echo "

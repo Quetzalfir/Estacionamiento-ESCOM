@@ -90,7 +90,7 @@
                 include("php/config.php"); // se acre la conexion a la BD con la configuracion dada
                     $query = "SELECT `noReporte`, IDConductor FROM `tb_reporte` WHERE IDConductor = '".$_GET['IDConductor']."'";
                     $resultado = $conexion->query($query); // se hace la busqueda en la base de datos
-                    while ($ret = mysqli_fetch_array($resultado)){
+                    while ($ret = mysqli_fetch_array($resultado)){ // se llena la tabla con los datos obtenidos de la consulta
                       $query2 = "SELECT `placas` FROM `tb_automovil` WHERE IDConductor = '".$ret['IDConductor']."'";
                       $resultado2 = $conexion->query($query2);
                       $ret2 = mysqli_fetch_array($resultado2);
