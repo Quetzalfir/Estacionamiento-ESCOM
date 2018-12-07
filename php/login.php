@@ -9,7 +9,7 @@
  
 	if($resultado = $conexion->query($query)){
 		if($resultado->num_rows>0){
-			$ret = mysqli_fetch_array($resultado);
+			$ret = mysqli_fetch_array($resultado); // convierte el resultado en un arreglo
 			$tipo = $ret['tipo'];
 			$autorizado = $ret['autorizado']; 
 			$_SESSION["user"] = $nickname;

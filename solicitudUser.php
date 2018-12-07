@@ -81,7 +81,8 @@
           entregar los papeles corresponidentes. (Recuerda que contamos con un número límitado de cajones)
         </div>
         <hr>
-        <table class="table table-striped sortable">
+        <!-- css tabla, y js sortable para ordenar por columnas -->
+<table class="table table-striped sortable">
             <tr>
                 <th>Número de petición</th>
                 <th>Estado</th>

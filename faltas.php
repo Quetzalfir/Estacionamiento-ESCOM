@@ -57,7 +57,8 @@ if(isset($_SESSION["tipo"])){
     <div class="container">
         <h3>Reportes</h3>
         <hr>
-        <table class="table table-striped sortable">
+        <!-- css tabla, y js sortable para ordenar por columnas -->
+<table class="table table-striped sortable">
             <thead>
             <tr>
                 <th>Número Reporte</th>

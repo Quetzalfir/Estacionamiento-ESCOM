@@ -9,6 +9,6 @@
     $consulta = "INSERT INTO `tb_bitacora`(`horaEntrada`, `noCajon`, `IDConductor`, `fecha`, `sancion`, `IDVigilante`) VALUES ('".$_POST['horaEntrada']."','".$_POST['noCajon']."','".$ret['IDConductor']."','". date("Y/n/j") ."','0','".$_SESSION['user']."')";
     mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos");
 	header("Location: ../bitacoraVig.php", true, 301);
-    mysqli_close( $conexion );
+mysqli_close( $conexion ); // se cierra conexion a BD
     exit();
  ?>

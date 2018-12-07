@@ -9,5 +9,5 @@
 	//consulta a base de datos
 mysqli_query( $conexion, $query ) or die ( "Algo ha ido mal en la consulta a la base de datos1");
 	header("Location: ../tablaUsuarios.php", true, 301);
-    mysqli_close( $conexion );
+mysqli_close( $conexion ); // se cierra conexion a BD
 ?>

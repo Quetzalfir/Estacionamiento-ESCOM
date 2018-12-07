@@ -40,5 +40,5 @@ mysqli_query( $conexion, $query ) or die ( "1Algo ha ido mal en la consulta a la
     }
     header("Location: ../reportarFalta.php", true, 301);
     exit();
-    mysqli_close( $conexion );
+mysqli_close( $conexion ); // se cierra conexion a BD
  ?>

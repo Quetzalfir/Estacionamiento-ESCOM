@@ -57,7 +57,8 @@
         <h3>Notificaciones</h3>
         <hr>
         <section>
-            <table class="table table-striped sortable">
+            <!-- css tabla, y js sortable para ordenar por columnas -->
+<table class="table table-striped sortable">
                 <thead>
                     <tr>
                         <th>Número Reporte</th>

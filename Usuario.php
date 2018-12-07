@@ -68,7 +68,8 @@
         </blockquote>
         <br><hr><br>
         <h3>Actividad del usuario:</h3>
-        <table class="table table-striped sortable">
+        <!-- css tabla, y js sortable para ordenar por columnas -->
+<table class="table table-striped sortable">
             <tr>
                 <th>IDBitacora</th>
                 <th>Hora entrada</th>
@@ -118,7 +119,7 @@
                                     $query = "SELECT `IDBitacora`, `horaEntrada`,`horaSalida`,`noCajon`,`fecha`,`sancion`,`noReporte`  FROM `tb_bitacora` WHERE `IDConductor` = '".$_SESSION['user']."'";
                                     
                                     $resultado = $conexion->query($query); // se hace la busqueda en la base de datos
-                                    $ret = mysqli_fetch_array($resultado);
+                                    $ret = mysqli_fetch_array($resultado); // convierte el resultado en un arreglo
                                     $query2 = "SELECT * FROM tb_reporte WHERE noReporte = '".$ret['noReporte']."'";
                                     $resultado2 = $conexion->query($query2);
                                     while ($ret2 = mysqli_fetch_array($resultado2)){ 

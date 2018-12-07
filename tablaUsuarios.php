@@ -57,7 +57,8 @@
     <div class="container-fluid">
         <h3>Tabla de usuarios</h3>
         <hr>
-        <table class="table table-striped sortable">
+        <!-- css tabla, y js sortable para ordenar por columnas -->
+<table class="table table-striped sortable">
             <thead>
                 <tr>
                     <th>IDConductor</th>

@@ -7,6 +7,7 @@
 		header("Location: ../tablaUsuarios.php", true, 301);
   	else
 		header("Location: ../usuarioRegistrado.html", true, 301);
+mysqli_close( $conexion ); // se cierra conexion a BD
     exit();
-    mysqli_close( $conexion );
+
  ?>

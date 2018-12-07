@@ -56,7 +56,8 @@
     <div class="container">
         <h1>Tabla de automóviles</h1>
         <hr>
-        <table class="table table-striped sortable">
+        <!-- css tabla, y js sortable para ordenar por columnas -->
+<table class="table table-striped sortable">
             <thead>
                 <tr>
                     <th>Placas</th>

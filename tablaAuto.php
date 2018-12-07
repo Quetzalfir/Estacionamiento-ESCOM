@@ -78,7 +78,8 @@
           <strong>Informacion:</strong> Recuerda que sólo puedes registrar dos automóviles.
         </div>
         <hr>
-        <table class="table table-striped sortable">
+        <!-- css tabla, y js sortable para ordenar por columnas -->
+<table class="table table-striped sortable">
             <thead>
                 <tr>
                     <th>Placas</th>
