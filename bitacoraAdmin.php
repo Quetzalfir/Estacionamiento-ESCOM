@@ -72,7 +72,7 @@ if(isset($_SESSION["tipo"])){
         </thead>
         <tbody>
             <?php
-            include("php/config.php"); // se acre la conexion a la BD con la configuracion dada
+            include("php/config.php"); // se hace la conexión a la BD con la configuracion dada
             $query = "SELECT `IDBitacora`, `horaEntrada`,`horaSalida`,`noCajon`,`fecha`,`sancion`,`noReporte`,IDVigilante  FROM `tb_bitacora` ORDER BY fecha";
 
             $resultado = $conexion->query($query); // se hace la busqueda en la base de datos
@@ -107,6 +107,7 @@ if(isset($_SESSION["tipo"])){
                                         <th></th>
                                     </tr>
                                   ";
+    //Aquí se hace conexión con la tabla tb_bitacora para poder ir haciendo el registro del día a día. 
     $query = "SELECT `IDBitacora`, `horaEntrada`,`horaSalida`,`noCajon`,`fecha`,`sancion`,`noReporte`  FROM `tb_bitacora` ORDER BY fecha";
 
     $resultado = $conexion->query($query); // se hace la busqueda en la base de datos
