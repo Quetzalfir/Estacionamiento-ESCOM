@@ -1,5 +1,5 @@
 <?php 
-	include('config.php');
+	include('config.php'); // hace la conexion a BD con la configuracion dada
 
 	$query = "SELECT `IDConductor` FROM `tb_conductor` WHERE `IDConductor` = '".$_POST["IDConductor"]."'";
 	if($resultado = $conexion->query($query)){

@@ -1,5 +1,5 @@
 <?php 
-	include('config.php');
+	include('config.php'); // hace la conexion a BD con la configuracion dada
 	session_start(); // se crea o reanuda la sesion actual
     $query = "INSERT INTO `tb_peticion`(`IDAdmin`, `IDConductor`,`aprobada`) VALUES ('admin','".$_SESSION['user']."',0)";
     $resultado = //consulta a base de datos

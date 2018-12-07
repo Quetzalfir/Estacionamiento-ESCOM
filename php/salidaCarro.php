@@ -1,5 +1,5 @@
 <?php 
-	include('config.php');
+	include('config.php'); // hace la conexion a BD con la configuracion dada
 	if($_POST['sancion'] == '0')
     	$consulta = "UPDATE `tb_bitacora` SET `horaSalida`= '".$_POST['horaSalida']."', `sancion`='".$_POST['sancion']."',`noReporte`= NULL WHERE `IDBitacora` = '".$_POST['IDBitacora']."'";
     else{
