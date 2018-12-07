@@ -37,8 +37,9 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <body>
   
-      <nav class="navbar navbar-inverse">
-      <div class="container-fluid">
+     <nav class="navbar navbar-inverse">
+        <!-- barra de navegacion estandar responsiva ancho 100% -->
+        <div class="container-fluid">
           <div class="navbar-header">
               <a class="navbar-brand" href="Vigilante.php">Estacionamiento ESCOM</a>
           </div>

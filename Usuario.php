@@ -28,7 +28,8 @@
 
 <body>
 
-    <nav class="navbar navbar-inverse">
+   <nav class="navbar navbar-inverse">
+        <!-- barra de navegacion estandar responsiva ancho 100% -->
         <div class="container-fluid">
             <div class="navbar-header">
                 <a class="navbar-brand" href="Usuario.php">Estacionamiento ESCOM</a>
@@ -40,7 +41,8 @@
                 <li><a href="reportarFaltaUser.php">Reportar Falta</a></li>
                 <li><a href="tablaAuto.php">Tabla automóviles</a></li>
             </ul>
-            <ul class="nav navbar-nav navbar-right">
+<ul class="nav navbar-nav navbar-right">
+                <!-- extremo derecho de la barra -->
                 <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php echo $_SESSION['user'];?>  <img src="img/usuario.png" class="img-circle" alt="Cinque Terre" width="25" height="25"></a>
                      <ul class="dropdown-menu">
                         <li><a href="OpcionesUsuario.php">Configuración</a></li>
@@ -54,6 +56,7 @@
     </nav>  
 
     <div class="container">
+        <!-- se optienen datos del usuario -->
         <h3>Bienvenido <?php echo $_SESSION['nombre'].' '.$_SESSION['apellidoPat'].' '.$_SESSION['apellidoMat']; ?></h3>
         <hr>
         <blockquote>

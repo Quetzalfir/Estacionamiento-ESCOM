@@ -16,7 +16,8 @@
 
 <body>
 
-    <nav class="navbar navbar-inverse">
+   <nav class="navbar navbar-inverse">
+        <!-- barra de navegacion estandar responsiva ancho 100% -->
         <div class="container-fluid">
             <div class="navbar-header">
                 <a class="navbar-brand" href="index.html">Estacionamiento ESCOM</a>
@@ -27,6 +28,7 @@
                 <li><a href="mapa1.php">Mapa interactivo</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
+                <!-- Extremo derecho de la barra -->
                 <li><a href="registro.php"><span class="glyphicon glyphicon-user"></span> Registrarse </a></li>
                 <li><a href="iniciosesion.html"><span class="glyphicon glyphicon-log-in"></span> Iniciar Sesión </a></li>
             </ul>
