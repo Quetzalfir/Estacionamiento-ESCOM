@@ -1,4 +1,5 @@
 <?php 
+    // verificar sesion iniciada
     session_start();
     if(isset($_SESSION["tipo"])){
         if($_SESSION["tipo"] != "Admin"){
@@ -12,6 +13,10 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta author="Azpeita Hernández Vladimir">
+    <meta author="Huerta Alvarez Diana Alejandra">
+    <meta author="Valencia Rodríguez Fernando Quetzalcóatl">
+    <meta title="Acerca de">
     <title>Inicio</title>
     <!-- Dependencias bootstrap -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
@@ -20,6 +25,7 @@
 </head>
 
 <body>
+            <!--barra de navegación estándar responsiva ancho 100%, superior-->
          <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -51,6 +57,7 @@
            <?php 
                 echo '
                 <label>Placas</label>
+                <!formulario  conectado con la base de datos con validaciones-->
                 <input  class="form-control" type="text" name="placas" value="'.$_GET['placas'].'" readonly>
                 <label>ID del Conductor</label>
                 <input  class="form-control" type="text" name="IDConductor" value="'.$_GET['IDConductor'].'" disabled >
