@@ -1,6 +1,6 @@
 <?php 
 	include("config.php");
-	session_start();
+	session_start(); // se crea o reanuda la sesion actual
 	$query = "DELETE FROM `tb_peticion` WHERE `noPeticion` = '".$_GET['noPeticion']."'";
 	mysqli_query( $conexion, $query ) or die ( "Algo ha ido mal en la consulta a la base de datos");
 	if($_SESSION['tipo'] == 'Admin'){

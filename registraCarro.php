@@ -1,5 +1,5 @@
 <?php 
-    session_start();
+    session_start(); // se crea o reanuda la sesion actual
     if(isset($_SESSION["tipo"])){
         if($_SESSION["tipo"] == "Alumno" || $_SESSION["tipo"] == "Profesor" || $_SESSION["tipo"] == "Vigilante" || $_SESSION["tipo"] == "Otro"){
             
@@ -13,6 +13,9 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <meta author="Azpeita Hernández Vladimir">
+    <meta author="Huerta Alvarez Diana Alejandra">
+    <meta author="Valencia Rodríguez Fernando Quetzalcóatl">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>

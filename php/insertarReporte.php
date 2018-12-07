@@ -1,6 +1,6 @@
 <?php 
 	include('config.php');
-	session_start();
+	session_start(); // se crea o reanuda la sesion actual
     if (!isset($_FILES["imagen"]) || $_FILES["imagen"]["error"] > 0){
         echo "No cargo la imagen.";
         $query = "SELECT `IDConductor` FROM `tb_automovil` WHERE `placas` = '".$_POST['placas']."'";

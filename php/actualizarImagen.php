@@ -1,6 +1,6 @@
 <?php
     include("config.php");
-    session_start();
+    session_start(); // se crea o reanuda la sesion actual
     if (!isset($_FILES["imagen"]) || $_FILES["imagen"]["error"] > 0){
         echo "Ha ocurrido un error.";
     }

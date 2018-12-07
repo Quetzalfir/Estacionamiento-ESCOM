@@ -1,18 +1,23 @@
-<?php 
-    session_start();
+<?php
+    session_start(); // se crea o reanuda la sesion actual
     if(isset($_SESSION["tipo"])){
         if($_SESSION["tipo"] != "Vigilante"){
+            // si el usuario no es un vigilante
             header("Location: index.html", true, 301);
         }
     }else{
+        // si la aun no se ha iniciado sesion
         header("Location: index.html", true, 301);
     }
 ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <meta author="Azpeita Hernández Vladimir">
+    <meta author="Huerta Alvarez Diana Alejandra">
+    <meta author="Valencia Rodríguez Fernando Quetzalcóatl">
     <meta charset="UTF-8">
-    <title>Inicio</title>
+    <title>Vigilante</title>
     <!-- Dependencias bootstrap -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -22,6 +27,7 @@
 <body>
     
       <nav class="navbar navbar-inverse">
+          <!--barra de navegación estándar responsiva ancho 100%-->
       <div class="container-fluid">
           <div class="navbar-header">
               <a class="navbar-brand" href="Vigilante.php">Estacionamiento ESCOM</a>
@@ -33,6 +39,7 @@
               <li><a href="bitacoraVig.php">Bitacora</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
+              <!--extremo derecho de la barra-->
               <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php echo $_SESSION['user'];?>  <img src="img/usuario.png" class="img-circle" alt="Cinque Terre" width="25" height="25"></a>
                   <ul class="dropdown-menu">
                       <li><a href="OpcionesVig.php">Configuración</a></li>
@@ -45,6 +52,7 @@
     </nav> 
 
     <div class="container">
+        <!-- se optienen datos del usuario -->
         <h1>¡ Bienvenido <?php echo $_SESSION['nombre'].' '.$_SESSION['apellidoPat'].' '.$_SESSION['apellidoMat']; ?>!</h1>
         <h2>CUENTA DE VIGILANTE</h2>
         <img src="img/peaje1.png" class="img-responsive" >

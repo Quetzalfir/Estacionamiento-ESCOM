@@ -1,6 +1,6 @@
 <?php 
 	include("config.php");
-	session_start();
+	session_start(); // se crea o reanuda la sesion actual
 	if($_GET['value'] == '1'){
 		$query = "UPDATE `tb_conductor` SET `autorizado`= 0 WHERE `IDConductor` = '".$_GET['IDConductor']."'";
 	}else{

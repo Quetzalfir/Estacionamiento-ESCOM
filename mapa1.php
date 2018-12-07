@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <meta author="Azpeita Hernández Vladimir">
+    <meta author="Huerta Alvarez Diana Alejandra">
+    <meta author="Valencia Rodríguez Fernando Quetzalcóatl">
     <meta charset="UTF-8">
     <title>Mapa interactivo</title>
     <link rel="stylesheet" type="text/css" href="css/main.css">

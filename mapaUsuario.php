@@ -1,5 +1,5 @@
 <?php 
-    session_start();
+    session_start(); // se crea o reanuda la sesion actual
     if(isset($_SESSION["tipo"])){
         if($_SESSION["tipo"] == "Alumno" || $_SESSION["tipo"] == "Profesor" || $_SESSION["tipo"] == "Vigilante" || $_SESSION["tipo"] == "Otro"){
             
@@ -13,6 +13,9 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <meta author="Azpeita Hernández Vladimir">
+    <meta author="Huerta Alvarez Diana Alejandra">
+    <meta author="Valencia Rodríguez Fernando Quetzalcóatl">
     <meta charset="UTF-8">
     <title>Mapa interactivo</title>
     <link rel="stylesheet" type="text/css" href="css/main.css">

@@ -1,5 +1,5 @@
 <?php 
-    session_start();
+    session_start(); // se crea o reanuda la sesion actual
     if(isset($_SESSION["tipo"])){
         if($_SESSION["tipo"] == "Alumno" || $_SESSION["tipo"] == "Profesor" || $_SESSION["tipo"] == "Vigilante" || $_SESSION["tipo"] == "Otro"){
             
@@ -11,6 +11,9 @@
     }
 ?>
 <head>
+    <meta author="Azpeita Hernández Vladimir">
+    <meta author="Huerta Alvarez Diana Alejandra">
+    <meta author="Valencia Rodríguez Fernando Quetzalcóatl">
     <meta charset="UTF-8">
     <title>Actualizar automóvil</title>
     <!-- Dependencias bootstrap -->

@@ -1,6 +1,6 @@
 <?php 
 	include('config.php');
-	session_start();
+	session_start(); // se crea o reanuda la sesion actual
 	$query = "SELECT `IDConductor` FROM `tb_automovil` WHERE `placas` = '".$_POST['placas']."'";
 	if($res = $conexion->query($query))
 		if($res->num_rows>0)

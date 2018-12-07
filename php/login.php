@@ -1,6 +1,6 @@
 <?php 
 	include('config.php');
-	session_start();
+	session_start(); // se crea o reanuda la sesion actual
 
 	$nickname = $_POST['user1'];
 	$password = $_POST['pass1'];

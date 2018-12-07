@@ -1,5 +1,5 @@
 <?php 
-    session_start();
+    session_start(); // se crea o reanuda la sesion actual
     if(isset($_SESSION["tipo"])){
        
     }else{
@@ -9,6 +9,9 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <meta author="Azpeita Hernández Vladimir">
+    <meta author="Huerta Alvarez Diana Alejandra">
+    <meta author="Valencia Rodríguez Fernando Quetzalcóatl">
     <meta charset="UTF-8">
     <title>Inicio</title>
     <!-- Dependencias bootstrap -->

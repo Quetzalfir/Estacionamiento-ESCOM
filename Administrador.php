@@ -1,5 +1,5 @@
 <?php 
-    session_start();
+    session_start(); // se crea o reanuda la sesion actual
     if(isset($_SESSION["tipo"])){
         if($_SESSION["tipo"] != "Admin"){
             header("Location: index.html", true, 301);
@@ -11,6 +11,9 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <meta author="Azpeita Hernández Vladimir">
+    <meta author="Huerta Alvarez Diana Alejandra">
+    <meta author="Valencia Rodríguez Fernando Quetzalcóatl">
     <meta charset="UTF-8">
     <title>Inicio</title>
     <!-- Dependencias bootstrap -->
@@ -48,7 +51,8 @@
     </nav>  
 
     <div class="container">
-        <h1>¡ Bienvenido <?php echo $_SESSION['nombre'].' '.$_SESSION['apellidoPat'].' '.$_SESSION['apellidoMat']; ?>!</h1>
+        <!-- se optienen datos del usuario -->
+<h1>¡ Bienvenido <?php echo $_SESSION['nombre'].' '.$_SESSION['apellidoPat'].' '.$_SESSION['apellidoMat']; ?>!</h1>
         <h2>CUENTA DEL ADMISTRADOR</h2>
         <img src="img/peaje1.png" class="img-responsive" >
         <blockquote>

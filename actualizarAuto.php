@@ -1,6 +1,6 @@
 <?php 
     // verificar sesion iniciada
-    session_start();
+    session_start(); // se crea o reanuda la sesion actual
     if(isset($_SESSION["tipo"])){
         if($_SESSION["tipo"] != "Admin"){
             header("Location: index.html", true, 301);
@@ -12,6 +12,9 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <meta author="Azpeita Hernández Vladimir">
+    <meta author="Huerta Alvarez Diana Alejandra">
+    <meta author="Valencia Rodríguez Fernando Quetzalcóatl">
     <meta charset="UTF-8">
     <meta author="Azpeita Hernández Vladimir">
     <meta author="Huerta Alvarez Diana Alejandra">
