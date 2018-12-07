@@ -57,10 +57,10 @@
             <label>Cajon donde se estaciono</label> 
             <select name="noCajon" class="form-control">  
                 <?php
-                include("php/config.php");
+                include("php/config.php"); // se acre la conexion a la BD con la configuracion dada
                     $query = "SELECT `noCajon` FROM `tb_cajon` WHERE `tipoCajon` != 'Discapacitado' AND `estado` = '0'";
-                    $resultado = $conexion->query($query);
-                    while ($ret = mysqli_fetch_array($resultado)){
+                    $resultado = $conexion->query($query); // se hace la busqueda en la base de datos
+                    while ($ret = mysqli_fetch_array($resultado)){ // se llena la tabla con los datos obtenidos de la consulta
                         echo "<option value='".$ret['noCajon']."' >".$ret['noCajon']."</option>";
                     }
                 ?>
@@ -68,10 +68,10 @@
             <label>Placas del carro</label> 
             <select name="placas" class="form-control">  
                 <?php
-                include("php/config.php");
+                include("php/config.php"); // se acre la conexion a la BD con la configuracion dada
                     $query = "SELECT `placas` FROM `tb_automovil`";
-                    $resultado = $conexion->query($query);
-                    while ($ret = mysqli_fetch_array($resultado)){
+                    $resultado = $conexion->query($query); // se hace la busqueda en la base de datos
+                    while ($ret = mysqli_fetch_array($resultado)){ // se llena la tabla con los datos obtenidos de la consulta
                         echo "<option value='".$ret['placas']."' >".$ret['placas']."</option>";
                     }
                 ?>

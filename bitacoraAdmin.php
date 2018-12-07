@@ -1,7 +1,7 @@
 <?php
 session_start(); // se crea o reanuda la sesion actual
 if(isset($_SESSION["tipo"])){
-    if($_SESSION["tipo"] != "Admin"){
+    if($_SESSION["tipo"] != "Admin"){ // si le usuario no es Admin
         header("Location: index.html", true, 301);
     }
 }else{
@@ -71,10 +71,10 @@ if(isset($_SESSION["tipo"])){
         </thead>
         <tbody>
             <?php
-            include("php/config.php");
+            include("php/config.php"); // se acre la conexion a la BD con la configuracion dada
             $query = "SELECT `IDBitacora`, `horaEntrada`,`horaSalida`,`noCajon`,`fecha`,`sancion`,`noReporte`,IDVigilante  FROM `tb_bitacora` ORDER BY fecha";
 
-            $resultado = $conexion->query($query);
+            $resultado = $conexion->query($query); // se hace la busqueda en la base de datos
             while ($ret = mysqli_fetch_array($resultado)) {
                 echo "<tr><td>" . $ret['IDBitacora'] . "</td> <td>" . $ret['horaEntrada'] . "</td><td>" . $ret['horaSalida'] . "</td><td>" . $ret['noCajon'] . "</td><td>" . $ret['fecha'] . "</td><td>" . (($ret['sancion'] == '1') ? 'SÍ' : 'NO') . "</td><td>" . $ret['noReporte'] . "</td><td>" . $ret['IDVigilante'] . "</td><td><button type='button' class='btn btn-danger' data-toggle='modal' data-target='#myModal2' id='btnMapaCreado'> Ver sancion </button></td></tr> ";
             }
@@ -108,7 +108,7 @@ if(isset($_SESSION["tipo"])){
                                   ";
     $query = "SELECT `IDBitacora`, `horaEntrada`,`horaSalida`,`noCajon`,`fecha`,`sancion`,`noReporte`  FROM `tb_bitacora` ORDER BY fecha";
 
-    $resultado = $conexion->query($query);
+    $resultado = $conexion->query($query); // se hace la busqueda en la base de datos
     $ret = mysqli_fetch_array($resultado);
     $query2 = "SELECT * FROM tb_reporte WHERE noReporte = '".$ret['noReporte']."'";
     $resultado2 = $conexion->query($query2);

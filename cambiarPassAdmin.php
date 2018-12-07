@@ -1,7 +1,7 @@
 <?php
 session_start(); // se crea o reanuda la sesion actual
 if(isset($_SESSION["tipo"])){
-    if($_SESSION["tipo"] != "Admin"){
+    if($_SESSION["tipo"] != "Admin"){ // si le usuario no es Admin
         header("Location: index.html", true, 301);
     }
 }else{

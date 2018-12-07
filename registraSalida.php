@@ -87,9 +87,9 @@
             <label id="lbl">No reporte</label> 
             <select class="form-control" name="noReporte" class="form-control">  
                 <?php
-                include("php/config.php");
+                include("php/config.php"); // se acre la conexion a la BD con la configuracion dada
                     $query = "SELECT `noReporte`, IDConductor FROM `tb_reporte` WHERE IDConductor = '".$_GET['IDConductor']."'";
-                    $resultado = $conexion->query($query);
+                    $resultado = $conexion->query($query); // se hace la busqueda en la base de datos
                     while ($ret = mysqli_fetch_array($resultado)){
                       $query2 = "SELECT `placas` FROM `tb_automovil` WHERE IDConductor = '".$ret['IDConductor']."'";
                       $resultado2 = $conexion->query($query2);
@@ -112,7 +112,7 @@
         </div>
         <?php  
           $query = "SELECT `noReporte`, IDConductor FROM `tb_reporte` WHERE IDConductor = '".$_GET['IDConductor']."'";
-          $resultado = $conexion->query($query);
+          $resultado = $conexion->query($query); // se hace la busqueda en la base de datos
           $query2 = "SELECT `placas` FROM `tb_automovil` WHERE IDConductor = '".$ret['IDConductor']."'";
           $resultado2 = $conexion->query($query2);
           $ret2 = mysqli_fetch_array($resultado2);

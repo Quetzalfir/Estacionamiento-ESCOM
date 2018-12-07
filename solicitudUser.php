@@ -89,9 +89,9 @@
                 <th></th>
             </tr>
             <?php 
-                include("php/config.php");
+                include("php/config.php"); // se acre la conexion a la BD con la configuracion dada
                 $query = "SELECT `noPeticion`, `aprobada`, `info` FROM `tb_peticion` WHERE `IDConductor`= '".$_SESSION['user']."'";
-                $resultado = $conexion->query($query);
+                $resultado = $conexion->query($query); // se hace la busqueda en la base de datos
                 while ($ret = mysqli_fetch_array($resultado)){ 
                     echo "<tr><td>".$ret['noPeticion']."</td><td>".(($ret['aprobada'] == '1')?'Aprobada':'No aprobada')."</td><td>".$ret['info']."</td><td> <button type='button' class='btn btn-danger' data-toggle='modal' data-target='#myModal2' id='btnMapaCreado'>
                           Cancelar</button></td></tr>

@@ -1,7 +1,7 @@
 <?php
 session_start(); // se crea o reanuda la sesion actual
 if(isset($_SESSION["tipo"])){
-    if($_SESSION["tipo"] != "Admin"){
+    if($_SESSION["tipo"] != "Admin"){ // si le usuario no es Admin
         header("Location: Usuario.php", true, 301);
     }
 }else{
@@ -73,9 +73,9 @@ if(isset($_SESSION["tipo"])){
             </thead>
             <tbody>
             <?php
-            include("php/config.php");
+            include("php/config.php"); // se acre la conexion a la BD con la configuracion dada
             $query = "SELECT * FROM tb_reporte  ORDER BY fechaReporte ASC";
-            $resultado = $conexion->query($query);
+            $resultado = $conexion->query($query); // se hace la busqueda en la base de datos
             while ($ret = mysqli_fetch_array($resultado)) {
                 echo "<tr><td>" . $ret['noReporte'] . "</td><td>" . $ret['IDConductor'] . "</td> <td>" . $ret['fechaReporte'] . "</td><td>" . $ret['tipo'] . "</td><td>" . $ret['descripcion'] . "</td><td>" . $ret['IDDenunciante'] . "</td><td> <img style='width: 50px; height: 50px;'' src='data:image/jpeg;base64," . base64_encode($ret['imagen']) . "'/> </td> <td><a class='btn btn-success' role='button' href='actualizarFalta.php?noReporte=" . $ret['noReporte'] . "&IDConductor=" . $ret['IDConductor'] . "&fechaReporte=" . $ret['fechaReporte'] . "&tipo=" . $ret['tipo'] . "&descripcion=" . $ret['descripcion'] . "&IDDenunciante=" . $ret['IDDenunciante'] . "'>Editar</a></td> <td><a href='confirmDeleteReport.php?noReporte=" . $ret['noReporte'] . "&IDConductor=" . $ret['IDConductor'] . "' class='btn btn-danger' role='button'>Eliminar</a></td> </tr>";
             }

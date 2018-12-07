@@ -66,20 +66,21 @@
                 <th></th>
             </tr>
             <?php 
-                include("php/config.php");
+                include("php/config.php"); // se acre la conexion a la BD con la configuracion dada
                 $query = "SELECT `IDBitacora`, `horaEntrada`,`horaSalida`,`noCajon`,`fecha`,`sancion`,`noReporte`, IDConductor  FROM `tb_bitacora` WHERE IDVigilante = '".$_SESSION['user']."' ORDER BY fecha DESC";
                 
-                $resultado = $conexion->query($query);
+                $resultado = $conexion->query($query); // se hace la busqueda en la base de datos
                 while ($ret = mysqli_fetch_array($resultado)){ 
                     echo "<tr><td>".$ret['IDBitacora']."</td> <td>".$ret['horaEntrada']."</td><td>".$ret['horaSalida']."</td><td>".$ret['noCajon']."</td><td>".$ret['fecha']."</td><td>".(($ret['sancion'] == '1')?'SÍ':'NO')."</td><td>".$ret['noReporte']."</td><td>".$ret['IDConductor']."</td><td><a href='registraSalida.php?IDBitacora=".$ret['IDBitacora']."&horaEntrada=".$ret['horaEntrada']."&IDConductor=".$ret['IDConductor']."' class = 'btn btn-success' role='button'>Registra Salida</a></td><td>".(($ret['sancion'] == '1')?"<button type='button' class='btn btn-danger' data-toggle='modal' data-target='#myModal2' id='btnMapaCreado'> Ver sancion </button>":"<button type='button' class='btn btn-danger' data-toggle='modal' data-target='#myModal2' id='btnMapaCreado' disabled> Ver sancion </button>")."</td></tr> "; 
                     }
                  ?>       
         </table>
         <?php 
+            // script prara visualizar los detalles del reporte
             echo "
-                <div class='modal' id='myModal2' style='margin-top:150px;'>
-                  <div class='modal-dialog modal-lg'>
-                    <div class='modal-content'>
+                        <div class='modal' id='myModal2' style='margin-top:150px;'>
+                          <div class='modal-dialog modal-lg'>
+                            <div class='modal-content'>
 
                       <!-- Modal Header -->
                       <div class='modal-header'>
@@ -102,7 +103,7 @@
                           ";
                             $query = "SELECT `IDBitacora`, `horaEntrada`,`horaSalida`,`noCajon`,`fecha`,`sancion`,`noReporte`  FROM `tb_bitacora` ORDER BY fecha";
                             
-                            $resultado = $conexion->query($query);
+                            $resultado = $conexion->query($query); // se hace la busqueda en la base de datos
                             $ret = mysqli_fetch_array($resultado);
                             $query2 = "SELECT * FROM tb_reporte WHERE noReporte = '".$ret['noReporte']."'";
                             $resultado2 = $conexion->query($query2);

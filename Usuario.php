@@ -2,7 +2,7 @@
     session_start(); // se crea o reanuda la sesion actual
     if(isset($_SESSION["tipo"])){
         if($_SESSION["tipo"] == "Alumno" || $_SESSION["tipo"] == "Profesor" || $_SESSION["tipo"] == "Vigilante" || $_SESSION["tipo"] == "Otro"){
-            
+            // si el usuarario ya inicio sesion
         }else{
             header("Location: index.html", true, 301);
         }
@@ -17,7 +17,7 @@
     <meta author="Huerta Alvarez Diana Alejandra">
     <meta author="Valencia Rodríguez Fernando Quetzalcóatl">
     <meta charset="UTF-8">
-    <title>Inicio</title>
+    <title>Usuario</title>
     <!-- Dependencias bootstrap -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -60,7 +60,7 @@
         <h3>Bienvenido <?php echo $_SESSION['nombre'].' '.$_SESSION['apellidoPat'].' '.$_SESSION['apellidoMat']; ?></h3>
         <hr>
         <blockquote>
-            En esta página puedes realziar reportes acerca de las infracciones o faltas que 
+            En esta página puedes realizar reportes acerca de las infracciones o faltas que
             se cometen en el estacionamiento de la ESCOM. <br>
             Por favor utiliza esta herramienta con responsabilidad, ya que los usuarios que 
             los usuarios que hagan mal uso de la misma serán sancionados.
@@ -80,16 +80,17 @@
                 <th></th>
             </tr>
             <?php 
-                include("php/config.php");
+                include("php/config.php"); // se acre la conexion a la BD con la configuracion dada
                 $query = "SELECT `IDBitacora`, `horaEntrada`,`horaSalida`,`noCajon`,`fecha`,`sancion`,`noReporte`  FROM `tb_bitacora` WHERE `IDConductor` = '".$_SESSION['user']."'";
                 
-                $resultado = $conexion->query($query);
-                while ($ret = mysqli_fetch_array($resultado)){ 
+                $resultado = $conexion->query($query); // se hace la busqueda en la base de datos
+                while ($ret = mysqli_fetch_array($resultado)){ // se llena la tbla con la consulta obtenida
                     echo "<tr><td>".$ret['IDBitacora']."</td> <td>".$ret['horaEntrada']."</td><td>".$ret['horaSalida']."</td><td>".$ret['noCajon']."</td><td>".$ret['fecha']."</td><td>".(($ret['sancion'] == '1')?'SÍ':'NO')."</td><td>".$ret['noReporte']."</td><td><button type='button' class='btn btn-danger' data-toggle='modal' data-target='#myModal2' id='btnMapaCreado'> Ver sancion </button></td></tr> "; 
                     }
                  ?>       
         </table>
         <?php 
+            // script prara visualizar los detalles del reporte
             echo "
                         <div class='modal' id='myModal2' style='margin-top:150px;'>
                           <div class='modal-dialog modal-lg'>
@@ -116,7 +117,7 @@
                                   ";
                                     $query = "SELECT `IDBitacora`, `horaEntrada`,`horaSalida`,`noCajon`,`fecha`,`sancion`,`noReporte`  FROM `tb_bitacora` WHERE `IDConductor` = '".$_SESSION['user']."'";
                                     
-                                    $resultado = $conexion->query($query);
+                                    $resultado = $conexion->query($query); // se hace la busqueda en la base de datos
                                     $ret = mysqli_fetch_array($resultado);
                                     $query2 = "SELECT * FROM tb_reporte WHERE noReporte = '".$ret['noReporte']."'";
                                     $resultado2 = $conexion->query($query2);

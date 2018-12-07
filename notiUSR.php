@@ -72,9 +72,9 @@
                 </thead>
                 <tbody>
                 <?php
-                    include("php/config.php");
+                    include("php/config.php"); // se acre la conexion a la BD con la configuracion dada
                     $query = "SELECT * FROM tb_reporte WHERE IDConductor = '" . $_SESSION['user'] . "' ORDER BY fechaReporte ASC";
-                    $resultado = $conexion->query($query);
+                    $resultado = $conexion->query($query); // se hace la busqueda en la base de datos
                     while ($ret = mysqli_fetch_array($resultado)) {
                         echo "<tr><td>" . $ret['noReporte'] . "</td> <td>" . $ret['fechaReporte'] . "</td><td>" . $ret['tipo'] . "</td><td>" . $ret['descripcion'] . "</td><td> <img style='width: 50px; height: 50px;'' src='data:image/jpeg;base64," . base64_encode($ret['imagen']) . "'/> </td></tr>";
                     }

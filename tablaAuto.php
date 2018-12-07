@@ -93,11 +93,11 @@
             </thead>
             <tbody>
                 <?php
-                    include("php/config.php");
+                    include("php/config.php"); // se acre la conexion a la BD con la configuracion dada
                     $query = "SELECT `placas`, `IDConductor`, `tipo`, `modelo`, `compania`, `colorAutomovil` FROM `tb_automovil` WHERE `IDConductor` = '".$_SESSION['user']."'";
-                    $resultado = $conexion->query($query);
+                    $resultado = $conexion->query($query); // se hace la busqueda en la base de datos
                     $i = 1;
-                    while ($ret = mysqli_fetch_array($resultado)){
+                    while ($ret = mysqli_fetch_array($resultado)){ // se llena la tabla con los datos obtenidos de la consulta
                         echo "<tr><td>".$ret['placas']."</td><td>".$ret['tipo']."</td><td>".$ret['modelo']."</td><td>".$ret['compania']."</td><td><input type='color' value = '".$ret['colorAutomovil']."' disabled></td><td><a class='btn btn-primary' role='button' href='actualizarAutoUser.php?placas=".$ret['placas']."&IDConductor=".$ret['IDConductor']."&tipo=".$ret['tipo']."&modelo=".$ret['modelo']."&compania=".$ret['compania']."&colorAutomovil=".$ret['colorAutomovil']."'>Editar</a></td><td> <button type='button' class='btn btn-danger' data-toggle='modal' data-target='#myModal".$i."' id='btnMapaCreado'>
                               Eliminar</button></td></tr>
                             <div class='modal' id='myModal".$i."' style='margin-top:150px;'>

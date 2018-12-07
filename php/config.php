@@ -1,4 +1,7 @@
-<?php 
+<?php
+/**
+ * Configuracion para conectar con MySQL y la base de datos
+ */
 	$usuario = "root";
     $contrasena = "";  // en mi caso tengo contraseña pero en casa caso introducidla aquí.
     $servidor = "localhost";

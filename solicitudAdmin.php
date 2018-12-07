@@ -1,7 +1,7 @@
 <?php 
     session_start(); // se crea o reanuda la sesion actual
     if(isset($_SESSION["tipo"])){
-        if($_SESSION["tipo"] != "Admin"){
+        if($_SESSION["tipo"] != "Admin"){ // si le usuario no es Admin
             header("Location: index.html", true, 301);
         }
     }else{
@@ -89,9 +89,9 @@
                 <th></th>
             </tr>
             <?php 
-                include("php/config.php");
+                include("php/config.php"); // se acre la conexion a la BD con la configuracion dada
                 $query = "SELECT `noPeticion`, IDConductor, `aprobada`, `info` FROM `tb_peticion` ";
-                $resultado = $conexion->query($query);
+                $resultado = $conexion->query($query); // se hace la busqueda en la base de datos
 
                 $i = 1;
                 while ($ret = mysqli_fetch_array($resultado)){ 
